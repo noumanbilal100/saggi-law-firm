@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+/* Nav pulls the logo through getBranding() with noStore(); mark the
+   page dynamic so Next.js's prerender pass doesn't fight the noStore
+   opt-out and throw DYNAMIC_SERVER_USAGE at request time. */
+export const dynamic = "force-dynamic";
+
 /**
  * FAQPage JSON-LD for rich results. Rendered inline via <script>.
  * Only questions on this page — service page FAQs get their own block.
