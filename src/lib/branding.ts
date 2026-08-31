@@ -29,10 +29,15 @@ export async function getBranding(): Promise<Branding> {
   noStore();
   try {
     const payload = await getPayloadInstance();
+    /* Cast through `unknown` first — the generated Payload type for
+       the Navigation global is a specific interface, and TypeScript
+       won't let us go directly to `Record<string, unknown>`. Going
+       via `unknown` tells the compiler we know these are just data
+       fields and we'll pick them off carefully below. */
     const nav = (await payload.findGlobal({
       slug: "navigation",
       depth: 1,
-    })) as Record<string, unknown>;
+    })) as unknown as Record<string, unknown>;
 
     const logo = nav?.logo as
       | {

@@ -118,8 +118,7 @@ export default async function CmsPage({ params }: { params: Promise<Params> }) {
         finalCtaTitle={`Questions about ${page.title as string}?`}
       >
         {/* Prose styling comes from `.prose-brand` on the parent article. */}
-        {/* @ts-expect-error — Lexical data shape is dynamic */}
-        <RichText data={page.body} converters={jsxConverters} />
+        <RichText data={page.body as never} converters={jsxConverters} />
       </PageLayout>
     </>
   );
