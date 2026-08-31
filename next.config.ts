@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
      collection, hook, and admin panel dependency in place. */
   /* Trust the cPanel Passenger proxy header for the visitor's origin. */
   poweredByHeader: false,
+  /* Shared cPanel/CloudLinux hosting caps the number of user processes,
+     so Next.js's default worker pool (one per CPU) hits EAGAIN when it
+     tries to fork jest-worker children for page-data collection. Pin the
+     pool to a single CPU on the server; local builds are unaffected. */
+  experimental: {
+    cpus: 1,
+    workerThreads: false,
+  },
 };
 
 export default withPayload(nextConfig);
