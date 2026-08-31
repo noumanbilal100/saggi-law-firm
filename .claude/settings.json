@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sL \"http://localhost:3000/admin\")",
+      "Bash(curl -sL -o /dev/null -w \"Home: HTTP %{http_code}\\\\n\" \"http://localhost:3000/\")",
+      "Bash(curl -sL -o /dev/null -w \"Services: HTTP %{http_code}\\\\n\" \"http://localhost:3000/services/criminal-lawyer\")",
+      "Bash(curl -sL -o /dev/null -w \"Blog: HTTP %{http_code}\\\\n\" \"http://localhost:3000/blog\")",
+      "Bash(curl -sL -o /dev/null -w \"HTTP %{http_code}\\\\n\" \"http://localhost:3000/admin\")",
+      "Bash(curl -sL -o /dev/null -w \"Frontend HTTP %{http_code}\\\\n\" \"http://localhost:3000/\")",
+      "Bash(curl -sL -o /dev/null -w \"Admin:    HTTP %{http_code} in %{time_total}s\\\\n\" \"http://localhost:3000/admin\")",
+      "Bash(curl -sL -o /dev/null -w \"Home:     HTTP %{http_code} in %{time_total}s\\\\n\" \"http://localhost:3000/\")",
+      "Bash(curl -sL -o /dev/null -w \"Services: HTTP %{http_code} in %{time_total}s\\\\n\" \"http://localhost:3000/services/criminal-lawyer\")",
+      "Bash(curl -sL -o /dev/null -w \"Blog:     HTTP %{http_code} in %{time_total}s\\\\n\" \"http://localhost:3000/blog\")",
+      "Bash(npx payload *)"
+    ]
+  }
+}

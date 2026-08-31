@@ -1,0 +1,71 @@
+/* Payload admin styles are pre-compiled to payload-styles.css and imported
+   from the layout. This file is reserved for brand overrides and any admin
+   UI polish that needs to sit on top of Payload's own styles. */
+
+/* ─────────────────────────────────────────────────────────────────────
+   Rich text editor — force proper heading hierarchy.
+
+   Browsers shrink nested <h1> via the HTML5 outline algorithm (Chrome:
+   nested h1 → 1.5em, doubly-nested → 1.17em). The Lexical editor renders
+   the content inside `<div class="rich-text-lexical">` which lives deep
+   inside <section>/<article> in the admin, so a user-inserted <h1>
+   visually renders smaller than the surrounding <h2>. These rules force
+   the intended sizes regardless of nesting depth.
+   ───────────────────────────────────────────────────────────────────── */
+
+.rich-text-lexical,
+.lexical-editor,
+[contenteditable="true"] {
+  h1 {
+    font-size: 2rem !important;    /* 32px — biggest */
+    line-height: 1.15 !important;
+    font-weight: 700 !important;
+    margin: 1.2em 0 0.5em !important;
+  }
+  h2 {
+    font-size: 1.6rem !important;  /* 25.6px */
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    margin: 1em 0 0.4em !important;
+  }
+  h3 {
+    font-size: 1.3rem !important;  /* 20.8px */
+    line-height: 1.25 !important;
+    font-weight: 600 !important;
+    margin: 0.9em 0 0.35em !important;
+  }
+  h4 {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+  }
+  h5 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+  h6 {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+  }
+  p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0.6em 0;
+  }
+  blockquote {
+    border-left: 3px solid var(--theme-elevation-400, #ccc);
+    margin: 1em 0;
+    padding: 0.2em 0 0.2em 1em;
+    font-style: italic;
+    color: var(--theme-elevation-700, #555);
+  }
+  ul,
+  ol {
+    padding-left: 1.5em;
+    margin: 0.6em 0;
+  }
+  li {
+    margin: 0.2em 0;
+  }
+}
