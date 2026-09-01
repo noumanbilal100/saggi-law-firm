@@ -187,7 +187,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[880px] px-6">
             <Eyebrow>About</Eyebrow>
             <h2 className="mt-3 font-display text-[clamp(1.7rem,3vw,2.4rem)] font-medium leading-[1.15]">
-              Practising criminal defence in Brampton since 2009.
+              Practising criminal defence in Brampton since 2013.
             </h2>
             <div className="mt-6 flex flex-col gap-5 text-[1.08rem] leading-[1.75] text-ink">
               {l.bioParagraphs.map((p, i) => (

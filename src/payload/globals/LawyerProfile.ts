@@ -54,7 +54,7 @@ export const LawyerProfile: GlobalConfig = {
         { name: "detail", type: "text", required: true },
       ],
       defaultValue: [
-        { title: "Called to the Ontario Bar", detail: "Law Society of Ontario — 2009" },
+        { title: "Called to the Ontario Bar", detail: "Law Society of Ontario — 2013" },
         { title: "Bachelor of Laws (LL.B Hons.)", detail: "University of Leicester, UK — 2009" },
         { title: "Bachelor of Arts (B.A.)", detail: "York University — 2007" },
         { title: "Articling", detail: "Toronto criminal law firm" },

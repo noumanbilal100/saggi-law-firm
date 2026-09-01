@@ -817,7 +817,7 @@ function TrustBar() {
   const items = [
     { k: "5.0", v: "★★★★★ Google rated" },
     { k: "93+", v: "Client reviews" },
-    { k: "14+", v: "Years defending in Ontario" },
+    { k: "10+", v: "Years defending in Ontario" },
     { k: "24/7", v: "Direct-line availability" },
   ];
   return (

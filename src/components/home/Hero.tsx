@@ -69,7 +69,7 @@ export function Hero() {
           <div className="reveal in d4 mt-7 inline-flex items-center gap-2 rounded-full border border-maple-soft bg-maple/[0.06] px-3 py-1.5 text-[0.75rem] font-semibold">
             <span className="text-maple">🍁</span> Greater Toronto Area · Ontario
             <span className="mx-1 inline-block h-px w-3 bg-maple/40" />
-            Practising since 2009
+            Practising since 2013
           </div>
         </div>
 

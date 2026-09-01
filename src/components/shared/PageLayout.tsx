@@ -177,7 +177,7 @@ export async function PageLayout({
               <ul className="mt-8 grid grid-cols-2 gap-x-5 gap-y-6 border-t border-rule pt-6 sm:grid-cols-4 sm:divide-x sm:divide-rule sm:gap-0">
                 <TrustBadge
                   icon={<ScaleIcon />}
-                  number="14+"
+                  number="10+"
                   label="Years defending criminal charges"
                 />
                 <TrustBadge

@@ -63,7 +63,7 @@ export function InlineMeetLawyer() {
             )}
           </h3>
           <p className="mt-2 text-[0.95rem] leading-[1.6] text-muted">
-            Called to the Ontario Bar in 2009. Focused criminal defence
+            Called to the Ontario Bar in 2013. Focused criminal defence
             practice serving the Greater Toronto Area — bail hearings,
             impaired driving, assault, drug offences, and more.
           </p>

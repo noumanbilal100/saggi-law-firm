@@ -104,7 +104,7 @@ export function ServiceSidebar({
             className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-rust"
           />
           <span>
-            <strong className="font-semibold text-ink">14+ years</strong>
+            <strong className="font-semibold text-ink">10+ years</strong>
             <span className="text-muted"> defending criminal charges in Ontario.</span>
           </span>
         </li>
