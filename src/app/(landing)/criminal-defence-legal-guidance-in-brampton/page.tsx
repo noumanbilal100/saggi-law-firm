@@ -304,7 +304,7 @@ function ContactStrip() {
           ))}
         </div>
         <p className="pb-6 text-center text-[13px] font-semibold uppercase tracking-[0.18em] text-white/50">
-          {CONTACT.location}
+          {CONTACT.city} · {CONTACT.region}
         </p>
       </Wrap>
     </section>
