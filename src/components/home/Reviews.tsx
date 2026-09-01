@@ -2,20 +2,53 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { EmbedHtml } from "@/components/ui/EmbedHtml";
 import { siteConfig } from "@/lib/siteConfig";
 import { fetchGoogleReviews, type GoogleReview } from "@/lib/googleReviews";
+import { manualReviews, manualReviewsSummary } from "@/lib/manualReviews";
+import { ReviewsSlider } from "@/components/home/ReviewsSlider";
 
 /**
  * Client reviews (Google Business Profile).
  *
  * Rendering priority:
- *   1. widgetEmbed             — script embed (Elfsight/Trustindex).
- *   2. Live Places API data    — brand-styled cards from real reviews.
- *   3. reviewsUrl / knowledge  — "See reviews on Google" CTA card.
- *   4. Nothing configured      — reserved-space placeholder.
+ *   1. manualReviews           — hand-curated Google reviews rendered
+ *                                as a slider styled to match Google's
+ *                                embed. Highest priority so the section
+ *                                is always populated even without a
+ *                                widget subscription or API key.
+ *   2. widgetEmbed             — script embed (Elfsight/Trustindex).
+ *   3. Live Places API data    — brand-styled cards from real reviews.
+ *   4. reviewsUrl / knowledge  — "See reviews on Google" CTA card.
+ *   5. Nothing configured      — reserved-space placeholder.
  *
  * This component never displays fabricated testimonials.
  */
 export async function Reviews() {
   const { widgetEmbed, reviewsUrl, knowledgePanelUrl } = siteConfig.google;
+
+  if (manualReviews.length > 0) {
+    const googleUrl = reviewsUrl ?? siteConfig.url;
+    return (
+      <ReviewsSection>
+        <div className="reveal d2 flex flex-col gap-8">
+          <ManualReviewsSummary
+            average={manualReviewsSummary.average}
+            total={manualReviewsSummary.total}
+            googleUrl={googleUrl}
+          />
+          <ReviewsSlider reviews={[...manualReviews]} />
+          <div className="text-center">
+            <a
+              href={googleUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[0.92rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
+            >
+              <GoogleG /> Read all reviews on Google →
+            </a>
+          </div>
+        </div>
+      </ReviewsSection>
+    );
+  }
 
   if (widgetEmbed) {
     return (
@@ -159,6 +192,61 @@ function ReviewsSection({ children }: { children: React.ReactNode }) {
         {children}
       </div>
     </section>
+  );
+}
+
+/* Summary strip for the manual-reviews path — mirrors Google's own
+   embed header (big score, yellow stars, "N Google reviews", view
+   link). Separate from `ReviewsSummary` because that one styles
+   stars in brand-rust; this one uses Google-yellow (#FBBC04) so the
+   header reads as a slice of Google's UI, not a brand accent. */
+function ManualReviewsSummary({
+  average,
+  total,
+  googleUrl,
+}: {
+  average: number;
+  total: number;
+  googleUrl: string;
+}) {
+  const rounded = Math.round(Math.max(0, Math.min(5, average)));
+  return (
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-4 rounded-[14px] border border-rule bg-paper px-6 py-5">
+      <div className="flex items-center gap-4">
+        <div className="font-display text-[3rem] font-medium leading-none tracking-[-0.02em] text-ink tabular-nums">
+          {average.toFixed(1)}
+        </div>
+        <div>
+          <span
+            role="img"
+            aria-label={`${average} out of 5 stars`}
+            className="inline-flex items-center gap-0.5 text-[1.15rem] leading-none tracking-[0.06em]"
+          >
+            {[0, 1, 2, 3, 4].map((i) => (
+              <span
+                key={i}
+                aria-hidden
+                style={{ color: i < rounded ? "#FBBC04" : "#DADCE0" }}
+              >
+                ★
+              </span>
+            ))}
+          </span>
+          <div className="mt-1 text-[0.85rem] text-muted">
+            Based on {total.toLocaleString("en-CA")} Google review
+            {total === 1 ? "" : "s"}
+          </div>
+        </div>
+      </div>
+      <a
+        href={googleUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3.5 py-2 font-body text-[0.82rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
+      >
+        <GoogleG /> View on Google
+      </a>
+    </div>
   );
 }
 

@@ -136,10 +136,13 @@ export const siteConfig = {
     /* Alternate CTA URL that opens Google Search knowledge panel directly. */
     knowledgePanelUrl:
       "https://www.google.com/search?kgmid=/g/1z44bc5tv&hl=en-CA&q=Saggi+Law+Firm+Brampton",
-    /* Trustindex widget — pulls all 207+ Google reviews as a carousel.
-       Takes priority over the Places-API path when set. */
-    widgetEmbed:
-      "<script defer async src='https://cdn.trustindex.io/loader.js?0ea6eef790a8876e5b3643117dd'></script>" as string | null,
+    /* Trustindex widget retired — its 7-day trial expired and the
+       "subscription plans" banner is worse than no widget at all.
+       Home page now renders reviews from `src/lib/manualReviews.ts`
+       through the `ReviewsSlider` carousel. Set this back to the
+       Trustindex script string only if a paid subscription is
+       renewed and we want to swap back to their embed. */
+    widgetEmbed: null as string | null,
   },
 } as const;
 
