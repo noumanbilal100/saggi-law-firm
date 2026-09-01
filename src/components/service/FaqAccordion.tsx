@@ -94,7 +94,7 @@ export function FaqAccordion({
               <span className="font-body text-[0.68rem] font-bold uppercase tracking-[0.14em] text-rust">
                 Still have questions?
               </span>
-              <p className="mt-2 text-[0.9rem] leading-[1.55] text-muted">
+              <p className="mt-2 text-[0.95rem] leading-[1.55] text-muted">
                 The fastest way to get answers specific to your matter
                 is a short confidential call.
               </p>
@@ -102,7 +102,7 @@ export function FaqAccordion({
                 {phone && (
                   <a
                     href={phoneHref ?? "tel:"}
-                    className="inline-flex items-center gap-1.5 rounded-md bg-rust px-3.5 py-2 font-body text-[0.82rem] font-bold text-white transition-all hover:bg-rust-hover"
+                    className="inline-flex items-center gap-1.5 rounded-md bg-rust px-3.5 py-2 font-body text-[0.88rem] font-bold text-white transition-all hover:bg-rust-hover"
                   >
                     <span aria-hidden>✆</span>
                     {phone}
@@ -110,7 +110,7 @@ export function FaqAccordion({
                 )}
                 <Link
                   href="/contact-us"
-                  className="inline-flex items-center gap-1 rounded-md border-[1.5px] border-rule bg-transparent px-3.5 py-2 font-body text-[0.82rem] font-bold text-ink transition-all hover:border-rust hover:text-rust"
+                  className="inline-flex items-center gap-1 rounded-md border-[1.5px] border-rule bg-transparent px-3.5 py-2 font-body text-[0.88rem] font-bold text-ink transition-all hover:border-rust hover:text-rust"
                 >
                   Contact us
                   <span aria-hidden>→</span>
@@ -142,7 +142,7 @@ export function FaqAccordion({
                     +
                   </span>
                 </summary>
-                <div className="mt-3 max-w-[70ch] pl-[52px] text-[0.98rem] leading-[1.65] text-muted animate-faq-open">
+                <div className="mt-3 max-w-[70ch] pl-[52px] text-[1.02rem] leading-[1.65] text-muted animate-faq-open">
                   {f.a}
                 </div>
               </details>

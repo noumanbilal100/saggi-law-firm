@@ -178,10 +178,16 @@
     width: 100%;
   }
 
-  /* Tighten hero + section container padding on small phones so
-     content doesn't hug the edge. */
+  /* Mobile keeps a solid readable body — smaller than desktop but
+     never below 16px, which is Nielsen Norman's comfortable-read
+     floor and the point below which iOS auto-zooms form fields. */
+  body {
+    font-size: 16.5px;
+    line-height: 1.65;
+  }
+
   .prose-brand {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.7;
   }
 

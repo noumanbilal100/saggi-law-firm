@@ -47,7 +47,7 @@ export function Process() {
               <h3 className="mb-3 font-body text-[1.15rem] font-semibold leading-tight tracking-normal">
                 {s.t}
               </h3>
-              <p className="text-[0.94rem] leading-[1.65] text-muted">{s.b}</p>
+              <p className="text-[1rem] leading-[1.65] text-muted">{s.b}</p>
             </div>
           ))}
         </div>

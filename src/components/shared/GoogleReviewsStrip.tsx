@@ -52,7 +52,7 @@ export function GoogleReviewsStrip() {
             href={reviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 font-body text-[0.98rem] font-medium tracking-[0.005em] text-cream transition-colors hover:text-gold"
+            className="group inline-flex items-center gap-2 font-body text-[1.02rem] font-medium tracking-[0.005em] text-cream transition-colors hover:text-gold"
           >
             <span>
               Read our{" "}

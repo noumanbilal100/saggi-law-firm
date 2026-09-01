@@ -273,7 +273,7 @@ function ReviewCard({
           {initial}
         </span>
         <div className="min-w-0 flex-1">
-          <div className="truncate font-body text-[0.98rem] font-bold text-ink">
+          <div className="truncate font-body text-[1.02rem] font-bold text-ink">
             {review.author_name}
           </div>
           <div className="truncate text-[0.78rem] text-muted">
@@ -283,13 +283,13 @@ function ReviewCard({
         <GoogleG />
       </header>
 
-      <div className="flex items-center gap-2 text-[0.82rem] text-muted">
+      <div className="flex items-center gap-2 text-[0.88rem] text-muted">
         <StarRow rating={review.rating} />
         <span aria-hidden>·</span>
         <span>{review.relative_time_description}</span>
       </div>
 
-      <blockquote className="whitespace-pre-line text-[0.94rem] leading-[1.65] text-ink">
+      <blockquote className="whitespace-pre-line text-[1rem] leading-[1.65] text-ink">
         {review.text}
       </blockquote>
 

@@ -86,7 +86,7 @@ export function AdminBar() {
     <div
       role="toolbar"
       aria-label="Admin toolbar"
-      className="fixed inset-x-0 top-0 z-[70] flex h-10 items-center gap-3 border-b border-cream/10 bg-ink px-3 text-[0.8rem] text-cream shadow-brand-sm sm:gap-4 sm:px-4"
+      className="fixed inset-x-0 top-0 z-[70] flex h-10 items-center gap-3 border-b border-cream/10 bg-ink px-3 text-[0.85rem] text-cream shadow-brand-sm sm:gap-4 sm:px-4"
     >
       {/* Left: user identity */}
       <div className="flex min-w-0 items-center gap-2.5">

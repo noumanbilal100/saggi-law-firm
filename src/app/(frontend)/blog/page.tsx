@@ -41,7 +41,7 @@ export default async function BlogIndexPage() {
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-6 flex items-center gap-2 text-[0.85rem] text-muted"
+            className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">Home</Link>
@@ -105,7 +105,7 @@ export default async function BlogIndexPage() {
                         </>
                       )}
                     </div>
-                    <span className="inline-flex items-center gap-1 text-[0.85rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
+                    <span className="inline-flex items-center gap-1 text-[0.9rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
                       Read the article →
                     </span>
                   </Link>

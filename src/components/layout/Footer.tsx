@@ -65,7 +65,7 @@ export async function Footer() {
               <span className="text-maple leading-none">🍁</span>
               Criminal Defence · Greater Toronto Area
             </div>
-            <p className="max-w-[34ch] text-[0.9rem] leading-relaxed text-muted">
+            <p className="max-w-[34ch] text-[0.95rem] leading-relaxed text-muted">
               Criminal defence representation throughout the Greater Toronto Area — headquartered in Brampton, appearing daily across Peel Region and the GTA courthouses.
             </p>
           </div>
@@ -77,7 +77,7 @@ export async function Footer() {
             <ul className="flex flex-col gap-2.5">
               {practiceLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[0.9rem] text-muted transition-colors hover:text-rust-hover">
+                  <Link href={l.href} className="text-[0.95rem] text-muted transition-colors hover:text-rust-hover">
                     {l.label}
                   </Link>
                 </li>
@@ -92,7 +92,7 @@ export async function Footer() {
             <ul className="flex flex-col gap-2.5">
               {firmLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[0.9rem] text-muted transition-colors hover:text-rust-hover">
+                  <Link href={l.href} className="text-[0.95rem] text-muted transition-colors hover:text-rust-hover">
                     {l.label}
                   </Link>
                 </li>
@@ -104,7 +104,7 @@ export async function Footer() {
             <h4 className="mb-5 font-body text-[0.72rem] font-bold uppercase tracking-[0.14em] text-rust">
               Contact
             </h4>
-            <div className="space-y-1 text-[0.9rem] leading-relaxed text-muted">
+            <div className="space-y-1 text-[0.95rem] leading-relaxed text-muted">
               <strong className="mb-1 block font-semibold text-ink">
                 Call or WhatsApp
               </strong>
@@ -163,7 +163,7 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-6 text-[0.82rem] text-muted">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-6 text-[0.88rem] text-muted">
           <div>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</div>
           <div className="flex flex-wrap items-center gap-5">
             <div className="flex gap-3">
@@ -173,7 +173,7 @@ export async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="grid h-8 w-8 place-items-center rounded-full border border-rule text-[0.9rem] text-muted transition-colors hover:border-rust hover:text-rust"
+                  className="grid h-8 w-8 place-items-center rounded-full border border-rule text-[0.95rem] text-muted transition-colors hover:border-rust hover:text-rust"
                 >
                   f
                 </a>
@@ -184,7 +184,7 @@ export async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"
-                  className="grid h-8 w-8 place-items-center rounded-full border border-rule text-[0.9rem] text-muted transition-colors hover:border-rust hover:text-rust"
+                  className="grid h-8 w-8 place-items-center rounded-full border border-rule text-[0.95rem] text-muted transition-colors hover:border-rust hover:text-rust"
                 >
                   ▶
                 </a>
@@ -195,7 +195,7 @@ export async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter / X"
-                  className="grid h-8 w-8 place-items-center rounded-full border border-rule text-[0.9rem] text-muted transition-colors hover:border-rust hover:text-rust"
+                  className="grid h-8 w-8 place-items-center rounded-full border border-rule text-[0.95rem] text-muted transition-colors hover:border-rust hover:text-rust"
                 >
                   𝕏
                 </a>
@@ -206,7 +206,7 @@ export async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="grid h-8 w-8 place-items-center rounded-full border border-rule text-[0.9rem] text-muted transition-colors hover:border-rust hover:text-rust"
+                  className="grid h-8 w-8 place-items-center rounded-full border border-rule text-[0.95rem] text-muted transition-colors hover:border-rust hover:text-rust"
                 >
                   in
                 </a>

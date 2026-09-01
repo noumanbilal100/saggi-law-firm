@@ -96,7 +96,7 @@ export default async function CaseStudyPage(
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-8 flex flex-wrap items-center gap-2 text-[0.85rem] text-muted"
+            className="mb-8 flex flex-wrap items-center gap-2 text-[0.9rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">
@@ -128,7 +128,7 @@ export default async function CaseStudyPage(
             {r.detail.summary}
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-[0.85rem] text-muted">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-[0.9rem] text-muted">
             {r.jurisdiction && (
               <span className="inline-flex items-center gap-2">
                 <span
@@ -175,7 +175,7 @@ export default async function CaseStudyPage(
         <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
           <div
             role="note"
-            className="mb-6 inline-flex items-start gap-3 rounded border-l-[3px] border-maple bg-maple/[0.05] px-4 py-2.5 text-[0.85rem] text-ink"
+            className="mb-6 inline-flex items-start gap-3 rounded border-l-[3px] border-maple bg-maple/[0.05] px-4 py-2.5 text-[0.9rem] text-ink"
           >
             <span className="rounded bg-maple px-2 py-0.5 font-mono text-[0.65rem] font-bold uppercase tracking-[0.1em] text-white">
               Template
@@ -231,7 +231,7 @@ export default async function CaseStudyPage(
                 ))}
               </StudySection>
 
-              <div className="mt-10 rounded-[10px] border-l-[3px] border-rust bg-cream-warm/60 px-5 py-4 text-[0.85rem] leading-[1.6] text-muted">
+              <div className="mt-10 rounded-[10px] border-l-[3px] border-rust bg-cream-warm/60 px-5 py-4 text-[0.9rem] leading-[1.6] text-muted">
                 <strong className="mb-1 block font-semibold text-ink">
                   A note on this study
                 </strong>
@@ -265,7 +265,7 @@ export default async function CaseStudyPage(
                 <div className="grid grid-cols-2 gap-2 p-2 pt-0">
                   <a
                     href={phoneHref ?? "tel:"}
-                    className="flex items-center justify-center gap-2 rounded-[8px] bg-rust px-3 py-3 text-[0.85rem] font-bold text-white shadow-[0_4px_12px_rgba(173,82,7,0.35)] transition-all hover:-translate-y-px hover:bg-rust-hover"
+                    className="flex items-center justify-center gap-2 rounded-[8px] bg-rust px-3 py-3 text-[0.9rem] font-bold text-white shadow-[0_4px_12px_rgba(173,82,7,0.35)] transition-all hover:-translate-y-px hover:bg-rust-hover"
                   >
                     Call
                   </a>
@@ -273,7 +273,7 @@ export default async function CaseStudyPage(
                     href={whatsappHref ?? "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-[8px] bg-[#25D366] px-3 py-3 text-[0.85rem] font-bold text-white shadow-[0_4px_12px_rgba(37,211,102,0.35)] transition-all hover:-translate-y-px hover:bg-[#1FB855]"
+                    className="flex items-center justify-center gap-2 rounded-[8px] bg-[#25D366] px-3 py-3 text-[0.9rem] font-bold text-white shadow-[0_4px_12px_rgba(37,211,102,0.35)] transition-all hover:-translate-y-px hover:bg-[#1FB855]"
                   >
                     WhatsApp
                   </a>
@@ -288,7 +288,7 @@ export default async function CaseStudyPage(
                       <li key={s.slug}>
                         <Link
                           href={`/${s.slug}`}
-                          className="group flex items-center justify-between gap-2 rounded-[8px] px-3 py-2 text-[0.9rem] font-medium text-ink transition-colors hover:bg-cream-warm/60 hover:text-rust"
+                          className="group flex items-center justify-between gap-2 rounded-[8px] px-3 py-2 text-[0.95rem] font-medium text-ink transition-colors hover:bg-cream-warm/60 hover:text-rust"
                         >
                           <span>{s.title}</span>
                           <span
@@ -321,7 +321,7 @@ export default async function CaseStudyPage(
               </div>
               <Link
                 href="/case-studies"
-                className="inline-flex items-center gap-1.5 font-body text-[0.85rem] font-semibold text-rust transition-transform hover:translate-x-1"
+                className="inline-flex items-center gap-1.5 font-body text-[0.9rem] font-semibold text-rust transition-transform hover:translate-x-1"
               >
                 All case studies <span aria-hidden>→</span>
               </Link>

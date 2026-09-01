@@ -57,7 +57,7 @@ export function InlineMeetLawyer() {
           <h3 className="mt-2 font-display text-[1.35rem] font-medium leading-[1.2] text-ink sm:text-[1.5rem]">
             {name ?? <Placeholder>[Lawyer Name]</Placeholder>}
             {title && (
-              <span className="ml-2 font-body text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted">
+              <span className="ml-2 font-body text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-muted">
                 · {title}
               </span>
             )}
@@ -69,7 +69,7 @@ export function InlineMeetLawyer() {
           </p>
           <Link
             href="/about-us"
-            className="mt-4 inline-flex items-center gap-2 font-body text-[0.9rem] font-bold text-rust transition-transform hover:translate-x-1"
+            className="mt-4 inline-flex items-center gap-2 font-body text-[0.95rem] font-bold text-rust transition-transform hover:translate-x-1"
           >
             Read Mandeep's full profile
             <span aria-hidden>→</span>
@@ -113,14 +113,14 @@ export function InlineCta() {
         <div className="flex flex-col gap-3 sm:flex-row md:flex-shrink-0">
           <a
             href={phoneHref ?? "tel:"}
-            className="inline-flex items-center justify-center gap-2.5 rounded-md bg-rust px-5 py-3.5 font-body text-[0.9rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.32)] transition-all hover:-translate-y-px hover:bg-rust-hover"
+            className="inline-flex items-center justify-center gap-2.5 rounded-md bg-rust px-5 py-3.5 font-body text-[0.95rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.32)] transition-all hover:-translate-y-px hover:bg-rust-hover"
           >
             <span aria-hidden>✆</span>
             {phone ?? <Placeholder onDark>[Phone]</Placeholder>}
           </a>
           <Link
             href={bookingUrl ?? "/contact-us"}
-            className="inline-flex items-center justify-center gap-2 rounded-md border-[1.5px] border-white/25 bg-white/[0.03] px-5 py-3.5 font-body text-[0.9rem] font-bold text-cream backdrop-blur-sm transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
+            className="inline-flex items-center justify-center gap-2 rounded-md border-[1.5px] border-white/25 bg-white/[0.03] px-5 py-3.5 font-body text-[0.95rem] font-bold text-cream backdrop-blur-sm transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
           >
             Book online
             <span aria-hidden>→</span>
@@ -153,7 +153,7 @@ export function InlineOutcomes({ serviceSlug }: { serviceSlug?: string }) {
         </div>
         <Link
           href="/case-studies"
-          className="inline-flex items-center gap-1.5 font-body text-[0.85rem] font-semibold text-rust transition-transform hover:translate-x-1"
+          className="inline-flex items-center gap-1.5 font-body text-[0.9rem] font-semibold text-rust transition-transform hover:translate-x-1"
         >
           All case studies <span aria-hidden>→</span>
         </Link>
@@ -209,7 +209,7 @@ export function InlineReviews() {
               4.9
             </span>
           </div>
-          <p className="mt-3 font-body text-[0.85rem] font-semibold uppercase tracking-[0.14em] text-muted">
+          <p className="mt-3 font-body text-[0.9rem] font-semibold uppercase tracking-[0.14em] text-muted">
             Across 207+ Google reviews
           </p>
           <h3 className="mt-4 font-display text-[1.35rem] font-medium leading-[1.25] text-ink sm:text-[1.5rem]">
@@ -228,7 +228,7 @@ export function InlineReviews() {
               href={reviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-2 rounded-md bg-rust px-5 py-3 font-body text-[0.9rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
+              className="inline-flex w-fit items-center gap-2 rounded-md bg-rust px-5 py-3 font-body text-[0.95rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
             >
               Read all Google reviews
               <span aria-hidden>→</span>

@@ -35,7 +35,7 @@ export function CaseResults() {
             <span className="mt-0.5 inline-block rounded bg-maple px-2.5 py-1 font-mono text-[0.7rem] font-bold uppercase tracking-[0.12em] text-white">
               Sample content
             </span>
-            <div className="flex-1 text-[0.9rem] leading-[1.6] text-ink">
+            <div className="flex-1 text-[0.95rem] leading-[1.6] text-ink">
               <strong className="mb-1 block font-body font-bold text-maple">
                 Design preview — pending replacement with verified content.
               </strong>
@@ -80,7 +80,7 @@ export function CaseResults() {
           })}
         </div>
 
-        <p className="reveal d3 mt-8 max-w-[68ch] text-[0.9rem] leading-[1.65] text-muted">
+        <p className="reveal d3 mt-8 max-w-[68ch] text-[0.95rem] leading-[1.65] text-muted">
           Past results do not guarantee future outcomes. Every criminal case depends on its own facts, evidence, applicable law, and procedural circumstances. Contact Saggi Law Firm to discuss the specific circumstances of your matter.
         </p>
       </div>

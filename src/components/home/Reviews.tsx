@@ -58,7 +58,7 @@ export async function Reviews() {
           className="reveal d2 [&_iframe]:w-full [&>*]:mx-auto"
         />
         {reviewsUrl && (
-          <div className="mt-6 text-center text-[0.9rem] text-muted">
+          <div className="mt-6 text-center text-[0.95rem] text-muted">
             <a
               href={reviewsUrl}
               target="_blank"
@@ -148,7 +148,7 @@ export async function Reviews() {
             <h4 className="mt-3 font-display text-[1.15rem] font-medium text-ink">
               Native cards render here once the API key is set.
             </h4>
-            <p className="mt-3 text-[0.9rem] leading-[1.6] text-muted">
+            <p className="mt-3 text-[0.95rem] leading-[1.6] text-muted">
               Place ID is wired. Add <code className="rounded bg-cream-warm px-1.5 py-0.5 font-mono text-[0.85em] text-rust">GOOGLE_PLACES_API_KEY</code> in <code className="rounded bg-cream-warm px-1.5 py-0.5 font-mono text-[0.85em] text-rust">.env.local</code> (dev) or Vercel Environment Variables (prod), then rebuild. Reviews will refresh every 24 hours.
             </p>
           </div>
@@ -232,7 +232,7 @@ function ManualReviewsSummary({
               </span>
             ))}
           </span>
-          <div className="mt-1 text-[0.85rem] text-muted">
+          <div className="mt-1 text-[0.9rem] text-muted">
             Based on {total.toLocaleString("en-CA")} Google review
             {total === 1 ? "" : "s"}
           </div>
@@ -242,7 +242,7 @@ function ManualReviewsSummary({
         href={googleUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3.5 py-2 font-body text-[0.82rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
+        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3.5 py-2 font-body text-[0.88rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
       >
         <GoogleG /> View on Google
       </a>
@@ -267,7 +267,7 @@ function ReviewsSummary({
         </div>
         <div>
           <StarRow rating={average} size="lg" />
-          <div className="mt-1 text-[0.85rem] text-muted">
+          <div className="mt-1 text-[0.9rem] text-muted">
             {total.toLocaleString("en-CA")} Google review{total === 1 ? "" : "s"}
           </div>
         </div>
@@ -276,7 +276,7 @@ function ReviewsSummary({
         href={googleUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3 py-2 font-body text-[0.82rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
+        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3 py-2 font-body text-[0.88rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
       >
         <GoogleG /> View on Google
       </a>
@@ -294,7 +294,7 @@ function ReviewCard({ review }: { review: GoogleReview }) {
           <GoogleG />
         </span>
       </div>
-      <blockquote className="line-clamp-6 flex-1 text-[0.98rem] leading-[1.6] text-ink">
+      <blockquote className="line-clamp-6 flex-1 text-[1.02rem] leading-[1.6] text-ink">
         {review.text || " "}
       </blockquote>
       <cite className="mt-auto flex items-center gap-3 border-t border-rule pt-4 not-italic">

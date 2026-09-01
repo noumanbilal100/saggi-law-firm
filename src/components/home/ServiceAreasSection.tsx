@@ -32,7 +32,7 @@ export function ServiceAreasSection() {
                       : "border-gold/20 bg-white/[0.05] text-cream hover:border-gold hover:bg-gold hover:text-ink"
                   }`}
                 >
-                  <span className="text-[0.82rem] text-maple">🍁</span>
+                  <span className="text-[0.88rem] text-maple">🍁</span>
                   {l.name}
                 </Link>
               ))}

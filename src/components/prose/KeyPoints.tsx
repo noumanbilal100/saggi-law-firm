@@ -51,7 +51,7 @@ export function KeyPoint({
       <h4 className="font-body text-[0.95rem] font-bold text-cream">
         {title}
       </h4>
-      <div className="text-[0.9rem] leading-[1.6] text-cream/70">{children}</div>
+      <div className="text-[0.95rem] leading-[1.6] text-cream/70">{children}</div>
     </div>
   );
 }

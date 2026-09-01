@@ -983,7 +983,7 @@ function OfficeLocation() {
           />
           {/* Corner label */}
           <div className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded border border-[#b08d3f]/40 bg-[#0d1b2a]/70 px-2.5 py-1.5 font-sans text-[10.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872] backdrop-blur" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
-            <span aria-hidden className="text-[0.9rem]">🍁</span> Brampton, ON
+            <span aria-hidden className="text-[0.95rem]">🍁</span> Brampton, ON
           </div>
           {/* Stylised roads */}
           <div className="absolute left-[5%] right-[5%] top-[42%] h-[3px] -rotate-2 bg-[#d6b872]/25" />

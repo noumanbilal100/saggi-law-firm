@@ -35,7 +35,7 @@ export default function LocationsPage() {
           style={{ background: "radial-gradient(circle, rgba(173,82,7,0.08), transparent 70%)" }}
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
-          <nav className="mb-6 flex items-center gap-2 text-[0.85rem] text-muted" aria-label="Breadcrumb">
+          <nav className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-rust">Home</Link>
             <span aria-hidden className="opacity-50">›</span>
             <span>Service Areas</span>
@@ -58,7 +58,7 @@ export default function LocationsPage() {
             <h2 className="font-display text-[1.5rem] font-medium leading-tight">
               Main service areas
             </h2>
-            <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-muted">
+            <span className="text-[0.88rem] font-semibold uppercase tracking-[0.12em] text-muted">
               {mainLocations.length} communities
             </span>
           </div>
@@ -88,7 +88,7 @@ export default function LocationsPage() {
             <h2 className="font-display text-[1.5rem] font-medium leading-tight">
               Also serving across Southern Ontario
             </h2>
-            <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-muted">
+            <span className="text-[0.88rem] font-semibold uppercase tracking-[0.12em] text-muted">
               {alsoLocations.length} communities
             </span>
           </div>
@@ -97,7 +97,7 @@ export default function LocationsPage() {
               <Link
                 key={l.slug}
                 href={`/location/${l.slug}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-rule bg-paper px-4 py-2 text-[0.9rem] font-medium text-ink transition-all hover:border-rust hover:bg-rust hover:text-white"
+                className="inline-flex items-center gap-1.5 rounded-full border border-rule bg-paper px-4 py-2 text-[0.95rem] font-medium text-ink transition-all hover:border-rust hover:bg-rust hover:text-white"
               >
                 {l.name}
               </Link>

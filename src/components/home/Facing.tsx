@@ -33,7 +33,7 @@ export function Facing() {
               <div className="mb-3 font-display text-[1.4rem] font-normal text-gold">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <p className="text-[0.98rem] leading-[1.7] text-cream/70">{p}</p>
+              <p className="text-[1.02rem] leading-[1.7] text-cream/70">{p}</p>
             </div>
           ))}
         </div>

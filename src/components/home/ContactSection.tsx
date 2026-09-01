@@ -28,7 +28,7 @@ export function ContactSection() {
                   {address.street && address.postal ? (
                     <>
                       {address.street}
-                      <span className="mt-1 block font-body text-[0.85rem] font-normal text-muted">
+                      <span className="mt-1 block font-body text-[0.9rem] font-normal text-muted">
                         {address.city}, {address.province === "Ontario" ? "ON" : address.province} {address.postal}
                       </span>
                     </>
@@ -75,7 +75,7 @@ export function ContactSection() {
               </div>
             </dl>
 
-            <p className="mt-8 text-[0.98rem] leading-[1.7] text-muted">
+            <p className="mt-8 text-[1.02rem] leading-[1.7] text-muted">
               If you have received a criminal charge, have an upcoming court date, need representation for a bail hearing, or are unsure about your legal options, contacting a criminal defence lawyer as early as possible can help you understand the next steps.
             </p>
           </div>
@@ -101,7 +101,7 @@ export function ContactSection() {
             />
 
             <div className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded-md border border-rule bg-paper px-2.5 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">
-              <span className="text-[0.9rem] text-maple">🍁</span> Brampton, ON
+              <span className="text-[0.95rem] text-maple">🍁</span> Brampton, ON
             </div>
 
             {/* Roads */}
@@ -136,7 +136,7 @@ export function ContactSection() {
                   href={mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[0.85rem] text-rust hover:underline"
+                  className="text-[0.9rem] text-rust hover:underline"
                 >
                   Open in Google Maps →
                 </a>

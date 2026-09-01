@@ -55,7 +55,7 @@ export default function OtherServicesPage() {
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-6 flex items-center gap-2 text-[0.85rem] text-muted"
+            className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">
@@ -119,7 +119,7 @@ export default function OtherServicesPage() {
                     ↗
                   </span>
                 </div>
-                <p className="text-[0.94rem] leading-[1.6] text-muted">
+                <p className="text-[1rem] leading-[1.6] text-muted">
                   {s.summary}
                 </p>
                 {s.lead && (

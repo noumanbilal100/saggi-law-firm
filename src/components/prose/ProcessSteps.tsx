@@ -22,7 +22,7 @@ export function Step({
       <h4 className="mb-2 font-body text-[1rem] font-bold leading-tight text-ink">
         {title}
       </h4>
-      <div className="text-[0.88rem] leading-[1.6] text-muted">{children}</div>
+      <div className="text-[0.92rem] leading-[1.6] text-muted">{children}</div>
     </div>
   );
 }

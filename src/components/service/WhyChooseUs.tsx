@@ -55,7 +55,7 @@ export function WhyChooseUs() {
               <h3 className="font-display text-[1.1rem] font-medium leading-[1.25] text-ink">
                 {u.title}
               </h3>
-              <p className="text-[0.9rem] leading-[1.6] text-muted">
+              <p className="text-[0.95rem] leading-[1.6] text-muted">
                 {u.body}
               </p>
             </article>

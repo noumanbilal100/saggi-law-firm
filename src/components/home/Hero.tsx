@@ -82,14 +82,14 @@ export function Hero() {
           <h3 className="mb-2 font-display text-[1.3rem] font-medium">
             Serving the Greater Toronto Area
           </h3>
-          <p className="mb-6 text-[0.9rem] text-muted">
+          <p className="mb-6 text-[0.95rem] text-muted">
             Saggi Law Firm appears daily across GTA courthouses and represents clients in the following communities.
           </p>
           <ul className="flex flex-wrap gap-2">
             {mainLocations.map((loc) => (
               <li
                 key={loc.slug}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-[0.85rem] font-medium ${
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-[0.9rem] font-medium ${
                   loc.slug === "brampton"
                     ? "border-rust bg-rust/[0.08] font-bold text-rust"
                     : "border-rule bg-cream text-ink"
@@ -100,7 +100,7 @@ export function Hero() {
               </li>
             ))}
           </ul>
-          <div className="mt-6 border-t border-rule pt-6 text-[0.85rem] leading-[1.6] text-muted">
+          <div className="mt-6 border-t border-rule pt-6 text-[0.9rem] leading-[1.6] text-muted">
             … as well as communities throughout the surrounding GTA and Ontario.{" "}
             <a href="/location" className="font-semibold text-rust underline underline-offset-2">
               See full list →

@@ -50,7 +50,7 @@ export function MeetTheLawyer() {
               </div>
             )}
             {(name || title) && photoSrc && (
-              <div className="absolute bottom-5 left-5 z-[3] rounded-lg border-l-[3px] border-gold bg-ink/75 px-3.5 py-2.5 font-body text-[0.82rem] text-cream backdrop-blur-md">
+              <div className="absolute bottom-5 left-5 z-[3] rounded-lg border-l-[3px] border-gold bg-ink/75 px-3.5 py-2.5 font-body text-[0.88rem] text-cream backdrop-blur-md">
                 <strong className="block font-display text-[1.1rem] font-medium text-cream">
                   {name}
                 </strong>
@@ -100,7 +100,7 @@ export function MeetTheLawyer() {
                   </PlaceholderBlock>
                 )}
                 {bioParagraphs.map((p, i) => (
-                  <p key={i} className="mt-4 text-[0.98rem] leading-[1.7] text-muted">
+                  <p key={i} className="mt-4 text-[1.02rem] leading-[1.7] text-muted">
                     {p}
                   </p>
                 ))}
@@ -113,10 +113,10 @@ export function MeetTheLawyer() {
                   <div key={c.title} className="flex items-start gap-3">
                     <span className="mt-0.5 font-display text-[1.3rem] leading-none text-rust">§</span>
                     <div>
-                      <h4 className="mb-0.5 font-body text-[0.9rem] font-bold text-ink">
+                      <h4 className="mb-0.5 font-body text-[0.95rem] font-bold text-ink">
                         {c.title}
                       </h4>
-                      <p className="text-[0.85rem] leading-[1.5] text-muted">{c.detail}</p>
+                      <p className="text-[0.9rem] leading-[1.5] text-muted">{c.detail}</p>
                     </div>
                   </div>
                 ))}
@@ -124,8 +124,8 @@ export function MeetTheLawyer() {
                   <div className="flex items-start gap-3">
                     <span className="mt-0.5 font-display text-[1.3rem] leading-none text-rust">§</span>
                     <div>
-                      <h4 className="mb-0.5 font-body text-[0.9rem] font-bold text-ink">Languages</h4>
-                      <p className="text-[0.85rem] leading-[1.5] text-muted">{languages.join(", ")}</p>
+                      <h4 className="mb-0.5 font-body text-[0.95rem] font-bold text-ink">Languages</h4>
+                      <p className="text-[0.9rem] leading-[1.5] text-muted">{languages.join(", ")}</p>
                     </div>
                   </div>
                 )}
@@ -133,7 +133,7 @@ export function MeetTheLawyer() {
                   <div className="flex items-start gap-3">
                     <span className="mt-0.5 font-display text-[1.3rem] leading-none text-rust">§</span>
                     <div>
-                      <h4 className="mb-0.5 font-body text-[0.9rem] font-bold text-ink">Languages</h4>
+                      <h4 className="mb-0.5 font-body text-[0.95rem] font-bold text-ink">Languages</h4>
                       <div className="mt-1">
                         <Placeholder>[Insert Languages Spoken]</Placeholder>
                       </div>
@@ -144,7 +144,7 @@ export function MeetTheLawyer() {
             )}
 
             {award && (
-              <div className="mt-6 inline-flex items-start gap-3 rounded-lg border border-gold-soft bg-gold/10 px-4 py-3 text-[0.9rem] text-ink">
+              <div className="mt-6 inline-flex items-start gap-3 rounded-lg border border-gold-soft bg-gold/10 px-4 py-3 text-[0.95rem] text-ink">
                 <span aria-hidden className="mt-0.5 text-[1.1rem] leading-none text-rust">★</span>
                 <span className="leading-[1.55]">{award}</span>
               </div>
@@ -158,7 +158,7 @@ export function MeetTheLawyer() {
                 Learn More About the Lawyer →
               </Link>
               {!profileUrl && (
-                <span className="text-[0.85rem] text-muted">
+                <span className="text-[0.9rem] text-muted">
                   <Placeholder>[Insert dedicated profile page URL]</Placeholder>
                 </span>
               )}

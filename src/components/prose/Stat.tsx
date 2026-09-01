@@ -17,7 +17,7 @@ export function Stat({
       >
         {number}
       </div>
-      <div className="mt-2 text-[0.82rem] leading-[1.4] text-muted">
+      <div className="mt-2 text-[0.88rem] leading-[1.4] text-muted">
         {label}
       </div>
       {detail && (
@@ -79,7 +79,7 @@ export function StatBlock({
             {label}
           </div>
           {detail && (
-            <div className="mt-1 text-[0.85rem] leading-[1.5] text-muted">
+            <div className="mt-1 text-[0.9rem] leading-[1.5] text-muted">
               {detail}
             </div>
           )}

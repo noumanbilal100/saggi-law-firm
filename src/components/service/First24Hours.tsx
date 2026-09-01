@@ -63,7 +63,7 @@ export function First24Hours() {
                 {phone && (
                   <a
                     href={phoneHref ?? "tel:"}
-                    className="inline-flex items-center gap-2 rounded-md bg-rust px-4 py-2.5 font-body text-[0.9rem] font-bold text-white transition-all hover:-translate-y-px hover:bg-rust-hover"
+                    className="inline-flex items-center gap-2 rounded-md bg-rust px-4 py-2.5 font-body text-[0.95rem] font-bold text-white transition-all hover:-translate-y-px hover:bg-rust-hover"
                   >
                     <span aria-hidden>✆</span>
                     {phone}
@@ -71,7 +71,7 @@ export function First24Hours() {
                 )}
                 <Link
                   href="/booking"
-                  className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-transparent px-4 py-2.5 font-body text-[0.9rem] font-bold text-ink transition-all hover:border-rust hover:text-rust"
+                  className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-transparent px-4 py-2.5 font-body text-[0.95rem] font-bold text-ink transition-all hover:border-rust hover:text-rust"
                 >
                   Book online
                   <span aria-hidden>→</span>
@@ -100,7 +100,7 @@ export function First24Hours() {
                   <h3 className="font-display text-[1.02rem] font-medium leading-[1.3] text-ink">
                     {s.title}
                   </h3>
-                  <p className="mt-1.5 text-[0.9rem] leading-[1.55] text-muted">
+                  <p className="mt-1.5 text-[0.95rem] leading-[1.55] text-muted">
                     {s.body}
                   </p>
                 </div>

@@ -35,7 +35,7 @@ export default function BookingPage() {
           style={{ background: "radial-gradient(circle, rgba(173,82,7,0.08), transparent 70%)" }}
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
-          <nav className="mb-6 flex items-center gap-2 text-[0.85rem] text-muted" aria-label="Breadcrumb">
+          <nav className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-rust">Home</Link>
             <span aria-hidden className="opacity-50">›</span>
             <span>Book a Consultation</span>
@@ -76,7 +76,7 @@ export default function BookingPage() {
                     ✆ Call {phone}
                   </a>
                 )}
-                <div className="mt-7 space-y-4 text-[0.9rem] leading-[1.6] text-cream/75">
+                <div className="mt-7 space-y-4 text-[0.95rem] leading-[1.6] text-cream/75">
                   {email && (
                     <div>
                       <span className="mb-1 block text-[0.7rem] font-bold uppercase tracking-[0.14em] text-gold">Email</span>
@@ -91,7 +91,7 @@ export default function BookingPage() {
                       <span className="font-display text-[1.05rem] text-cream">
                         {address.street}
                       </span>
-                      <span className="mt-1 block text-[0.85rem] text-cream/60">
+                      <span className="mt-1 block text-[0.9rem] text-cream/60">
                         {address.city}, {address.province === "Ontario" ? "ON" : address.province} {address.postal}
                       </span>
                     </div>
@@ -99,7 +99,7 @@ export default function BookingPage() {
                 </div>
               </div>
 
-              <div className="mt-8 rounded-lg border border-gold-soft bg-gold/10 px-5 py-4 text-[0.88rem] leading-[1.6] text-ink">
+              <div className="mt-8 rounded-lg border border-gold-soft bg-gold/10 px-5 py-4 text-[0.92rem] leading-[1.6] text-ink">
                 <strong className="mb-1 block font-display text-[0.95rem] font-medium">Solicitor–client privilege</strong>
                 Anything you share with us — through this form, by phone, or by email — is confidential from the first contact.
               </div>

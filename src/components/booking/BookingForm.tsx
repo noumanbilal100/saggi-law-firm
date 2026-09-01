@@ -14,7 +14,7 @@ const inputBase =
   "w-full rounded-md border border-rule bg-cream px-3.5 py-3 font-body text-[0.95rem] text-ink transition-colors focus:border-rust focus:bg-paper focus:outline focus:outline-2 focus:outline-rust";
 const labelBase =
   "mb-1.5 block font-body text-[0.72rem] font-bold uppercase tracking-[0.06em] text-muted";
-const errorText = "mt-1 text-[0.8rem] font-medium text-maple";
+const errorText = "mt-1 text-[0.85rem] font-medium text-maple";
 
 export function BookingForm({
   defaultMatter,
@@ -119,7 +119,7 @@ export function BookingForm({
         <button
           type="button"
           onClick={() => setStatus({ kind: "idle" })}
-          className="mt-6 inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-transparent px-5 py-2.5 text-[0.9rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
+          className="mt-6 inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-transparent px-5 py-2.5 text-[0.95rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
         >
           Send another request
         </button>
@@ -216,7 +216,7 @@ export function BookingForm({
       </button>
 
       {status.kind === "error" && (
-        <p role="alert" className="rounded-md border border-maple/40 bg-maple/[0.06] px-4 py-3 text-[0.9rem] text-maple">
+        <p role="alert" className="rounded-md border border-maple/40 bg-maple/[0.06] px-4 py-3 text-[0.95rem] text-maple">
           {status.message}
         </p>
       )}

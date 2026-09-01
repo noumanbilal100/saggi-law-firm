@@ -45,7 +45,7 @@ export function AdditionalServices() {
                 {s.title}
               </h3>
               <p
-                className={`text-[0.94rem] leading-[1.65] ${
+                className={`text-[1rem] leading-[1.65] ${
                   s.lead ? "text-cream/70" : "text-muted"
                 }`}
               >

@@ -28,7 +28,7 @@ export default function CaseStudiesIndex() {
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-8 flex flex-wrap items-center gap-2 text-[0.85rem] text-muted"
+            className="mb-8 flex flex-wrap items-center gap-2 text-[0.9rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">
@@ -63,7 +63,7 @@ export default function CaseStudiesIndex() {
             </span>
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 font-body text-[0.85rem] font-semibold text-rust transition-transform hover:translate-x-1"
+              className="inline-flex items-center gap-1.5 font-body text-[0.9rem] font-semibold text-rust transition-transform hover:translate-x-1"
             >
               All practice areas <span aria-hidden>→</span>
             </Link>
@@ -93,7 +93,7 @@ export default function CaseStudiesIndex() {
                     {r.year && ` · ${r.year}`}
                   </span>
                 )}
-                <span className="mt-auto inline-flex items-center gap-1 pt-2 text-[0.82rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
+                <span className="mt-auto inline-flex items-center gap-1 pt-2 text-[0.88rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
                   Read case study →
                 </span>
               </Link>

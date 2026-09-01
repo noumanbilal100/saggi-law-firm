@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/siteConfig";
 export function TopBar() {
   const { phone, phoneHref } = siteConfig.contact;
   return (
-    <div className="bg-ink text-cream text-[0.85rem] border-b border-gold/15">
+    <div className="bg-ink text-cream text-[0.9rem] border-b border-gold/15">
       <div className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-4 px-6 py-2.5">
         <span className="inline-flex items-center gap-2 font-semibold text-gold">
           <span

@@ -35,7 +35,7 @@ export default function ServicesPage() {
           style={{ background: "radial-gradient(circle, rgba(173,82,7,0.08), transparent 70%)" }}
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
-          <nav className="mb-6 flex items-center gap-2 text-[0.85rem] text-muted" aria-label="Breadcrumb">
+          <nav className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-rust">Home</Link>
             <span aria-hidden className="opacity-50">›</span>
             <span>Criminal Defence Services</span>
@@ -58,7 +58,7 @@ export default function ServicesPage() {
             <h2 className="font-display text-[clamp(1.5rem,2.2vw,1.9rem)] font-medium leading-tight">
               Criminal Defence
             </h2>
-            <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-muted">
+            <span className="text-[0.88rem] font-semibold uppercase tracking-[0.12em] text-muted">
               {services.length} practice areas
             </span>
           </div>
@@ -81,7 +81,7 @@ export default function ServicesPage() {
                     ↗
                   </span>
                 </div>
-                <p className="text-[0.94rem] leading-[1.6] text-muted">{s.summary}</p>
+                <p className="text-[1rem] leading-[1.6] text-muted">{s.summary}</p>
               </Link>
             ))}
             <div className="col-span-full rounded-[10px] border border-dashed border-rule bg-cream-warm px-7 py-6 text-[0.95rem] leading-[1.65] text-muted">
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 <h3 className={`mb-3 font-display text-[1.25rem] font-medium ${s.lead ? "text-cream" : "text-ink"}`}>
                   {s.title}
                 </h3>
-                <p className={`text-[0.94rem] leading-[1.65] ${s.lead ? "text-cream/70" : "text-muted"}`}>
+                <p className={`text-[1rem] leading-[1.65] ${s.lead ? "text-cream/70" : "text-muted"}`}>
                   {s.summary}
                 </p>
               </div>

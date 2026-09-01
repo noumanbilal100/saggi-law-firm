@@ -94,7 +94,7 @@ export default async function LocationPage(
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-8 flex flex-wrap items-center gap-2 text-[0.85rem] text-muted"
+            className="mb-8 flex flex-wrap items-center gap-2 text-[0.9rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">Home</Link>
@@ -193,10 +193,10 @@ export default async function LocationPage(
                 href={`/${s.slug}`}
                 className="group flex items-center gap-3 rounded-[10px] border border-rule bg-paper p-4 transition-all hover:-translate-y-px hover:border-rust hover:shadow-brand-sm"
               >
-                <span className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-md bg-rust/[0.08] font-display text-[0.9rem] font-semibold text-rust">
+                <span className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-md bg-rust/[0.08] font-display text-[0.95rem] font-semibold text-rust">
                   {s.icon}
                 </span>
-                <span className="font-display text-[0.98rem] font-medium leading-[1.25]">
+                <span className="font-display text-[1.02rem] font-medium leading-[1.25]">
                   {s.title}
                 </span>
                 <span

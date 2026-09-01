@@ -38,7 +38,7 @@ export function ServicesSection() {
                   ↗
                 </span>
               </div>
-              <p className="text-[0.94rem] leading-[1.6] text-muted">{s.summary}</p>
+              <p className="text-[1rem] leading-[1.6] text-muted">{s.summary}</p>
             </Link>
           ))}
           <div className="reveal col-span-full rounded-[10px] border border-dashed border-rule bg-cream-warm px-7 py-6 text-[0.95rem] leading-[1.65] text-muted">
