@@ -204,7 +204,7 @@ export async function PageLayout({
                 className="relative aspect-[4/3] w-full overflow-hidden rounded-[18px] border border-rule shadow-brand-lg"
                 style={{
                   background:
-                    "linear-gradient(160deg, #14112B 0%, #070518 60%, #05041A 100%)",
+                    "linear-gradient(160deg, #252449 0%, #16153F 60%, #0E0D2D 100%)",
                 }}
               >
                 {/* `object-contain` guarantees the full image is visible
@@ -893,7 +893,7 @@ function HeroVisual({ icon, kicker }: { icon: string; kicker?: string | null }) 
       className="relative aspect-[4/5] overflow-hidden rounded-[18px] border border-ink bg-ink shadow-brand-lg lg:aspect-[3/4]"
       style={{
         background:
-          "linear-gradient(160deg, #14112B 0%, #070518 60%, #05041A 100%)",
+          "linear-gradient(160deg, #252449 0%, #16153F 60%, #0E0D2D 100%)",
       }}
     >
       <div

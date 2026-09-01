@@ -38,7 +38,7 @@ export function InlineMeetLawyer() {
               className="grid h-full w-full place-items-center bg-ink font-display text-[3rem] font-medium text-gold"
               style={{
                 background:
-                  "linear-gradient(160deg, #14112B 0%, #070518 100%)",
+                  "linear-gradient(160deg, #252449 0%, #16153F 100%)",
               }}
             >
               {name ? name.charAt(0) : "M"}

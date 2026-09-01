@@ -49,12 +49,12 @@ export function BrandLogo({
           column: "url(#slfSilver)",
         }
       : {
-          quadStroke: "#070518",
-          letter: "#070518",
-          divider: "#AD5207",
-          wordmark: "#070518",
-          tagline: "#AD5207",
-          column: "#AD5207",
+          quadStroke: "#16153F",
+          letter: "#16153F",
+          divider: "#B85320",
+          wordmark: "#16153F",
+          tagline: "#B85320",
+          column: "#B85320",
         };
 
   return (
