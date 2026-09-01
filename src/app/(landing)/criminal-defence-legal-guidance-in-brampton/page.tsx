@@ -1,818 +1,809 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { getBranding } from "@/lib/branding";
-import { siteConfig } from "@/lib/siteConfig";
 
 /**
- * Google-Ads landing page — Criminal Defence Legal Guidance in Brampton.
+ * Standalone Google-Ads landing page.
  *
- * Single-focus conversion page:
- *   - No site nav / footer / journal links to distract the click
- *   - Landing-page-specific tracked phone number (kept separate from
- *     the main site number so the client can measure Ads ROI directly)
- *   - Multiple call CTAs above / mid / below the fold
- *   - Sticky mobile call bar
- *   - Trust signals, benefits, case-representation grid, then close
+ * Port of the client's original WordPress design (Elementor-authored,
+ * page ID 5845 in the retired WP DB) — kept faithfully because that
+ * design was already tuned for conversion and the client had signed
+ * off on it. Only this page uses this palette (navy #0d1b2a / gold
+ * #b08d3f, Georgia serif); the rest of the site follows the relocked
+ * brand tokens.
  *
- * Content stays LSO-compliant — "types of representation" framing,
- * no fabricated outcome claims.
+ * Page-specific contact details — the landing carries its own tracked
+ * number and WhatsApp link so ad-driven leads route separately from
+ * the main firm line.
  */
 
-/* Landing-page-specific contact — separate phone + email so the
-   client can distinguish Google-Ads-driven leads from organic site
-   leads directly in their tracking and inbox. */
-const LP_PHONE_DISPLAY = "437-605-6573";
-const LP_PHONE_HREF = "tel:+14376056573";
-const LP_WHATSAPP_HREF = "https://wa.me/14376056573";
-const LP_EMAIL = "Aman.usman.legal@gmail.com";
-const LP_EMAIL_HREF = `mailto:${LP_EMAIL}`;
-
-/* Office — Saggi Law Firm's headquarters. Shown at the bottom so the
-   Ads visitor sees a real-world business presence. */
-const OFFICE_STREET = "2250 Bovaird Dr E, Unit 401";
-const OFFICE_CITY = "Brampton, ON L6R 0W3";
-const OFFICE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=2250+Bovaird+Dr+E+Unit+401+Brampton+ON+L6R+0W3";
-
-const TITLE = "Criminal Defence Lawyer in Brampton — Free Confidential Consultation";
-const DESCRIPTION =
-  "Charged with a criminal offence in Brampton or the GTA? Talk to a criminal defence lawyer directly — free, confidential, 24/7. Bail, DUI, assault, drug, and firearms matters.";
+const CONTACT = {
+  phone: "+1 437-605-6573",
+  phoneHref: "tel:+14376056573",
+  whatsappHref: "https://wa.me/14376056573",
+  email: "Aman.usman.legal@gmail.com",
+  emailHref: "mailto:Aman.usman.legal@gmail.com",
+  location: "Brampton, Ontario · Serving the Greater Toronto Area",
+} as const;
 
 export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/criminal-defence-legal-guidance-in-brampton" },
-  openGraph: {
-    type: "website",
-    title: TITLE,
-    description: DESCRIPTION,
-    url: `${siteConfig.url}/criminal-defence-legal-guidance-in-brampton`,
-    siteName: siteConfig.name,
+  title:
+    "Criminal Defence Legal Guidance in Brampton — Saggi Law Firm",
+  description:
+    "Facing criminal charges in Brampton or the Greater Toronto Area? Speak with a criminal defence lawyer today. Call, WhatsApp, or email — direct line to a lawyer, no gatekeepers.",
+  alternates: {
+    canonical: "/criminal-defence-legal-guidance-in-brampton",
   },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
+  openGraph: {
+    title:
+      "Criminal Defence Legal Guidance in Brampton — Saggi Law Firm",
+    description:
+      "Speak with a criminal defence lawyer today. Call, WhatsApp, or email — direct line to a lawyer serving Brampton and the GTA.",
+    type: "website",
+  },
 };
 
-export default async function LandingPage() {
-  const brand = await getBranding();
+const legalServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  name: "Saggi Law Firm — Criminal Defence Legal Guidance in Brampton",
+  telephone: CONTACT.phoneHref.replace("tel:", ""),
+  email: CONTACT.email,
+  areaServed: [
+    "Brampton",
+    "Toronto",
+    "Mississauga",
+    "Greater Toronto Area",
+    "Ontario",
+    "Canada",
+  ],
+  serviceType: "Criminal defence law",
+};
 
+/* ------------------------------ page ---------------------------------- */
+
+export default function LandingPage() {
   return (
     <>
-      {/* ═════════════ SLIM DARK HEADER (logo + phone only) ═════════════ */}
-      <header className="sticky top-0 z-40 border-b border-gold/20 bg-ink text-cream shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
-        <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-3 px-4 py-3 sm:px-6">
-          <Image
-            src={brand.src}
-            alt={brand.alt}
-            width={brand.width}
-            height={brand.height}
-            priority
-            className="h-9 w-auto sm:h-10 md:h-11"
-          />
-          <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href={LP_EMAIL_HREF}
-              className="hidden items-center gap-1.5 font-body text-[0.85rem] text-cream/75 transition-colors hover:text-gold md:inline-flex"
-            >
-              <MailGlyph />
-              {LP_EMAIL}
-            </a>
-            <a
-              href={LP_PHONE_HREF}
-              className="btn-shimmer btn-pulse-rust hidden items-center gap-2 rounded-md bg-rust px-4 py-2.5 font-body text-[0.9rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.4)] transition-all hover:-translate-y-px hover:bg-rust-hover sm:inline-flex"
-            >
-              <PhoneGlyph />
-              {LP_PHONE_DISPLAY}
-            </a>
-            <a
-              href={LP_PHONE_HREF}
-              className="btn-pulse-rust inline-flex items-center gap-1.5 rounded-md bg-rust px-3 py-2 font-body text-[0.82rem] font-bold text-white sm:hidden"
-            >
-              <PhoneGlyph />
-              Call
-            </a>
-          </div>
-        </div>
-        <div
-          aria-hidden
-          className="h-[3px]"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, rgba(173,82,7,0.6) 15%, rgba(211,181,116,0.95) 40%, rgba(216,6,33,0.7) 60%, rgba(173,82,7,0.6) 85%, transparent 100%)",
-          }}
-        />
-      </header>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(legalServiceJsonLd),
+        }}
+      />
 
-      {/* ═════════════ HERO — dark, urgent, big CTA ═════════════ */}
-      <section className="relative overflow-hidden bg-ink py-14 text-cream md:py-20">
-        {/* Ambient warm glows + subtle grid — depth without an image
-            so the hero loads instantly on mobile. */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 100% at 15% 20%, rgba(173,82,7,0.20), transparent 60%), radial-gradient(ellipse 60% 100% at 85% 80%, rgba(211,181,116,0.14), transparent 60%), radial-gradient(ellipse 40% 60% at 50% 100%, rgba(216,6,33,0.10), transparent 60%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(211,181,116,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(211,181,116,0.5) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
-        {/* Gold corner accents — architectural editorial feel. */}
-        <div aria-hidden className="pointer-events-none absolute left-6 top-6 h-16 w-16 border-l-2 border-t-2 border-gold/40" />
-        <div aria-hidden className="pointer-events-none absolute right-6 top-6 h-16 w-16 border-r-2 border-t-2 border-gold/40" />
-        <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
-          <div className="grid gap-10 md:grid-cols-[1.15fr_1fr] md:items-center md:gap-14">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-white/[0.04] px-3.5 py-1.5 font-body text-[0.68rem] font-bold uppercase tracking-[0.14em] text-gold">
-                <span aria-hidden className="live-dot" />
-                Free · Confidential · Available 24/7
-              </span>
-
-              <h1 className="mt-5 max-w-[22ch] font-display text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.05] tracking-[-0.03em] text-cream">
-                Facing a Criminal Charge in{" "}
-                <em className="not-italic italic text-gold">Brampton</em>?
-              </h1>
-              <p className="mt-5 max-w-[52ch] text-[1.1rem] leading-[1.55] text-cream/80">
-                Speak directly with a criminal defence lawyer today — not a
-                paralegal, not a call centre. Bail hearings, impaired driving,
-                assault, drug offences, firearms &amp; more.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-stretch">
-                <a
-                  href={LP_PHONE_HREF}
-                  className="btn-shimmer btn-pulse-rust group inline-flex items-center justify-center gap-3 rounded-md bg-rust px-6 py-4 font-body text-[1rem] font-bold text-white shadow-[0_6px_20px_rgba(173,82,7,0.45)] transition-all hover:-translate-y-0.5 hover:bg-rust-hover"
-                >
-                  <PhoneGlyph />
-                  <span className="flex flex-col items-start leading-none">
-                    <span className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-80">
-                      Call or WhatsApp
-                    </span>
-                    <span className="mt-1 font-display text-[1.35rem] font-medium">
-                      {LP_PHONE_DISPLAY}
-                    </span>
-                  </span>
-                </a>
-                <a
-                  href={LP_WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-pulse-whatsapp inline-flex items-center justify-center gap-2.5 rounded-md bg-[#25D366] px-6 py-4 font-body text-[0.95rem] font-bold text-white shadow-[0_6px_20px_rgba(37,211,102,0.4)] transition-all hover:-translate-y-0.5 hover:bg-[#1FB855]"
-                >
-                  <WhatsAppGlyph />
-                  WhatsApp Now
-                </a>
-              </div>
-
-              <ul className="mt-8 grid grid-cols-2 gap-3 text-[0.85rem] sm:grid-cols-4">
-                {[
-                  "Free consult",
-                  "24/7 · Weekends",
-                  "Direct to lawyer",
-                  "Full GTA coverage",
-                ].map((t) => (
-                  <li key={t} className="flex items-center gap-2 text-cream/80">
-                    <CheckGlyph />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Right: LIVE CALL panel. Replaces the form — the goal
-                here is that the visitor's ONLY reasonable next step
-                is to tap the phone number. Big number, live-now
-                indicator, direct-lawyer attribution, and reasons to
-                call before scrolling. */}
-            <aside className="relative overflow-hidden rounded-[18px] border border-gold/30 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-6 shadow-brand-lg backdrop-blur-sm sm:p-8">
-              {/* Ambient rust + gold glows inside the panel. */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(173,82,7,0.18), transparent 60%), radial-gradient(ellipse 90% 40% at 50% 100%, rgba(211,181,116,0.12), transparent 60%)",
-                }}
-              />
-              {/* Gold corner ticks — architectural framing. */}
-              <div aria-hidden className="pointer-events-none absolute left-4 top-4 h-8 w-8 border-l-2 border-t-2 border-gold/60" />
-              <div aria-hidden className="pointer-events-none absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-gold/60" />
-              <div aria-hidden className="pointer-events-none absolute left-4 bottom-4 h-8 w-8 border-b-2 border-l-2 border-gold/60" />
-              <div aria-hidden className="pointer-events-none absolute right-4 bottom-4 h-8 w-8 border-b-2 border-r-2 border-gold/60" />
-
-              <div className="relative">
-                {/* Live availability pill */}
-                <span className="inline-flex items-center gap-2 rounded-full border border-maple/40 bg-maple/[0.12] px-3 py-1.5 font-body text-[0.66rem] font-bold uppercase tracking-[0.16em] text-cream">
-                  <span aria-hidden className="live-dot" />
-                  Live now · A lawyer is available
-                </span>
-
-                <p className="mt-6 font-body text-[0.75rem] font-bold uppercase tracking-[0.2em] text-gold">
-                  Speak with counsel now
-                </p>
-
-                {/* HUGE phone number as the panel's centrepiece. */}
-                <a
-                  href={LP_PHONE_HREF}
-                  className="mt-2 block font-display text-[clamp(2.4rem,4.5vw,3.4rem)] font-medium leading-none tracking-[-0.03em] text-cream transition-colors hover:text-gold"
-                  style={{ fontVariantNumeric: "tabular-nums" }}
-                >
-                  {LP_PHONE_DISPLAY}
-                </a>
-                <p className="mt-3 text-[0.9rem] leading-[1.5] text-cream/65">
-                  Direct line to a criminal defence lawyer.<br />
-                  Answered 24 hours a day — including weekends.
-                </p>
-
-                {/* Twin CTA buttons */}
-                <div className="mt-6 grid grid-cols-2 gap-2.5">
-                  <a
-                    href={LP_PHONE_HREF}
-                    className="btn-shimmer btn-pulse-rust group flex items-center justify-center gap-2 rounded-md bg-rust px-4 py-3.5 font-body text-[0.9rem] font-bold text-white shadow-[0_6px_18px_rgba(173,82,7,0.45)] transition-all hover:-translate-y-0.5 hover:bg-rust-hover"
-                  >
-                    <PhoneGlyph />
-                    Call now
-                  </a>
-                  <a
-                    href={LP_WHATSAPP_HREF}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-pulse-whatsapp group flex items-center justify-center gap-2 rounded-md bg-[#25D366] px-4 py-3.5 font-body text-[0.9rem] font-bold text-white shadow-[0_6px_18px_rgba(37,211,102,0.4)] transition-all hover:-translate-y-0.5 hover:bg-[#1FB855]"
-                  >
-                    <WhatsAppGlyph />
-                    WhatsApp
-                  </a>
-                </div>
-
-                {/* Trust-guarantee bullets — reasons to call BEFORE
-                    the visitor scrolls further. */}
-                <ul className="mt-7 flex flex-col gap-2.5 border-t border-gold/15 pt-6">
-                  {[
-                    "Answered in under 30 seconds",
-                    "Confidential from the first word",
-                    "No obligation to retain",
-                    "Free assessment of your matter",
-                  ].map((t) => (
-                    <li
-                      key={t}
-                      className="flex items-center gap-2.5 text-[0.9rem] text-cream/80"
-                    >
-                      <span
-                        aria-hidden
-                        className="grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-gold text-ink"
-                      >
-                        <CheckGlyph />
-                      </span>
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      {/* ═════════════ TRUST BAR ═════════════ */}
-      <section className="border-y border-rule bg-cream-warm/40 py-6 md:py-8">
-        <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-          <ul className="grid grid-cols-2 gap-6 text-center sm:grid-cols-4">
-            {[
-              { n: "14+", l: "Years defending criminal charges" },
-              { n: "24/7", l: "Direct line — day, night, weekends" },
-              { n: "4.9★", l: "207+ Google reviews" },
-              { n: "GTA", l: "Brampton · Toronto · Peel · Beyond" },
-            ].map((t) => (
-              <li key={t.n}>
-                <div className="font-display text-[clamp(1.6rem,2.6vw,2rem)] font-medium leading-none tracking-[-0.02em] text-rust">
-                  {t.n}
-                </div>
-                <div className="mt-1.5 text-[0.78rem] leading-[1.4] text-muted">
-                  {t.l}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* ═════════════ WHAT WE HELP WITH ═════════════ */}
-      <section className="bg-paper py-14 md:py-16">
-        <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-          <div className="mb-8 max-w-[720px]">
-            <span className="font-body text-[0.68rem] font-bold uppercase tracking-[0.16em] text-rust">
-              Practice areas
-            </span>
-            <h2 className="mt-2 font-display text-[clamp(1.6rem,2.8vw,2.2rem)] font-medium leading-[1.15]">
-              Every criminal matter, one number to call.
-            </h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                t: "Impaired driving & DUI",
-                d: "Over 80, refusal, care-and-control, first-offence, licence and MELT timelines.",
-              },
-              {
-                t: "Bail hearings",
-                d: "Same-day preparation, surety selection, release-plan drafting.",
-              },
-              {
-                t: "Assault & domestic",
-                d: "Simple, bodily-harm, aggravated; peace-bond track for suitable files.",
-              },
-              {
-                t: "Drug offences",
-                d: "Possession, trafficking, production — Charter and disclosure-focused.",
-              },
-              {
-                t: "Firearms & weapons",
-                d: "Storage, possession, prohibited/restricted; regulatory reductions.",
-              },
-              {
-                t: "White collar",
-                d: "Fraud, breach of trust, proceeds of crime, diversion applications.",
-              },
-            ].map((c) => (
-              <div
-                key={c.t}
-                className="rounded-[10px] border border-rule bg-cream-warm/40 p-5 transition-colors hover:border-rust hover:bg-paper"
-              >
-                <h3 className="font-display text-[1.05rem] font-medium leading-[1.3] text-ink">
-                  {c.t}
-                </h3>
-                <p className="mt-2 text-[0.9rem] leading-[1.55] text-muted">
-                  {c.d}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═════════════ WHY US ═════════════ */}
-      <section className="bg-cream py-14 md:py-16">
-        <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-          <div className="mb-8 max-w-[720px]">
-            <span className="font-body text-[0.68rem] font-bold uppercase tracking-[0.16em] text-rust">
-              Why choose us
-            </span>
-            <h2 className="mt-2 font-display text-[clamp(1.6rem,2.8vw,2.2rem)] font-medium leading-[1.15]">
-              What you get when you call this number.
-            </h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                t: "A lawyer, not a call centre.",
-                d: "Every call is answered by counsel — no intake screening, no transfers.",
-              },
-              {
-                t: "Free & confidential.",
-                d: "Solicitor–client privilege from the first word. No obligation to retain.",
-              },
-              {
-                t: "Same-day bail work.",
-                d: "Release plan, surety interviews, and hearing prep in a single day when needed.",
-              },
-              {
-                t: "Every GTA courthouse.",
-                d: "Brampton, Toronto, Mississauga, Newmarket, Milton — daily appearances.",
-              },
-            ].map((c) => (
-              <div
-                key={c.t}
-                className="rounded-[10px] border border-rule bg-paper p-5 shadow-brand-sm"
-              >
-                <div className="mb-3 grid h-9 w-9 place-items-center rounded-full bg-rust/[0.08] text-rust">
-                  <CheckGlyph />
-                </div>
-                <h3 className="font-display text-[1rem] font-medium leading-[1.3] text-ink">
-                  {c.t}
-                </h3>
-                <p className="mt-2 text-[0.88rem] leading-[1.55] text-muted">
-                  {c.d}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═════════════ MID-PAGE CTA STRIP ═════════════ */}
-      <section className="relative overflow-hidden bg-ink py-14 text-cream md:py-16">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 100% at 80% 30%, rgba(173,82,7,0.20), transparent 60%), radial-gradient(ellipse 60% 100% at 20% 70%, rgba(211,181,116,0.12), transparent 60%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-[820px] px-4 text-center sm:px-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-white/[0.04] px-3.5 py-1.5 font-body text-[0.68rem] font-bold uppercase tracking-[0.14em] text-gold">
-            <span aria-hidden className="live-dot" />
-            Available 24/7 · Even Weekends
-          </span>
-          <h2 className="mt-5 font-display text-[clamp(1.8rem,3.4vw,2.6rem)] font-medium leading-[1.15] text-cream">
-            Don't guess. Talk to a criminal defence lawyer{" "}
-            <em className="not-italic italic text-gold">now</em>.
-          </h2>
-          <p className="mx-auto mt-4 max-w-[52ch] text-[1rem] leading-[1.6] text-cream/70">
-            Every hour after a charge matters. Get clear advice on your rights,
-            the process, and your options — in one confidential call.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href={LP_PHONE_HREF}
-              className="btn-shimmer btn-pulse-rust inline-flex items-center justify-center gap-3 rounded-md bg-rust px-7 py-4 font-body text-[1rem] font-bold text-white shadow-[0_6px_22px_rgba(173,82,7,0.45)] transition-all hover:-translate-y-0.5 hover:bg-rust-hover"
-            >
-              <PhoneGlyph />
-              <span className="flex flex-col items-start leading-none">
-                <span className="text-[0.66rem] font-semibold uppercase tracking-[0.14em] opacity-85">
-                  Call now
-                </span>
-                <span className="mt-1 font-display text-[1.35rem] font-medium">
-                  {LP_PHONE_DISPLAY}
-                </span>
-              </span>
-            </a>
-            <a
-              href={LP_WHATSAPP_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-pulse-whatsapp inline-flex items-center justify-center gap-2.5 rounded-md bg-[#25D366] px-6 py-4 font-body text-[0.95rem] font-bold text-white shadow-[0_6px_20px_rgba(37,211,102,0.4)] transition-all hover:-translate-y-0.5 hover:bg-[#1FB855]"
-            >
-              <WhatsAppGlyph />
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ═════════════ HOW IT WORKS ═════════════ */}
-      <section className="bg-cream-warm/40 py-14 md:py-16">
-        <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-          <div className="mb-10 max-w-[720px]">
-            <span className="font-body text-[0.68rem] font-bold uppercase tracking-[0.16em] text-rust">
-              How the call works
-            </span>
-            <h2 className="mt-2 font-display text-[clamp(1.6rem,2.8vw,2.2rem)] font-medium leading-[1.15]">
-              A simple, confidential first conversation.
-            </h2>
-          </div>
-          <ol className="grid gap-4 sm:grid-cols-3">
-            {[
-              {
-                t: "You call.",
-                d: "The line goes directly to a criminal defence lawyer — day, night, or weekend.",
-              },
-              {
-                t: "We listen.",
-                d: "Circumstances of the arrest, charge, release conditions, upcoming court dates.",
-              },
-              {
-                t: "You get clarity.",
-                d: "Plain-language answers on what the charge means, what happens next, and your options.",
-              },
-            ].map((s, i) => (
-              <li
-                key={s.t}
-                className="rounded-[10px] border border-rule bg-paper p-6 shadow-brand-sm"
-              >
-                <div
-                  className="mb-3 font-display text-[2.2rem] font-medium leading-none tracking-[-0.03em] text-rust"
-                  style={{ fontVariantNumeric: "tabular-nums" }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="font-display text-[1.15rem] font-medium leading-[1.3] text-ink">
-                  {s.t}
-                </h3>
-                <p className="mt-2 text-[0.92rem] leading-[1.6] text-muted">
-                  {s.d}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ═════════════ OFFICE / LOCATION SECTION ═════════════ */}
-      <section className="border-y border-rule bg-paper py-14 md:py-20">
-        <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-          <div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-14">
-            <div>
-              <span className="inline-flex items-center gap-2 font-body text-[0.68rem] font-bold uppercase tracking-[0.16em] text-rust">
-                <span aria-hidden className="text-maple">🍁</span>
-                Visit or contact
-              </span>
-              <h2 className="mt-3 max-w-[20ch] font-display text-[clamp(1.7rem,3vw,2.4rem)] font-medium leading-[1.1] text-ink">
-                Meet us at our{" "}
-                <em className="not-italic italic text-rust">Brampton</em>{" "}
-                office.
-              </h2>
-              <p className="mt-4 max-w-[52ch] text-[1rem] leading-[1.65] text-muted">
-                Our office is a short drive from the Brampton Courthouse and
-                the Peel Region court complex — walk-ins by appointment, and
-                after-hours reachable on the number above.
-              </p>
-
-              <dl className="mt-8 divide-y divide-rule border-y border-rule">
-                <div className="grid grid-cols-[110px_1fr] items-baseline gap-4 py-5">
-                  <dt className="font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
-                    Office
-                  </dt>
-                  <dd className="font-display text-[1.05rem] font-medium leading-[1.4] text-ink">
-                    {OFFICE_STREET}
-                    <span className="mt-1 block font-body text-[0.85rem] font-normal text-muted">
-                      {OFFICE_CITY}
-                    </span>
-                  </dd>
-                </div>
-                <div className="grid grid-cols-[110px_1fr] items-baseline gap-4 py-5">
-                  <dt className="font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
-                    Phone
-                  </dt>
-                  <dd className="font-display text-[1.05rem] font-medium leading-[1.4] text-ink">
-                    <a
-                      href={LP_PHONE_HREF}
-                      className="hover:text-rust"
-                    >
-                      {LP_PHONE_DISPLAY}
-                    </a>
-                  </dd>
-                </div>
-                <div className="grid grid-cols-[110px_1fr] items-baseline gap-4 py-5">
-                  <dt className="font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
-                    Email
-                  </dt>
-                  <dd className="font-display text-[1.05rem] font-medium leading-[1.4] text-ink">
-                    <a href={LP_EMAIL_HREF} className="hover:text-rust break-all">
-                      {LP_EMAIL}
-                    </a>
-                  </dd>
-                </div>
-                <div className="grid grid-cols-[110px_1fr] items-baseline gap-4 py-5">
-                  <dt className="font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
-                    Hours
-                  </dt>
-                  <dd className="font-display text-[1.05rem] font-medium leading-[1.4] text-ink">
-                    Available 24/7
-                    <span className="mt-1 block font-body text-[0.85rem] font-normal text-muted">
-                      Weekends &amp; holidays included
-                    </span>
-                  </dd>
-                </div>
-              </dl>
-
-              <a
-                href={OFFICE_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-transparent px-5 py-3 font-body text-[0.9rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
-              >
-                Open in Google Maps
-                <span aria-hidden>→</span>
-              </a>
-            </div>
-
-            {/* Illustrated map card — no external map API dependency,
-                loads instantly, uses brand palette. */}
-            <div
-              className="relative min-h-[440px] overflow-hidden rounded-[18px] border border-rule shadow-brand-lg"
-              style={{
-                background:
-                  "linear-gradient(180deg, #F4EFDD 0%, #FBF9ED 60%)",
-              }}
-            >
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(11,10,31,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,10,31,0.05) 1px, transparent 1px)",
-                  backgroundSize: "48px 48px",
-                }}
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(circle at 55% 45%, transparent 100px, rgba(251,249,237,0.5) 260px)",
-                }}
-              />
-
-              <span className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded-md border border-rule bg-paper px-2.5 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">
-                <span className="text-[0.9rem] text-maple">🍁</span>{" "}
-                Brampton, ON
-              </span>
-
-              {/* Roads */}
-              <div className="absolute left-[5%] right-[5%] top-[42%] h-[3px] -rotate-2 bg-ink/[0.08]" />
-              <div className="absolute bottom-[8%] left-[48%] top-[8%] w-[3px] bg-ink/[0.08]" />
-              <div className="absolute left-[10%] right-[30%] top-[68%] h-[2px] rotate-[15deg] bg-ink/[0.08]" />
-
-              {/* Pin pulse ring */}
-              <div
-                aria-hidden
-                className="absolute left-1/2 top-[42%] h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-maple opacity-0 animate-[map-pulse_2.4s_ease-out_infinite]"
-              />
-              {/* Pin */}
-              <div className="absolute left-1/2 top-[42%] z-[2] -translate-x-1/2 -translate-y-full">
-                <div
-                  className="grid h-12 w-12 place-items-center rounded-[50%_50%_50%_0] bg-maple shadow-[0_10px_20px_rgba(216,6,33,0.45)] animate-[map-drop_700ms_cubic-bezier(0.2,0.7,0.2,1)]"
-                  style={{ transform: "rotate(-45deg)" }}
-                >
-                  <span
-                    className="text-[1.2rem] leading-none text-white"
-                    style={{ transform: "rotate(45deg)" }}
-                  >
-                    🍁
-                  </span>
-                </div>
-              </div>
-
-              {/* Address card */}
-              <div className="absolute inset-x-6 bottom-6 z-[3] rounded-[12px] border border-rule bg-paper p-5 shadow-brand">
-                <strong className="mb-2 block font-display text-[1.05rem] font-medium text-ink">
-                  Saggi Law Firm
-                </strong>
-                <span className="mb-3 block text-[0.85rem] leading-[1.5] text-muted">
-                  {OFFICE_STREET}
-                  <br />
-                  {OFFICE_CITY}
-                </span>
-                <a
-                  href={OFFICE_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[0.85rem] font-semibold text-rust hover:underline"
-                >
-                  Open in Google Maps
-                  <span aria-hidden>→</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═════════════ FINAL CTA ═════════════ */}
-      <section className="relative overflow-hidden bg-ink py-16 text-cream md:py-24">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at top, rgba(173,82,7,0.20), transparent 60%), radial-gradient(ellipse at bottom, rgba(211,181,116,0.14), transparent 60%)",
-          }}
-        />
-        <div aria-hidden className="pointer-events-none absolute left-6 bottom-6 h-16 w-16 border-b-2 border-l-2 border-gold/40" />
-        <div aria-hidden className="pointer-events-none absolute right-6 bottom-6 h-16 w-16 border-b-2 border-r-2 border-gold/40" />
-
-        <div className="relative mx-auto max-w-[900px] px-4 text-center sm:px-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-white/[0.04] px-4 py-1.5 font-body text-[0.68rem] font-bold uppercase tracking-[0.14em] text-gold">
-            <span aria-hidden className="live-dot" />
-            The line is open right now
-          </span>
-          <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3.2rem)] font-medium leading-[1.1] text-cream">
-            One call. Free. Confidential.{" "}
-            <em className="not-italic italic text-gold">Answered.</em>
-          </h2>
-          <a
-            href={LP_PHONE_HREF}
-            className="btn-shimmer btn-pulse-rust group mt-10 inline-flex items-center justify-center gap-3 rounded-md bg-rust px-8 py-5 font-body text-[1.05rem] font-bold text-white shadow-[0_8px_28px_rgba(173,82,7,0.5)] transition-all hover:-translate-y-0.5 hover:bg-rust-hover"
-          >
-            <PhoneGlyph />
-            <span className="flex flex-col items-start leading-none">
-              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-85">
-                Call the lawyer now
-              </span>
-              <span
-                className="mt-1 font-display text-[1.7rem] font-medium leading-none"
-                style={{ fontVariantNumeric: "tabular-nums" }}
-              >
-                {LP_PHONE_DISPLAY}
-              </span>
-            </span>
-          </a>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[0.85rem] text-cream/60">
-            <a href={LP_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-gold">
-              <WhatsAppGlyph /> WhatsApp: {LP_PHONE_DISPLAY}
-            </a>
-            <a href={LP_EMAIL_HREF} className="inline-flex items-center gap-1.5 hover:text-gold">
-              <MailGlyph /> {LP_EMAIL}
-            </a>
-          </div>
-          <p className="mt-6 text-[0.85rem] text-cream/50">
-            Available 24 hours a day, 7 days a week — including weekends and
-            statutory holidays.
-          </p>
-        </div>
-      </section>
-
-      {/* ═════════════ MINIMAL FOOTER — legal disclaimer only ═════════════ */}
-      <footer className="bg-[#05041A] px-6 py-8 text-cream/60">
-        <div className="mx-auto max-w-[820px] text-center text-[0.75rem] leading-[1.6]">
-          <p>
-            © {new Date().getFullYear()} {siteConfig.legalName}. The
-            information on this page is provided for general information only
-            and is not legal advice. Contacting Saggi Law Firm does not create
-            a solicitor–client relationship. Every criminal matter is
-            different — outcomes depend on the specific facts and applicable
-            law.
-          </p>
-        </div>
-      </footer>
-
-      {/* ═════════════ STICKY MOBILE CALL BAR ═════════════ */}
-      <div className="fixed inset-x-0 bottom-0 z-50 flex gap-2 border-t border-gold/20 bg-ink p-2 shadow-[0_-6px_20px_rgba(0,0,0,0.4)] sm:hidden">
-        <a
-          href={LP_PHONE_HREF}
-          className="btn-pulse-rust flex flex-1 items-center justify-center gap-2 rounded-md bg-rust px-3 py-3 font-body text-[0.9rem] font-bold text-white"
-        >
-          <PhoneGlyph />
-          Call {LP_PHONE_DISPLAY}
-        </a>
-        <a
-          href={LP_WHATSAPP_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-pulse-whatsapp flex items-center justify-center gap-2 rounded-md bg-[#25D366] px-4 py-3 font-body text-[0.9rem] font-bold text-white"
-        >
-          <WhatsAppGlyph />
-        </a>
+      {/* Georgia serif overrides the site's Fraunces/Manrope; the WP
+          page relied on classic serif type and that reading rhythm is
+          part of what the client approved. */}
+      <div
+        className="text-[17px] leading-[1.75] text-[#3d4a57]"
+        style={{
+          fontFamily: 'Georgia, "Times New Roman", serif',
+        }}
+      >
+        <Hero />
+        <ContactStrip />
+        <LegalConcern />
+        <ChargedWithOffence />
+        <PracticeAreas />
+        <OurFirm />
+        <WhatToExpect />
+        <Jurisdiction />
+        <WhyChooseFirm />
+        <UnderstandingProcess />
+        <SpeakWithCounsel />
+        <GetStarted />
+        <FooterBar />
       </div>
     </>
   );
 }
 
-/* ─── Glyphs used across the CTAs ─────────────────────────────────── */
+/* ------------------------------ blocks -------------------------------- */
 
-function PhoneGlyph() {
+function Hero() {
   return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
+    <section className="bg-gradient-to-b from-[#0d1b2a] to-[#132a41] text-[#c9d3dd]">
+      <div className="grid items-stretch md:grid-cols-[55%_45%]">
+        <div className="px-6 py-14 md:py-20 lg:py-24">
+          <div className="ml-auto max-w-[600px] md:pl-6">
+            <Eyebrow light>Saggi Law Firm — Criminal Defence</Eyebrow>
+            <h1 className="mt-4 font-serif text-[clamp(30px,4.2vw,50px)] font-bold leading-[1.1] tracking-[-0.01em] text-white">
+              Protect Your Future: Speak With a Criminal Defence Lawyer in
+              Toronto now
+            </h1>
+            <GoldRule />
+            <p className="mt-6 text-[#c3cfda]">
+              If you have been charged with a crime, arrested, or are facing
+              a criminal charge, having the right lawyer can make a
+              significant difference. Our criminal defence lawyer team
+              provides focused criminal law services for individuals facing
+              criminal offences. We understand that every criminal case is
+              different, and we build a defence strategy around the
+              specific facts, evidence, and complexity of the case.
+            </p>
+            <p className="mt-4 text-[#c3cfda]">
+              Whether you need an experienced criminal defence lawyer, an
+              experienced criminal lawyer, or immediate legal advice after
+              an arrest, our law firm is prepared to help. We provide
+              strong legal representation while working to protect your
+              rights throughout the criminal justice system.
+            </p>
+            <ActionsRow variant="hero" />
+          </div>
+        </div>
+
+        <div className="relative min-h-[300px] md:min-h-[520px] order-first md:order-last">
+          <Image
+            src="/landing-brampton/saggi-hero-criminal-defence-lawyer.jpg"
+            alt="Criminal defence lawyer in a navy suit standing in a Canadian courthouse corridor before a court appearance"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 45vw"
+            className="object-cover"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(13,27,42,0.92) 0%, rgba(13,27,42,0.35) 45%, rgba(13,27,42,0.55) 100%)",
+            }}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContactStrip() {
+  const items = [
+    {
+      k: "Call directly",
+      v: CONTACT.phone,
+      href: CONTACT.phoneHref,
+      icon: PhoneIcon,
+    },
+    {
+      k: "WhatsApp",
+      v: "Message a lawyer",
+      href: CONTACT.whatsappHref,
+      icon: WhatsAppIcon,
+      external: true,
+    },
+    {
+      k: "Email",
+      v: CONTACT.email,
+      href: CONTACT.emailHref,
+      icon: MailIcon,
+    },
+  ];
+  return (
+    <section
+      className="border-t border-white/10 bg-[#132a41]"
+      aria-label="Contact"
     >
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-    </svg>
+      <Wrap>
+        <div className="flex flex-wrap gap-3.5 py-6">
+          {items.map(({ k, v, href, icon: I, external }) => (
+            <a
+              key={k}
+              href={href}
+              {...(external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="group flex flex-1 basis-[260px] items-center gap-4 border border-white/15 bg-white/[0.03] p-4 no-underline transition-all duration-200 hover:border-[#b08d3f] hover:bg-[#b08d3f]/10"
+            >
+              <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full border border-white/15 text-[#d6b872] transition-colors group-hover:border-[#b08d3f] group-hover:text-[#d6b872]">
+                <I />
+              </span>
+              <span className="min-w-0">
+                <span
+                  className="block truncate font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#d6b872]"
+                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                >
+                  {k}
+                </span>
+                <span className="mt-1 block truncate font-serif text-[18px] text-white">
+                  {v}
+                </span>
+              </span>
+            </a>
+          ))}
+        </div>
+        <p className="pb-6 text-center text-[13px] font-semibold uppercase tracking-[0.18em] text-white/50">
+          {CONTACT.location}
+        </p>
+      </Wrap>
+    </section>
   );
 }
 
-function WhatsAppGlyph() {
+function LegalConcern() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.82 11.82 0 0 0 20.464 3.488" />
-    </svg>
+    <SoftSection>
+      <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+        <div>
+          <Eyebrow>Your Legal Concern</Eyebrow>
+          <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+            Experienced Criminal Lawyer for Criminal Charges
+          </h2>
+          <GoldRule />
+          <p className="mt-6">
+            A criminal charge can affect your employment, family,
+            reputation, travel, finances, and future. The criminal justice
+            process can also be complicated, particularly when you are
+            unfamiliar with the court system, the criminal code, or your
+            legal rights.
+          </p>
+          <p className="mt-4">
+            Our criminal lawyer can explain the allegations against you,
+            the potential consequences of a criminal conviction, and the
+            available defence options. From your first consultation
+            through court appearances, we provide practical legal services
+            and strategic defence counsel focused on achieving the best
+            possible result.
+          </p>
+          <ActionsRow />
+        </div>
+        <figure className="relative aspect-[4/3] border border-[#e2e6ea] bg-[#0d1b2a] md:min-h-[340px] md:shadow-[-18px_18px_0_rgba(176,141,63,0.18)]">
+          <Image
+            src="/landing-brampton/saggi-arrest-legal-concern.jpg"
+            alt="Man detained in a police interview room after an arrest, waiting to speak with a criminal defence lawyer"
+            fill
+            sizes="(max-width: 900px) 100vw, 45vw"
+            className="object-cover"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(13,27,42,0.12), rgba(13,27,42,0.5))",
+            }}
+          />
+        </figure>
+      </div>
+    </SoftSection>
   );
 }
 
-function CheckGlyph() {
+function ChargedWithOffence() {
   return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
+    <BasicSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>Why Legal Representation Matters</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          Charged With a Criminal Offence?
+        </h2>
+        <GoldRule />
+        <p className="mt-6 text-[19px]">
+          If you have been charged with a criminal offence, do not assume
+          that a conviction is inevitable. Depending on the circumstances,
+          a skilled lawyer may challenge evidence, identify weaknesses in
+          the prosecution&apos;s case, negotiate with the Crown
+          prosecutor, or present a defence at criminal trial.
+        </p>
+        <blockquote
+          className="my-8 border-l-[3px] border-[#b08d3f] pl-5 font-serif text-[20px] italic text-[#1c2733]"
+        >
+          You may have the right to remain silent and the right to legal
+          counsel. Speaking with a criminal defence lawyer as early as
+          possible can help you understand the reason for your arrest,
+          your obligations, and the next steps in the legal process.
+        </blockquote>
+        <ActionsRow />
+      </div>
+    </BasicSection>
+  );
+}
+
+function PracticeAreas() {
+  const areas = [
+    {
+      title: "Impaired Driving",
+      body: "Impaired driving charges can create serious legal and personal consequences. A criminal lawyer can review the circumstances of the stop, investigation, testing procedures, evidence, and allegations before advising you on your options.",
+    },
+    {
+      title: "Drug Offences",
+      body: "Drug-related allegations can involve significant penalties depending on the circumstances and the substances involved. Cases involving drug offences may require careful consideration of the Controlled Drugs and Substances Act, search procedures, possession allegations, and the evidence relied upon by prosecutors.",
+    },
+    {
+      title: "Sexual Assault",
+      body: "A sexual assault allegation is extremely serious and can have substantial consequences even before a case reaches trial. Experienced defence counsel can review the allegations and evidence, explain the legal process, and develop an appropriate strategy to achieve the best possible outcome.",
+    },
+    {
+      title: "Other Criminal Offences",
+      body: "We also assist with a variety of other criminal offences, including matters that may involve indictable offences, assault allegations, property offences, probation issues, and other charges under the Criminal Code of Canada.",
+    },
+  ];
+  return (
+    <SoftSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>Practice Areas</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          Criminal Defence Cases We Handle
+        </h2>
+        <GoldRule />
+        <p className="mt-6">
+          Our team of criminal defence lawyers assists clients with a
+          broad range of criminal matters. Every offence requires an
+          individual assessment because the appropriate strategy depends
+          on the allegations, evidence, previous history, and
+          circumstances surrounding the case.
+        </p>
+      </div>
+      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        {areas.map((a) => (
+          <article
+            key={a.title}
+            className="group border border-[#e2e6ea] border-t-[3px] border-t-[#b08d3f] bg-white p-7 transition-all duration-200 hover:-translate-y-1 hover:border-[#0d1b2a] hover:border-t-[#b08d3f] hover:shadow-[0_18px_40px_-28px_rgba(13,27,42,0.55)]"
+          >
+            <h3 className="font-serif text-[19px] font-bold leading-[1.3] text-[#0d1b2a]">
+              {a.title}
+            </h3>
+            <p className="mt-3 text-[16px]">{a.body}</p>
+          </article>
+        ))}
+      </div>
+      <ActionsRow />
+    </SoftSection>
+  );
+}
+
+function OurFirm() {
+  return (
+    <BasicSection>
+      <div className="grid items-center gap-10 md:grid-cols-[45%_1fr] md:gap-14">
+        <figure className="relative aspect-[4/3] border border-[#e2e6ea] bg-[#0d1b2a] md:min-h-[340px] md:shadow-[18px_18px_0_rgba(176,141,63,0.18)]">
+          <Image
+            src="/landing-brampton/saggi-firm-case-review.jpg"
+            alt="Criminal defence legal team reviewing disclosure and Criminal Code of Canada materials in a law firm boardroom"
+            fill
+            sizes="(max-width: 900px) 100vw, 45vw"
+            className="object-cover"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(13,27,42,0.12), rgba(13,27,42,0.5))",
+            }}
+          />
+        </figure>
+        <div>
+          <Eyebrow>Our Firm</Eyebrow>
+          <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+            Criminal Defence Lawyer Focused on Your Rights
+          </h2>
+          <GoldRule />
+          <p className="mt-6">
+            When you are facing criminal charges, you need representation
+            that understands both the law and the practical realities of
+            the criminal justice system. Our criminal defence lawyer
+            approaches each case by carefully reviewing the allegations,
+            evidence, disclosure, applicable legislation, and procedural
+            history.
+          </p>
+          <p className="mt-4">
+            The goal is not simply to appear in court. The goal is to
+            provide the best representation possible and pursue the best
+            outcome available under the circumstances. Depending on the
+            case, this may involve negotiations, applications, a bail
+            hearing, resolution discussions, or preparation for trial.
+          </p>
+          <ActionsRow />
+        </div>
+      </div>
+    </BasicSection>
+  );
+}
+
+function WhatToExpect() {
+  const items = [
+    "Understanding your criminal charge and allegations",
+    "Preparing for a bail hearing",
+    "Reviewing disclosure and evidence",
+    "Advising on potential defence strategies",
+    "Negotiating with the Crown prosecutor",
+    "Preparing for court appearances",
+    "Representing you during a criminal trial",
+    "Addressing probation and sentencing concerns",
+    "Pursuing an acquittal where appropriate",
+    "Explaining the potential consequences of different legal options",
+  ];
+  return (
+    <SoftSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>What to Expect</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          Legal Representation From Arrest to Resolution
+        </h2>
+        <GoldRule />
+        <p className="mt-6">
+          Being arrested and charged can be overwhelming. Early decisions
+          can influence how a case develops, which is why timely legal
+          advice matters.
+        </p>
+        <p className="mt-4">Our criminal lawyer can assist with matters such as:</p>
+      </div>
+      <ul className="mt-6 grid list-none gap-x-9 sm:grid-cols-2">
+        {items.map((it) => (
+          <li
+            key={it}
+            className="relative border-b border-[#e2e6ea] py-3.5 pl-8 text-[16.5px]"
+          >
+            <span
+              aria-hidden
+              className="absolute left-0 top-[26px] block h-0.5 w-3 bg-[#b08d3f]"
+            />
+            {it}
+          </li>
+        ))}
+      </ul>
+      <ActionsRow />
+    </SoftSection>
+  );
+}
+
+function Jurisdiction() {
+  return (
+    <BasicSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>Jurisdiction</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          Toronto Criminal Defence Lawyer and Lawyers in Canada
+        </h2>
+        <GoldRule />
+        <p className="mt-6">
+          Criminal law is governed by Canadian federal legislation,
+          including the Criminal Code of Canada, while certain procedural
+          and provincial considerations may vary. If you are searching for
+          a Toronto criminal defence lawyer, comparing lawyers in Canada,
+          or looking for representation connected to Ontario, it is
+          important to choose counsel who understands the jurisdiction in
+          which your matter is proceeding.
+        </p>
+        <p className="mt-4">
+          Individuals facing criminal allegations should seek a lawyer
+          familiar with the applicable provincial and federal legal
+          framework. A top criminal defence lawyer should be able to
+          explain how the allegations, evidence, jurisdiction, and court
+          system may affect your case.
+        </p>
+      </div>
+    </BasicSection>
+  );
+}
+
+function WhyChooseFirm() {
+  return (
+    <SoftSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>Why Choose Our Firm</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          Why Choose an Experienced Criminal Defence Lawyer?
+        </h2>
+        <GoldRule />
+        <p className="mt-6">
+          Choosing the best lawyer for a criminal matter is an important
+          decision. Experience matters because criminal cases can involve
+          complicated evidence, procedural requirements, negotiations,
+          and competing legal strategies.
+        </p>
+        <p className="mt-4">
+          An experienced criminal defence lawyer can help you understand
+          the strengths and weaknesses of your case rather than making
+          assumptions about the outcome. Our team of criminal defence
+          professionals evaluates each matter individually and works
+          toward a strategy designed to achieve the best possible
+          outcome.
+        </p>
+      </div>
+      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <article className="border border-[#e2e6ea] border-t-[3px] border-t-[#b08d3f] bg-white p-7">
+          <h3 className="font-serif text-[19px] font-bold leading-[1.3] text-[#0d1b2a]">
+            Protect Your Rights and Your Future
+          </h3>
+          <p className="mt-3 text-[16px]">
+            A criminal allegation does not define you. However, ignoring a
+            criminal charge can create unnecessary risks. A conviction may
+            affect your criminal record, career opportunities, immigration
+            or travel plans, relationships, and other areas of your life.
+          </p>
+          <p className="mt-3.5 text-[16px]">
+            Our role is to provide clear advice, strong legal
+            representation, and informed advocacy throughout your criminal
+            defence cases. We work within the standards established by
+            the Law Society, applicable Canadian legislation, and the
+            principles of the Canadian justice system.
+          </p>
+        </article>
+        <article className="border border-[#e2e6ea] border-t-[3px] border-t-[#b08d3f] bg-white p-7">
+          <h3 className="font-serif text-[19px] font-bold leading-[1.3] text-[#0d1b2a]">
+            Your Case Deserves Individual Attention
+          </h3>
+          <p className="mt-3 text-[16px]">
+            There is no universal strategy for a criminal case. The
+            appropriate approach depends on the offence, evidence,
+            witnesses, disclosure, procedural history, and your
+            objectives.
+          </p>
+          <p className="mt-3.5 text-[16px]">
+            Whether you need representation for impaired driving, sexual
+            assault, drug offences, or another criminal matter, our
+            experienced criminal lawyer will assess the circumstances and
+            explain your available options.
+          </p>
+        </article>
+      </div>
+      <ActionsRow />
+    </SoftSection>
+  );
+}
+
+function UnderstandingProcess() {
+  return (
+    <section className="relative overflow-hidden bg-[#0d1b2a] text-[#c9d3dd]">
+      <Image
+        src="/landing-brampton/saggi-courtroom-justice-process.jpg"
+        alt="Empty Canadian courtroom with judge's bench, where criminal trials and bail hearings take place"
+        fill
+        sizes="100vw"
+        className="object-cover opacity-[0.32]"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(100deg, rgba(13,27,42,0.96) 0%, rgba(13,27,42,0.82) 55%, rgba(19,42,65,0.78) 100%)",
+        }}
+      />
+      <div className="relative z-[1] py-16 md:py-20 lg:py-24">
+        <Wrap>
+          <div className="max-w-[820px]">
+            <Eyebrow light>Important Information</Eyebrow>
+            <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-white">
+              Understanding the Criminal Justice Process
+            </h2>
+            <span
+              className="mt-5 block h-[3px] w-[66px] bg-[#b08d3f]"
+              aria-hidden
+            />
+            <p className="mt-6 text-[#c9d3dd]">
+              The criminal justice process may involve arrest, charges,
+              release conditions, a bail hearing, disclosure, pre-trial
+              discussions, applications, trial, sentencing, and possible
+              appeals. Not every case follows the same path.
+            </p>
+            <p className="mt-4 text-[#c9d3dd]">
+              For example, some cases may be resolved without a trial,
+              while others require extensive preparation for court.
+              Matters involving indictable offences can carry particularly
+              serious consequences and may require detailed preparation
+              and experienced defence counsel.
+            </p>
+            <p className="mt-4 text-[#c9d3dd]">
+              Canadian criminal law is supported by federal institutions
+              and legislation, including the Federal Department of
+              Justice, while appeals and significant legal questions can
+              ultimately reach courts such as the Supreme Court of Canada.
+              Your lawyer&apos;s role is to explain how the law applies to
+              your particular circumstances and help you make informed
+              decisions.
+            </p>
+            <ActionsRow variant="dark" />
+          </div>
+        </Wrap>
+      </div>
+    </section>
+  );
+}
+
+function SpeakWithCounsel() {
+  return (
+    <BasicSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>Speak With Counsel</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          Facing Criminal Charges? Speak With a Criminal Defence Lawyer
+        </h2>
+        <GoldRule />
+        <p className="mt-6">
+          If you have been charged with a crime, facing a criminal
+          offence, or are concerned about an investigation, getting
+          professional advice early can help you understand what happens
+          next. Do not make important decisions about your case without
+          understanding your legal rights and potential consequences.
+        </p>
+        <p className="mt-4">
+          Our top criminal defence team provides focused criminal law
+          representation and is committed to providing responsive legal
+          services, strategic advocacy, and the best possible
+          representation for every client.
+        </p>
+        <ActionsRow />
+      </div>
+    </BasicSection>
+  );
+}
+
+function GetStarted() {
+  return (
+    <SoftSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>Get Started</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          Get Legal Advice About Your Criminal Case
+        </h2>
+        <GoldRule />
+        <p className="mt-6">
+          If you need a criminal defence lawyer, contact our law firm to
+          discuss your situation. We can explain the allegations, the
+          legal process, possible outcomes, and the steps that may be
+          available to defend your rights.
+        </p>
+        <p className="mt-4">
+          Whether you are preparing for your first court appearance or
+          dealing with an ongoing criminal trial, having an experienced
+          criminal defence lawyer on your side can help you navigate the
+          justice system with greater clarity and confidence.
+        </p>
+        <p className="mt-4">
+          Contact our criminal defence team today to discuss your
+          criminal matter and learn how we can help you pursue the best
+          possible outcome.
+        </p>
+        <ActionsRow />
+      </div>
+    </SoftSection>
+  );
+}
+
+function FooterBar() {
+  return (
+    <footer className="border-t border-white/10 bg-[#0d1b2a] py-8 text-center text-[13px] text-white/60">
+      <Wrap>
+        <p>
+          © {new Date().getFullYear()} Saggi Law Firm Professional
+          Corporation. All rights reserved.
+        </p>
+        <p className="mt-2">
+          Direct line:{" "}
+          <a
+            href={CONTACT.phoneHref}
+            className="border-b border-[#b08d3f] pb-0.5 text-white hover:text-[#d6b872]"
+          >
+            {CONTACT.phone}
+          </a>{" "}
+          · {CONTACT.email} · {CONTACT.location}
+        </p>
+      </Wrap>
+    </footer>
+  );
+}
+
+/* ------------------------------ shared -------------------------------- */
+
+function Wrap({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mx-auto w-full max-w-[1180px] px-6">{children}</div>
+  );
+}
+
+function BasicSection({ children }: { children: React.ReactNode }) {
+  return (
+    <section className="bg-white py-16 md:py-20 lg:py-24">
+      <Wrap>{children}</Wrap>
+    </section>
+  );
+}
+
+function SoftSection({ children }: { children: React.ReactNode }) {
+  return (
+    <section className="border-b border-t border-[#e2e6ea] bg-[#f4f6f8] py-16 md:py-20 lg:py-24">
+      <Wrap>{children}</Wrap>
+    </section>
+  );
+}
+
+function Eyebrow({
+  children,
+  light,
+}: {
+  children: React.ReactNode;
+  light?: boolean;
+}) {
+  return (
+    <p
+      className={`font-sans text-[12px] font-bold uppercase tracking-[0.22em] ${
+        light ? "text-[#d6b872]" : "text-[#b08d3f]"
+      }`}
+      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
     >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
+      {children}
+    </p>
   );
 }
 
-function MailGlyph() {
+function GoldRule() {
+  return <span aria-hidden className="mt-5 block h-[3px] w-[66px] bg-[#b08d3f]" />;
+}
+
+function ActionsRow({
+  variant = "default",
+}: {
+  variant?: "default" | "hero" | "dark";
+}) {
+  return (
+    <div className="mt-8 flex flex-wrap gap-3.5">
+      <a
+        href={CONTACT.phoneHref}
+        className="inline-flex items-center justify-center gap-2.5 border-2 border-[#b08d3f] bg-[#b08d3f] px-6 py-[15px] font-sans text-[13.5px] font-bold uppercase tracking-[0.09em] text-white no-underline transition-colors duration-200 hover:border-[#8f7130] hover:bg-[#8f7130]"
+        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+      >
+        <PhoneIcon />
+        Call · Free Consultation
+      </a>
+      <a
+        href={CONTACT.whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={
+          variant === "hero" || variant === "dark"
+            ? "inline-flex items-center justify-center gap-2.5 border-2 border-white/55 bg-transparent px-6 py-[15px] font-sans text-[13.5px] font-bold uppercase tracking-[0.09em] text-white no-underline transition-colors duration-200 hover:border-white hover:bg-white hover:text-[#0d1b2a]"
+            : "inline-flex items-center justify-center gap-2.5 border-2 border-[#0d1b2a] bg-transparent px-6 py-[15px] font-sans text-[13.5px] font-bold uppercase tracking-[0.09em] text-[#0d1b2a] no-underline transition-colors duration-200 hover:bg-[#0d1b2a] hover:text-white"
+        }
+        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+      >
+        <WhatsAppIcon />
+        WhatsApp Us
+      </a>
+    </div>
+  );
+}
+
+/* ---------------------------- tiny icons ------------------------------ */
+
+function PhoneIcon() {
   return (
     <svg
+      aria-hidden
       width="16"
       height="16"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.7"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg aria-hidden width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.1c-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.3a8.3 8.3 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.3 8.3 0 1 1 6.9 3.8z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg
       aria-hidden
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
