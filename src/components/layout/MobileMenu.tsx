@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { siteConfig } from "@/lib/siteConfig";
 
 type NavLink = { href: string; label: string };
 
@@ -22,6 +23,7 @@ export function MobileMenu({
   phone?: string | null;
   phoneHref?: string | null;
 }) {
+  const whatsappHref = siteConfig.contact.whatsappHref;
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -46,19 +48,19 @@ export function MobileMenu({
         aria-label="Open menu"
         aria-expanded={open}
         aria-controls="mobile-menu"
-        className="grid h-11 w-11 place-items-center rounded-md border border-rule bg-paper text-ink transition-colors hover:border-rust hover:text-rust lg:hidden"
+        className="grid h-11 w-11 place-items-center rounded-md border-2 border-ink bg-ink text-cream shadow-brand-sm transition-all hover:-translate-y-px hover:border-rust hover:bg-rust lg:hidden"
       >
         <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
           fill="none"
           aria-hidden
         >
           <path
-            d="M3 5h14M3 10h14M3 15h14"
+            d="M3.5 5.5h15M3.5 11h15M3.5 16.5h15"
             stroke="currentColor"
-            strokeWidth="1.75"
+            strokeWidth="2.2"
             strokeLinecap="round"
           />
         </svg>
@@ -140,23 +142,50 @@ export function MobileMenu({
               <a
                 href={phoneHref}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between rounded-md bg-ink px-4 py-3 text-cream transition-all hover:bg-ink-soft"
+                className="flex items-center justify-between rounded-md bg-ink px-4 py-3.5 text-cream transition-all hover:bg-ink-soft"
               >
                 <span className="flex flex-col items-start leading-none">
-                  <span className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-gold">
+                  <span className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-gold">
                     Call now · 24/7
                   </span>
-                  <span className="mt-1 font-display text-[1.05rem] font-medium">
+                  <span className="mt-1 font-display text-[1.08rem] font-medium">
                     {phone}
                   </span>
                 </span>
-                <span aria-hidden>✆</span>
+                <span aria-hidden className="text-[1.3rem]">✆</span>
+              </a>
+            )}
+            {whatsappHref && (
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between rounded-md bg-[#25D366] px-4 py-3.5 text-white shadow-[0_4px_14px_rgba(37,211,102,0.35)] transition-all hover:bg-[#1FB855]"
+              >
+                <span className="flex flex-col items-start leading-none">
+                  <span className="text-[0.8rem] font-semibold uppercase tracking-[0.14em] text-white/90">
+                    WhatsApp us
+                  </span>
+                  <span className="mt-1 font-display text-[1.08rem] font-medium">
+                    Message a lawyer
+                  </span>
+                </span>
+                <svg
+                  aria-hidden
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.1c-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.3a8.3 8.3 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.3 8.3 0 1 1 6.9 3.8z" />
+                </svg>
               </a>
             )}
             <Link
               href={bookingUrl}
               onClick={() => setOpen(false)}
-              className="flex items-center justify-between rounded-md bg-rust px-4 py-3 font-bold text-white transition-all hover:bg-rust-hover"
+              className="flex items-center justify-between rounded-md bg-rust px-4 py-3.5 font-bold text-white shadow-[0_4px_14px_rgba(184,83,32,0.32)] transition-all hover:bg-rust-hover"
             >
               Book free consultation
               <span aria-hidden>→</span>
