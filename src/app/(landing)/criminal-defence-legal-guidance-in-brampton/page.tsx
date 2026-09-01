@@ -999,7 +999,7 @@ function FooterBar() {
           >
             {CONTACT.phone}
           </a>{" "}
-          · {CONTACT.email} · {CONTACT.location}
+          · {CONTACT.email} · {CONTACT.city} · {CONTACT.region}
         </p>
       </Wrap>
     </footer>
