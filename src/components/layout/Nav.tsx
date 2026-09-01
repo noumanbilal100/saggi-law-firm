@@ -7,10 +7,11 @@ import { getBranding } from "@/lib/branding";
 
 const links = [
   { href: "/services", label: "Criminal Defence" },
-  { href: "/about", label: "About" },
+  { href: "/other-services", label: "Other Services" },
+  { href: "/about-us", label: "About" },
   { href: "/location", label: "Locations" },
   { href: "/blog", label: "Journal" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact-us", label: "Contact" },
 ];
 
 export async function Nav() {
@@ -72,7 +73,7 @@ export async function Nav() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
-              href={bookingUrl ?? "/contact"}
+              href={bookingUrl ?? "/contact-us"}
               className="btn-shimmer hidden items-center gap-2 rounded-md bg-rust px-4 py-2.5 text-[0.85rem] font-bold tracking-[0.02em] text-white shadow-[0_4px_12px_rgba(173,82,7,0.35)] transition-all duration-150 hover:-translate-y-px hover:bg-rust-hover hover:shadow-[0_6px_18px_rgba(173,82,7,0.45)] sm:inline-flex sm:px-5 sm:py-3 sm:text-[0.88rem]"
             >
               <span>Consultation</span>
@@ -80,7 +81,7 @@ export async function Nav() {
             </Link>
             <MobileMenu
               links={links}
-              bookingUrl={bookingUrl ?? "/contact"}
+              bookingUrl={bookingUrl ?? "/contact-us"}
               phone={phone}
               phoneHref={phoneHref}
             />

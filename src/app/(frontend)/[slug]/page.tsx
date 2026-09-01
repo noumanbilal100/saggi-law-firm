@@ -61,9 +61,10 @@ type HeroImageRelation = { url?: string | null; alt?: string | null };
 
 const RESERVED = new Set([
   "services",
+  "other-services",
   "blog",
-  "about",
-  "contact",
+  "about-us",
+  "contact-us",
   "booking",
   "location",
   "case-studies",

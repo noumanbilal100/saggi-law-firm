@@ -13,7 +13,7 @@ type NavLink = { href: string; label: string };
  */
 export function MobileMenu({
   links,
-  bookingUrl = "/contact",
+  bookingUrl = "/contact-us",
   phone,
   phoneHref,
 }: {

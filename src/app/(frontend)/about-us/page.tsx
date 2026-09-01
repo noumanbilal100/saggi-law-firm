@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     ? `${siteConfig.lawyer.name} — Criminal Defence Lawyer, Brampton`
     : "About the Lawyer",
   description: siteConfig.lawyer.bio ?? "About the lawyer at Saggi Law Firm.",
-  alternates: { canonical: "/about" },
+  alternates: { canonical: "/about-us" },
 };
 
 const personJsonLd = (() => {
@@ -32,7 +32,7 @@ const personJsonLd = (() => {
     ...(l.languages ? { knowsLanguage: l.languages } : {}),
     ...(siteConfig.contact.phone ? { telephone: siteConfig.contact.phone } : {}),
     ...(siteConfig.contact.email ? { email: siteConfig.contact.email } : {}),
-    url: `${siteConfig.url}/about`,
+    url: `${siteConfig.url}/about-us`,
   };
 })();
 
@@ -41,7 +41,7 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-    { "@type": "ListItem", position: 2, name: "About the Lawyer", item: `${siteConfig.url}/about` },
+    { "@type": "ListItem", position: 2, name: "About the Lawyer", item: `${siteConfig.url}/about-us` },
   ],
 };
 

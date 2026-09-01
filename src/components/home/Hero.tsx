@@ -54,7 +54,7 @@ export function Hero() {
               </span>
             </a>
             <a
-              href={bookingUrl ?? "/contact"}
+              href={bookingUrl ?? "/contact-us"}
               className="inline-flex min-w-[210px] flex-col items-start rounded-md border-[1.5px] border-rule bg-transparent px-5 py-3 text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
             >
               <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">

@@ -65,7 +65,7 @@ export function InlineMeetLawyer() {
             impaired driving, assault, drug offences, and more.
           </p>
           <Link
-            href="/about"
+            href="/about-us"
             className="mt-4 inline-flex items-center gap-2 font-body text-[0.9rem] font-bold text-rust transition-transform hover:translate-x-1"
           >
             Read Mandeep's full profile
@@ -116,7 +116,7 @@ export function InlineCta() {
             {phone ?? <Placeholder onDark>[Phone]</Placeholder>}
           </a>
           <Link
-            href={bookingUrl ?? "/contact"}
+            href={bookingUrl ?? "/contact-us"}
             className="inline-flex items-center justify-center gap-2 rounded-md border-[1.5px] border-white/25 bg-white/[0.03] px-5 py-3.5 font-body text-[0.9rem] font-bold text-cream backdrop-blur-sm transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
           >
             Book online

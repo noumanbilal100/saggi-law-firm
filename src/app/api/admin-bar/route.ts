@@ -27,9 +27,10 @@ const NEVER_RESOLVE = ["/admin", "/api", "/_next"];
     to point at a page that doesn't exist in a collection. */
 const RESERVED_ROOT = new Set([
   "services",
+  "other-services",
   "blog",
-  "about",
-  "contact",
+  "about-us",
+  "contact-us",
   "booking",
   "location",
   "case-studies",
@@ -42,8 +43,9 @@ const RESERVED_ROOT = new Set([
     "code-managed page" chip on these instead of an Edit button that
     would land the client on an empty collection listing. */
 const CODE_MANAGED = new Set([
-  "/about",
-  "/contact",
+  "/about-us",
+  "/contact-us",
+  "/other-services",
   "/booking",
   "/location",
   "/case-studies",

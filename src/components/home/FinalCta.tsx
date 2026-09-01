@@ -55,7 +55,7 @@ export function FinalCta() {
             </span>
           </a>
           <a
-            href={bookingUrl ?? "/contact"}
+            href={bookingUrl ?? "/contact-us"}
             className="inline-flex min-w-[240px] flex-col items-start rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
           >
             <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">

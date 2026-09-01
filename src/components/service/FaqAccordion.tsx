@@ -109,7 +109,7 @@ export function FaqAccordion({
                   </a>
                 )}
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="inline-flex items-center gap-1 rounded-md border-[1.5px] border-rule bg-transparent px-3.5 py-2 font-body text-[0.82rem] font-bold text-ink transition-all hover:border-rust hover:text-rust"
                 >
                   Contact us

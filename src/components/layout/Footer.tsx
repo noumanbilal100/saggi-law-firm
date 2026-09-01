@@ -14,11 +14,11 @@ const practiceLinks = [
   { href: "/services", label: "All practice areas" },
 ];
 const firmLinks = [
-  { href: "/about", label: "Meet the lawyer" },
+  { href: "/about-us", label: "Meet the lawyer" },
   { href: "/#reviews", label: "Client reviews" },
   { href: "/location", label: "Service areas" },
-  { href: "/services#additional", label: "Other services" },
-  { href: "/contact", label: "Contact" },
+  { href: "/other-services", label: "Other services" },
+  { href: "/contact-us", label: "Contact" },
 ];
 
 export async function Footer() {

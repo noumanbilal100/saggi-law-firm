@@ -29,8 +29,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${base}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/other-services`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/about-us`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/contact-us`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/booking`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${base}/location`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
@@ -107,9 +108,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const RESERVED = new Set([
       "services",
+      "other-services",
       "blog",
-      "about",
-      "contact",
+      "about-us",
+      "contact-us",
       "booking",
       "location",
       "case-studies",

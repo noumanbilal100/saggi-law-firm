@@ -56,7 +56,7 @@ export function ProseCta({
             </span>
           </a>
           <Link
-            href={bookingUrl ?? "/contact"}
+            href={bookingUrl ?? "/contact-us"}
             className="inline-flex items-center gap-3 rounded-md border-[1.5px] border-white/25 px-5 py-3 text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
           >
             <span className="flex flex-col items-start leading-none">

@@ -13,7 +13,7 @@ export function MobileCta() {
         ✆ Call
       </a>
       <Link
-        href="/contact"
+        href="/contact-us"
         className="flex flex-1 items-center justify-center gap-2 rounded-md bg-rust px-4 py-3 text-[0.88rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:bg-rust-hover"
       >
         Consultation

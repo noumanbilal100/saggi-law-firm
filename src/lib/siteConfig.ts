@@ -85,7 +85,7 @@ export const siteConfig = {
     role: "Criminal Defence Lawyer",
     photoSrc: "/lawyer.jpg",
     photoAlt: "Mandeep Saggi, Criminal Defence Lawyer — Brampton",
-    profileUrl: "/about",
+    profileUrl: "/about-us",
     bio: "Since 2009, Mandeep Saggi has built a reputation as a criminal defence lawyer in Brampton who vigorously fights for his clients' rights.",
     bioParagraphs: [
       "He has successfully defended clients against criminal cases in the Ontario Court of Justice and the Superior Court of Justice, and makes daily appearances at the Brampton Courthouse.",

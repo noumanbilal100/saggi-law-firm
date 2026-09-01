@@ -4,7 +4,7 @@ import { ContactSection } from "@/components/home/ContactSection";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact Saggi Law Firm to arrange a consultation.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/contact-us" },
 };
 
 export default function ContactPage() {

@@ -6,7 +6,7 @@ export const LawyerProfile: GlobalConfig = {
   label: "Lawyer Profile",
   admin: {
     description:
-      "Mandeep Saggi's profile — photo, bio, credentials, award. Used on the Meet the Lawyer section and the /about page.",
+      "Mandeep Saggi's profile — photo, bio, credentials, award. Used on the Meet the Lawyer section and the /about-us page.",
   },
   access: { read: () => true },
   fields: [
@@ -40,7 +40,7 @@ export const LawyerProfile: GlobalConfig = {
       type: "richText",
       editor: richTextEditor,
       admin: {
-        description: "Longer bio shown on the /about page.",
+        description: "Longer bio shown on the /about-us page.",
       },
     },
     {
@@ -78,7 +78,7 @@ export const LawyerProfile: GlobalConfig = {
     {
       name: "profileUrl",
       type: "text",
-      defaultValue: "/about",
+      defaultValue: "/about-us",
       admin: {
         description: "Where 'Learn More About the Lawyer' links to.",
       },

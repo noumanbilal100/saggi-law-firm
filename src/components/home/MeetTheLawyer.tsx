@@ -152,7 +152,7 @@ export function MeetTheLawyer() {
 
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <Link
-                href={profileUrl ?? "/about"}
+                href={profileUrl ?? "/about-us"}
                 className="inline-flex items-center gap-2.5 rounded-md bg-rust px-6 py-[15px] font-body text-[0.95rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
               >
                 Learn More About the Lawyer →

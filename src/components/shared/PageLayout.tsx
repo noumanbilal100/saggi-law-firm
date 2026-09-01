@@ -158,7 +158,7 @@ export async function PageLayout({
                   </span>
                 </a>
                 <Link
-                  href={bookingUrl ?? "/contact"}
+                  href={bookingUrl ?? "/contact-us"}
                   className="inline-flex min-w-[210px] flex-col items-start rounded-md border-[1.5px] border-rule bg-transparent px-5 py-3 text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
                 >
                   <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
@@ -362,7 +362,7 @@ export async function PageLayout({
               </span>
             </a>
             <Link
-              href={bookingUrl ?? "/contact"}
+              href={bookingUrl ?? "/contact-us"}
               className="inline-flex min-w-[240px] items-center justify-center gap-3 rounded-md border-[1.5px] border-white/25 bg-white/[0.03] px-6 py-4 text-cream backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-gold hover:bg-white/[0.06] hover:text-gold"
             >
               <span className="flex flex-col items-start leading-none">
@@ -738,7 +738,7 @@ export async function PageLayout({
               </span>
             </a>
             <Link
-              href={bookingUrl ?? "/contact"}
+              href={bookingUrl ?? "/contact-us"}
               className="inline-flex min-w-[220px] flex-col items-start rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
             >
               <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
