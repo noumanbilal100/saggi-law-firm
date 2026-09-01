@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { mainLocations, alsoLocations } from "@/lib/locations";
+import { mainLocations, alsoLocations } from "@/lib/location";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: "Service Areas",
   description:
     "Communities across Brampton, the Greater Toronto Area, and Southern Ontario served by Saggi Law Firm.",
-  alternates: { canonical: "/locations" },
+  alternates: { canonical: "/location" },
 };
 
 const breadcrumbJsonLd = {
@@ -16,7 +16,7 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-    { "@type": "ListItem", position: 2, name: "Service Areas", item: `${siteConfig.url}/locations` },
+    { "@type": "ListItem", position: 2, name: "Service Areas", item: `${siteConfig.url}/location` },
   ],
 };
 
@@ -66,7 +66,7 @@ export default function LocationsPage() {
             {mainLocations.map((l) => (
               <Link
                 key={l.slug}
-                href={`/locations/${l.slug}`}
+                href={`/location/${l.slug}`}
                 className="group flex items-center justify-between gap-4 rounded-[10px] border border-rule bg-paper px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-rust hover:shadow-brand-sm"
               >
                 <span className="flex items-center gap-2.5">
@@ -96,7 +96,7 @@ export default function LocationsPage() {
             {alsoLocations.map((l) => (
               <Link
                 key={l.slug}
-                href={`/locations/${l.slug}`}
+                href={`/location/${l.slug}`}
                 className="inline-flex items-center gap-1.5 rounded-full border border-rule bg-paper px-4 py-2 text-[0.9rem] font-medium text-ink transition-all hover:border-rust hover:bg-rust hover:text-white"
               >
                 {l.name}

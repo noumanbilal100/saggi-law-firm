@@ -8,7 +8,7 @@ import { getBranding } from "@/lib/branding";
 const links = [
   { href: "/services", label: "Criminal Defence" },
   { href: "/about", label: "About" },
-  { href: "/locations", label: "Locations" },
+  { href: "/location", label: "Locations" },
   { href: "/blog", label: "Journal" },
   { href: "/contact", label: "Contact" },
 ];

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { mainLocations, alsoLocations } from "@/lib/locations";
+import { mainLocations, alsoLocations } from "@/lib/location";
 
 export function ServiceAreasSection() {
   return (
@@ -25,7 +25,7 @@ export function ServiceAreasSection() {
               {mainLocations.map((l) => (
                 <Link
                   key={l.slug}
-                  href={`/locations/${l.slug}`}
+                  href={`/location/${l.slug}`}
                   className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[0.86rem] transition-all ${
                     l.slug === "brampton"
                       ? "border-gold bg-gold font-semibold text-ink"
@@ -47,7 +47,7 @@ export function ServiceAreasSection() {
               {alsoLocations.map((l) => (
                 <Link
                   key={l.slug}
-                  href={`/locations/${l.slug}`}
+                  href={`/location/${l.slug}`}
                   className="inline-flex items-center rounded-full border border-gold/20 bg-white/[0.05] px-3.5 py-2 text-[0.86rem] text-cream transition-all hover:border-gold hover:bg-gold hover:text-ink"
                 >
                   {l.name}

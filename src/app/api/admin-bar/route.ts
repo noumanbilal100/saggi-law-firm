@@ -31,9 +31,22 @@ const RESERVED_ROOT = new Set([
   "about",
   "contact",
   "booking",
-  "locations",
+  "location",
+  "case-studies",
   "admin",
   "api",
+]);
+
+/** Paths whose content is hardcoded in the repo (file-based pages,
+    not backed by a CMS collection). The bar shows a small
+    "code-managed page" chip on these instead of an Edit button that
+    would land the client on an empty collection listing. */
+const CODE_MANAGED = new Set([
+  "/about",
+  "/contact",
+  "/booking",
+  "/location",
+  "/case-studies",
 ]);
 
 type EditInfo = {
@@ -41,6 +54,9 @@ type EditInfo = {
   label: string | null;
   createUrl: string | null;
   createLabel: string | null;
+  /** When set, the bar renders a passive "This page is code-managed"
+      chip instead of the Edit button. */
+  codeManaged?: boolean;
 };
 
 const nothing: EditInfo = {
@@ -58,6 +74,11 @@ async function resolveEditInfo(path: string): Promise<EditInfo> {
   const payload = await getPayloadInstance();
   const clean = path.split("?")[0].split("#")[0];
   const segments = clean.split("/").filter(Boolean);
+
+  /* Code-managed pages first — no CMS doc backs them. */
+  if (CODE_MANAGED.has(clean)) {
+    return { ...nothing, codeManaged: true };
+  }
 
   /* /blog/<slug> — blog detail page. */
   if (segments[0] === "blog" && segments[1]) {
@@ -109,24 +130,12 @@ async function resolveEditInfo(path: string): Promise<EditInfo> {
     };
   }
 
-  /* /locations — location index page. */
-  if (segments[0] === "locations" && segments.length === 1) {
-    return {
-      editUrl: "/admin/collections/locations",
-      label: "locations",
-      createUrl: "/admin/collections/locations/create",
-      createLabel: "New location",
-    };
-  }
-
-  /* /case-studies — case-results index page. */
-  if (segments[0] === "case-studies" && segments.length === 1) {
-    return {
-      editUrl: "/admin/collections/case-results",
-      label: "case studies",
-      createUrl: "/admin/collections/case-results/create",
-      createLabel: "New case study",
-    };
+  /* /location/* and /case-studies/* — the entire tree is file-based
+     (reads from src/lib/location.ts and src/lib/case-results.ts).
+     The DB collections exist but aren't wired to the frontend, so
+     linking into them would mislead. */
+  if (segments[0] === "location" || segments[0] === "case-studies") {
+    return { ...nothing, codeManaged: true };
   }
 
   /* Home page — no single collection doc; link to the navigation
@@ -183,54 +192,6 @@ async function resolveEditInfo(path: string): Promise<EditInfo> {
       }
     } catch {
       /* fall through */
-    }
-  }
-
-  /* /locations/<slug>. */
-  if (segments[0] === "locations" && segments[1]) {
-    const slug = segments[1];
-    try {
-      const res = await payload.find({
-        collection: "locations",
-        where: { slug: { equals: slug } },
-        limit: 1,
-        depth: 0,
-      });
-      const doc = res.docs[0];
-      if (doc) {
-        return {
-          editUrl: `/admin/collections/locations/${doc.id}`,
-          label: "this location",
-          createUrl: "/admin/collections/locations/create",
-          createLabel: "New location",
-        };
-      }
-    } catch {
-      /* ignore */
-    }
-  }
-
-  /* /case-studies/<slug>. */
-  if (segments[0] === "case-studies" && segments[1]) {
-    const slug = segments[1];
-    try {
-      const res = await payload.find({
-        collection: "case-results",
-        where: { slug: { equals: slug } },
-        limit: 1,
-        depth: 0,
-      });
-      const doc = res.docs[0];
-      if (doc) {
-        return {
-          editUrl: `/admin/collections/case-results/${doc.id}`,
-          label: "this case study",
-          createUrl: "/admin/collections/case-results/create",
-          createLabel: "New case study",
-        };
-      }
-    } catch {
-      /* ignore */
     }
   }
 

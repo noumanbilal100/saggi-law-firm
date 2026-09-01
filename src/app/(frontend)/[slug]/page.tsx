@@ -52,7 +52,7 @@ import { siteConfig } from "@/lib/siteConfig";
  *   4. Otherwise                        — notFound().
  *
  * `RESERVED` guards route names that already have their own file
- * (/services index, /blog, /about, /contact, /booking, /locations,
+ * (/services index, /blog, /about, /contact, /booking, /location,
  * /admin, /api) so the catch-all never shadows them.
  */
 
@@ -65,7 +65,8 @@ const RESERVED = new Set([
   "about",
   "contact",
   "booking",
-  "locations",
+  "location",
+  "case-studies",
   "admin",
   "api",
 ]);

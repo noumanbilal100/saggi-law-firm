@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { locations } from "@/lib/locations";
+import { locations } from "@/lib/location";
 import { services } from "@/lib/services";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -27,11 +27,11 @@ export async function generateMetadata(
   return {
     title,
     description,
-    alternates: { canonical: `/locations/${slug}` },
+    alternates: { canonical: `/location/${slug}` },
     openGraph: {
       title,
       description,
-      url: `${siteConfig.url}/locations/${slug}`,
+      url: `${siteConfig.url}/location/${slug}`,
       type: "website",
     },
   };
@@ -51,7 +51,7 @@ export default async function LocationPage(
     "@context": "https://schema.org",
     "@type": "LegalService",
     name: `${siteConfig.name} — Criminal Defence Lawyer in ${loc.name}`,
-    url: `${siteConfig.url}/locations/${slug}`,
+    url: `${siteConfig.url}/location/${slug}`,
     description: `Criminal defence representation in ${loc.name} and across the Greater Toronto Area.`,
     areaServed: { "@type": "City", name: loc.name },
     provider: {
@@ -66,8 +66,8 @@ export default async function LocationPage(
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-      { "@type": "ListItem", position: 2, name: "Locations", item: `${siteConfig.url}/locations` },
-      { "@type": "ListItem", position: 3, name: loc.name, item: `${siteConfig.url}/locations/${slug}` },
+      { "@type": "ListItem", position: 2, name: "Locations", item: `${siteConfig.url}/location` },
+      { "@type": "ListItem", position: 3, name: loc.name, item: `${siteConfig.url}/location/${slug}` },
     ],
   };
 
@@ -99,7 +99,7 @@ export default async function LocationPage(
           >
             <Link href="/" className="hover:text-rust">Home</Link>
             <span aria-hidden className="opacity-50">›</span>
-            <Link href="/locations" className="hover:text-rust">Locations</Link>
+            <Link href="/location" className="hover:text-rust">Locations</Link>
             <span aria-hidden className="opacity-50">›</span>
             <span>{loc.name}</span>
           </nav>

@@ -1,6 +1,6 @@
 import { Placeholder } from "@/components/ui/Placeholder";
 import { siteConfig } from "@/lib/siteConfig";
-import { mainLocations } from "@/lib/locations";
+import { mainLocations } from "@/lib/location";
 
 export function Hero() {
   const { phone, phoneHref, bookingUrl } = siteConfig.contact;
@@ -102,7 +102,7 @@ export function Hero() {
           </ul>
           <div className="mt-6 border-t border-rule pt-6 text-[0.85rem] leading-[1.6] text-muted">
             … as well as communities throughout the surrounding GTA and Ontario.{" "}
-            <a href="/locations" className="font-semibold text-rust underline underline-offset-2">
+            <a href="/location" className="font-semibold text-rust underline underline-offset-2">
               See full list →
             </a>
           </div>

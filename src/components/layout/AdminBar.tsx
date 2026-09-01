@@ -27,6 +27,8 @@ type AdminBarInfo = {
   label: string | null;
   createUrl: string | null;
   createLabel: string | null;
+  /** File-based page — no Edit button, show a passive note instead. */
+  codeManaged?: boolean;
 };
 
 export function AdminBar() {
@@ -102,6 +104,15 @@ export function AdminBar() {
 
       {/* Right: actions */}
       <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
+        {info.codeManaged && (
+          <span
+            title="This page's content is hardcoded in the repo, not stored in the CMS. Ask the developer to move it to a collection to make it editable here."
+            className="hidden items-center gap-1.5 rounded border border-cream/20 bg-cream/5 px-2.5 py-1 text-cream/60 sm:inline-flex sm:px-3 sm:py-1.5"
+          >
+            <LockIcon />
+            Code-managed page
+          </span>
+        )}
         {info.editUrl && (
           <Link
             href={info.editUrl}
@@ -166,6 +177,25 @@ function PlusIcon() {
       strokeLinejoin="round"
     >
       <path d="M12 5v14M5 12h14" />
+    </svg>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg
+      aria-hidden
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="4" y="11" width="16" height="10" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
     </svg>
   );
 }

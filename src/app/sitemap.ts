@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/services";
-import { mainLocations, alsoLocations } from "@/lib/locations";
+import { mainLocations, alsoLocations } from "@/lib/location";
 import { caseResults } from "@/lib/case-results";
 import { listBlogSlugs } from "@/lib/blog";
 import { getPayloadInstance } from "@/lib/payload";
@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/booking`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${base}/locations`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${base}/location`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/case-studies`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
   ];
 
@@ -58,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...mainLocations,
     ...alsoLocations,
   ].map((l) => ({
-    url: `${base}/locations/${l.slug}`,
+    url: `${base}/location/${l.slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.5,
@@ -111,7 +111,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "about",
       "contact",
       "booking",
-      "locations",
+      "location",
+      "case-studies",
       "admin",
       "api",
     ]);

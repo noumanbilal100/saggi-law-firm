@@ -16,7 +16,7 @@ const practiceLinks = [
 const firmLinks = [
   { href: "/about", label: "Meet the lawyer" },
   { href: "/#reviews", label: "Client reviews" },
-  { href: "/locations", label: "Service areas" },
+  { href: "/location", label: "Service areas" },
   { href: "/services#additional", label: "Other services" },
   { href: "/contact", label: "Contact" },
 ];

@@ -5,7 +5,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { siteConfig } from "@/lib/siteConfig";
 import { services } from "@/lib/services";
-import { mainLocations } from "@/lib/locations";
+import { mainLocations } from "@/lib/location";
 
 export const metadata: Metadata = {
   title: siteConfig.lawyer.name
@@ -284,7 +284,7 @@ export default function AboutPage() {
             {mainLocations.map((loc) => (
               <Link
                 key={loc.slug}
-                href={`/locations/${loc.slug}`}
+                href={`/location/${loc.slug}`}
                 className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-[0.88rem] transition-all ${
                   loc.slug === "brampton"
                     ? "border-rust bg-rust text-white font-semibold"
@@ -297,7 +297,7 @@ export default function AboutPage() {
             ))}
           </div>
           <p className="mt-6 text-[0.95rem] leading-[1.65] text-muted">
-            <Link href="/locations" className="text-rust underline underline-offset-2 hover:text-rust-hover">
+            <Link href="/location" className="text-rust underline underline-offset-2 hover:text-rust-hover">
               See the full list of communities served →
             </Link>
           </p>

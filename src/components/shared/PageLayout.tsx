@@ -16,7 +16,7 @@ import {
 } from "@/lib/services";
 import { getCaseResultsForService, hasSampleResults } from "@/lib/case-results";
 import { loadAllBlogPosts, getBlogPostsForService } from "@/lib/blog";
-import { mainLocations, alsoLocations } from "@/lib/locations";
+import { mainLocations, alsoLocations } from "@/lib/location";
 import type { ServiceFaq } from "@/lib/extract-service-faq";
 
 export type PageHero = {
@@ -662,7 +662,7 @@ export async function PageLayout({
               </span>
             </div>
             <Link
-              href="/locations"
+              href="/location"
               className="inline-flex items-center gap-1.5 font-body text-[0.85rem] font-semibold text-rust transition-transform hover:translate-x-1"
             >
               All locations <span aria-hidden>→</span>
@@ -673,7 +673,7 @@ export async function PageLayout({
             {mainLocations.map((l) => (
               <Link
                 key={l.slug}
-                href={`/locations/${l.slug}`}
+                href={`/location/${l.slug}`}
                 className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.85rem] transition-all ${
                   l.slug === "brampton"
                     ? "border-rust bg-rust font-semibold text-white"
@@ -687,7 +687,7 @@ export async function PageLayout({
             {alsoLocations.slice(0, 10).map((l) => (
               <Link
                 key={l.slug}
-                href={`/locations/${l.slug}`}
+                href={`/location/${l.slug}`}
                 className="inline-flex items-center rounded-full border border-rule bg-paper px-3 py-1.5 text-[0.8rem] text-muted transition-all hover:border-rust hover:text-rust"
               >
                 {l.name}
@@ -695,7 +695,7 @@ export async function PageLayout({
             ))}
             {alsoLocations.length > 10 && (
               <Link
-                href="/locations"
+                href="/location"
                 className="inline-flex items-center rounded-full border border-dashed border-rule bg-transparent px-3 py-1.5 text-[0.8rem] font-semibold text-rust hover:bg-rust hover:text-white"
               >
                 +{alsoLocations.length - 10} more →

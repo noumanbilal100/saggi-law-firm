@@ -57,7 +57,7 @@ export const Navigation: GlobalConfig = {
       defaultValue: [
         { label: "Criminal Defence", href: "/services" },
         { label: "About", href: "/about" },
-        { label: "Locations", href: "/locations" },
+        { label: "Locations", href: "/location" },
         { label: "Journal", href: "/blog" },
         { label: "Contact", href: "/contact" },
       ],
