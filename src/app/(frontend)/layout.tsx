@@ -5,6 +5,7 @@ import { TopBar } from "@/components/layout/TopBar";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { MobileCta } from "@/components/layout/MobileCta";
+import { AdminBar } from "@/components/layout/AdminBar";
 import { RevealBoot } from "@/components/ui/Reveal";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { siteConfig } from "@/lib/siteConfig";
@@ -101,6 +102,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         suppressHydrationWarning
       >
         <OrganizationJsonLd />
+        <AdminBar />
         <TopBar />
         <Nav />
         <main className="flex-1">{children}</main>

@@ -231,6 +231,13 @@
    for backwards compat with existing markup. */
 .reveal { opacity: 1; }
 
+/* Admin edit bar — shifts the body content and the sticky nav down
+   by 40px whenever `<AdminBar />` mounts (client component sets the
+   `.has-admin-bar` class on <html> once it confirms the visitor has a
+   valid Payload session). No effect for public visitors. */
+:root.has-admin-bar body { padding-top: 40px; }
+:root.has-admin-bar #mainNav { top: 40px !important; }
+
 /* ==========================================================================
    Premium micro-interactions — polish, not decoration.
    Every effect below either only fires on hover / focus / state change,
