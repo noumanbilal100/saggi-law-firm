@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 
 type NavLink = { href: string; label: string };
@@ -30,6 +31,13 @@ export function MobileMenu({
   phoneHref?: string | null;
 }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  /* Portal-render only after mount so SSR HTML matches the initial
+     client render (no drawer in the tree until hydration). */
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -71,7 +79,35 @@ export function MobileMenu({
         </svg>
       </button>
 
-      {/* Backdrop + panel */}
+      {/* Backdrop + panel — portalled to document.body so it escapes
+          the Nav's backdrop-blur containing block (a fixed descendant
+          of a backdrop-filtered ancestor is trapped inside that
+          ancestor's box, which is why the drawer only covered the
+          nav strip before). */}
+      {mounted &&
+        createPortal(
+          <MobileMenuOverlay open={open} onClose={() => setOpen(false)} links={links} bookingUrl={bookingUrl} />,
+          document.body,
+        )}
+    </>
+  );
+}
+
+/* Split the overlay into its own component so the portal callsite
+   stays tiny; every piece of visual state (backdrop opacity, panel
+   translate, close handler) lives here. */
+function MobileMenuOverlay({
+  open,
+  onClose,
+  links,
+  bookingUrl,
+}: {
+  open: boolean;
+  onClose: () => void;
+  links: NavLink[];
+  bookingUrl: string;
+}) {
+  return (
       <div
         id="mobile-menu"
         className={`fixed inset-0 z-[70] lg:hidden ${
@@ -81,18 +117,23 @@ export function MobileMenu({
       >
         {/* Backdrop */}
         <div
-          onClick={() => setOpen(false)}
+          onClick={onClose}
           className={`absolute inset-0 bg-ink/60 backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${
             open ? "opacity-100" : "opacity-0"
           }`}
         />
 
-        {/* Panel */}
+        {/* Panel — inset-y-0 explicitly spans top:0 to bottom:0 of
+            the fixed parent so mobile browsers (Safari especially)
+            always give it full viewport height. `h-full` alone was
+            collapsing to content height on some phones, which cut
+            the nav list off after the first link and let the page
+            content bleed through below the CTA. */}
         <aside
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className={`absolute right-0 top-0 flex h-full w-full max-w-sm flex-col bg-cream shadow-brand-lg transition-transform duration-250 motion-reduce:transition-none ${
+          className={`absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-cream shadow-brand-lg transition-transform duration-250 motion-reduce:transition-none ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -106,7 +147,7 @@ export function MobileMenu({
             </span>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={onClose}
               aria-label="Close menu"
               className="grid h-10 w-10 place-items-center rounded-md text-muted transition-colors hover:bg-rust/10 hover:text-rust"
             >
@@ -135,7 +176,7 @@ export function MobileMenu({
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    onClick={() => setOpen(false)}
+                    onClick={onClose}
                     className="flex items-center justify-between py-4 font-display text-[1.2rem] font-medium text-ink transition-colors hover:text-rust"
                   >
                     {l.label}
@@ -154,7 +195,7 @@ export function MobileMenu({
           <div className="border-t border-rule bg-paper px-5 py-5">
             <Link
               href={bookingUrl}
-              onClick={() => setOpen(false)}
+              onClick={onClose}
               className="btn-shimmer flex items-center justify-center gap-2 rounded-md bg-rust px-4 py-3.5 font-body text-[1rem] font-bold tracking-[0.02em] text-white shadow-[0_4px_14px_rgba(184,83,32,0.32)] transition-all hover:-translate-y-px hover:bg-rust-hover hover:shadow-[0_6px_18px_rgba(184,83,32,0.42)]"
             >
               Consultation
@@ -163,6 +204,5 @@ export function MobileMenu({
           </div>
         </aside>
       </div>
-    </>
   );
 }
