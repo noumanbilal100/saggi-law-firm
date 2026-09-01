@@ -188,63 +188,120 @@ export default function LandingPage() {
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-b from-[#0d1b2a] to-[#132a41] text-[#c9d3dd]">
-      <div className="grid items-stretch md:grid-cols-[55%_45%]">
-        <div className="px-6 py-14 md:py-20 lg:py-24">
-          <div className="ml-auto max-w-[600px] md:pl-6">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#b08d3f]/40 bg-[#b08d3f]/15 px-3 py-1.5 font-sans text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872]" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
-              <span aria-hidden className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#d6b872]/60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#d6b872]" />
-              </span>
-              Available 24/7 · Free Consultation
-            </div>
-            <Eyebrow light>Saggi Law Firm — Criminal Defence</Eyebrow>
-            <h1 className="mt-4 font-serif text-[clamp(30px,4.2vw,50px)] font-bold leading-[1.1] tracking-[-0.01em] text-white">
-              Protect Your Future: Speak With a Criminal Defence Lawyer in
-              Toronto now
-            </h1>
-            <GoldRule />
-            <p className="mt-6 text-[#c3cfda]">
-              If you have been charged with a crime, arrested, or are facing
-              a criminal charge, having the right lawyer can make a
-              significant difference. Our criminal defence lawyer team
-              provides focused criminal law services for individuals facing
-              criminal offences. We understand that every criminal case is
-              different, and we build a defence strategy around the
-              specific facts, evidence, and complexity of the case.
-            </p>
-            <p className="mt-4 text-[#c3cfda]">
-              Whether you need an experienced criminal defence lawyer, an
-              experienced criminal lawyer, or immediate legal advice after
-              an arrest, our law firm is prepared to help. We provide
-              strong legal representation while working to protect your
-              rights throughout the criminal justice system.
-            </p>
-            <ActionsRow variant="hero" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#0d1b2a] via-[#0d1b2a] to-[#132a41] text-[#c9d3dd]">
+      {/* Ambient warm glow so the ink ground never reads as flat. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 90% at 90% 20%, rgba(176,141,63,0.22), transparent 60%), radial-gradient(ellipse 40% 80% at 5% 100%, rgba(176,141,63,0.10), transparent 60%)",
+        }}
+      />
+      <div className="relative mx-auto grid max-w-[1240px] items-center gap-10 px-6 py-14 md:grid-cols-[1.15fr_1fr] md:gap-14 md:py-20 lg:py-24">
+        {/* Text column — first on mobile, first on desktop */}
+        <div className="max-w-[640px]">
+          <div
+            className="inline-flex items-center gap-2 rounded-full border border-[#b08d3f]/45 bg-[#b08d3f]/15 px-3 py-1.5 font-sans text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872]"
+            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+          >
+            <span aria-hidden className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#d6b872]/60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#d6b872]" />
+            </span>
+            Available 24/7 · Free Consultation
           </div>
+
+          <h1 className="mt-6 font-serif text-[clamp(32px,4.6vw,54px)] font-bold leading-[1.05] tracking-[-0.01em] text-white">
+            Charged with a crime in the GTA?{" "}
+            <span className="text-[#d6b872]">Speak to a lawyer now.</span>
+          </h1>
+
+          <p className="mt-5 max-w-[56ch] text-[17.5px] leading-[1.6] text-[#c3cfda]">
+            Free, confidential call with a criminal defence lawyer — 24/7.
+            Impaired driving, assault, bail hearings, drug charges, and
+            more. Serving Brampton, Toronto, and the Greater Toronto
+            Area.
+          </p>
+
+          {/* Rating strip — social proof right under the promise */}
+          <div className="mt-6 inline-flex items-center gap-3 rounded border border-white/15 bg-white/[0.04] px-4 py-2.5">
+            <span className="tracking-[0.08em] text-[#d6b872]">★★★★★</span>
+            <span className="text-[13.5px] text-white/85">
+              <span className="font-bold text-white">5.0</span> from 93+ Google reviews
+            </span>
+          </div>
+
+          <ActionsRow variant="hero" />
+
+          {/* Trust chips right under the CTAs — reinforce zero-risk */}
+          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-white/75">
+            <li className="inline-flex items-center gap-1.5">
+              <CheckDot /> Free consultation
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <CheckDot /> Confidential
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <CheckDot /> No obligation
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <CheckDot /> 24/7 direct line
+            </li>
+          </ul>
         </div>
 
-        <div className="relative min-h-[300px] md:min-h-[520px] order-first md:order-last">
+        {/* Image column — sits BELOW text on mobile, right on desktop */}
+        <div className="relative order-last aspect-[4/5] w-full overflow-hidden rounded-[6px] border border-[#b08d3f]/30 shadow-[0_20px_60px_rgba(0,0,0,0.35)] md:aspect-auto md:min-h-[560px] md:shadow-[-18px_18px_0_rgba(176,141,63,0.18)]">
           <Image
             src="/landing-brampton/saggi-hero-criminal-defence-lawyer.jpg"
             alt="Criminal defence lawyer in a navy suit standing in a Canadian courthouse corridor before a court appearance"
             fill
             priority
-            sizes="(max-width: 900px) 100vw, 45vw"
-            className="object-cover"
+            sizes="(max-width: 900px) 100vw, 44vw"
+            className="object-cover object-top"
           />
           <div
             aria-hidden
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(90deg, rgba(13,27,42,0.92) 0%, rgba(13,27,42,0.35) 45%, rgba(13,27,42,0.55) 100%)",
+                "linear-gradient(180deg, rgba(13,27,42,0.10) 0%, transparent 40%, rgba(13,27,42,0.35) 100%)",
             }}
           />
+          {/* Small caption card, bottom-left */}
+          <div className="absolute bottom-4 left-4 max-w-[calc(100%-2rem)] rounded border-l-[3px] border-[#b08d3f] bg-[#0d1b2a]/85 px-3.5 py-2.5 backdrop-blur">
+            <strong className="block font-serif text-[15px] font-bold text-white">
+              Saggi Law Firm
+            </strong>
+            <span
+              className="mt-0.5 block font-sans text-[10.5px] font-semibold uppercase tracking-[0.12em] text-[#d6b872]"
+              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+            >
+              Criminal Defence · Brampton & GTA
+            </span>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function CheckDot() {
+  return (
+    <svg
+      aria-hidden
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#d6b872"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
   );
 }
 
@@ -892,14 +949,89 @@ function OfficeLocation() {
             Get directions on Google Maps →
           </a>
         </div>
-        <div className="relative min-h-[380px] overflow-hidden border border-[#e2e6ea] bg-[#0d1b2a] md:min-h-[500px] md:shadow-[18px_18px_0_rgba(176,141,63,0.18)]">
-          <iframe
-            title="Saggi Law Firm office location on Google Maps"
-            src={`https://maps.google.com/maps?q=${CONTACT.mapsQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-            className="absolute inset-0 h-full w-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+        {/* Illustrated map in the landing's navy/gold palette — same
+            aesthetic as the home page's contact map (grid overlay,
+            radial fade, dropped pin with pulse, address card at
+            bottom), recoloured so it lives inside this landing's ink
+            ground instead of the site's cream one. */}
+        <div
+          className="relative min-h-[380px] overflow-hidden border border-[#b08d3f]/25 md:min-h-[500px] md:shadow-[18px_18px_0_rgba(176,141,63,0.18)]"
+          style={{
+            background:
+              "linear-gradient(180deg, #0d1b2a 0%, #132a41 60%, #0d1b2a 100%)",
+          }}
+          aria-label="Saggi Law Firm office location"
+        >
+          {/* Grid overlay */}
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(214,184,114,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(214,184,114,0.10) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
           />
+          {/* Radial spotlight where the pin sits */}
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(circle at 55% 45%, rgba(176,141,63,0.18) 0px, transparent 250px)",
+            }}
+          />
+          {/* Corner label */}
+          <div className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded border border-[#b08d3f]/40 bg-[#0d1b2a]/70 px-2.5 py-1.5 font-sans text-[10.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872] backdrop-blur" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+            <span aria-hidden className="text-[0.9rem]">🍁</span> Brampton, ON
+          </div>
+          {/* Stylised roads */}
+          <div className="absolute left-[5%] right-[5%] top-[42%] h-[3px] -rotate-2 bg-[#d6b872]/25" />
+          <div className="absolute bottom-[8%] left-[48%] top-[8%] w-[3px] bg-[#d6b872]/25" />
+          <div className="absolute left-[10%] right-[30%] top-[68%] h-[2px] rotate-[15deg] bg-[#d6b872]/20" />
+          {/* Pin pulse ring */}
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-[42%] h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b08d3f] opacity-0"
+            style={{ animation: "map-pulse 2.4s ease-out infinite" }}
+          />
+          {/* Pin */}
+          <div className="absolute left-1/2 top-[42%] z-[2] -translate-x-1/2 -translate-y-full">
+            <div
+              className="grid h-11 w-11 place-items-center rounded-[50%_50%_50%_0] bg-[#b08d3f] shadow-[0_8px_20px_rgba(176,141,63,0.55)]"
+              style={{
+                transform: "rotate(-45deg)",
+                animation: "map-drop 700ms cubic-bezier(0.2,0.7,0.2,1)",
+              }}
+            >
+              <span
+                className="text-[1.15rem] leading-none text-white"
+                style={{ transform: "rotate(45deg)" }}
+              >
+                🍁
+              </span>
+            </div>
+          </div>
+          {/* Address card at bottom */}
+          <div className="absolute inset-x-6 bottom-6 z-[3] rounded border-l-[3px] border-[#b08d3f] bg-white p-5 shadow-[0_12px_28px_rgba(0,0,0,0.35)]">
+            <strong className="block font-serif text-[17px] font-bold text-[#0d1b2a]">
+              Saggi Law Firm
+            </strong>
+            <span className="mt-1 block font-serif text-[14.5px] leading-[1.5] text-[#3d4a57]">
+              {CONTACT.addressLine1}
+              <br />
+              {CONTACT.addressLine2}
+            </span>
+            <a
+              href={CONTACT.mapsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-1.5 font-sans text-[12px] font-bold uppercase tracking-[0.12em] text-[#b08d3f] no-underline hover:text-[#8f7130]"
+              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+            >
+              Open in Google Maps →
+            </a>
+          </div>
         </div>
       </div>
     </SoftSection>
@@ -1062,11 +1194,14 @@ function ActionsRow({
     <div className="mt-8 flex flex-wrap gap-3.5">
       <a
         href={CONTACT.phoneHref}
-        className="inline-flex items-center justify-center gap-2.5 border-2 border-[#b08d3f] bg-[#b08d3f] px-6 py-[15px] font-sans text-[13.5px] font-bold uppercase tracking-[0.09em] text-white no-underline transition-colors duration-200 hover:border-[#8f7130] hover:bg-[#8f7130]"
+        className="group inline-flex items-center justify-center gap-2.5 border-2 border-[#b08d3f] bg-[#b08d3f] px-7 py-[15px] font-sans text-[14px] font-bold uppercase tracking-[0.09em] text-white no-underline shadow-[0_6px_20px_rgba(176,141,63,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#8f7130] hover:bg-[#8f7130]"
         style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+        aria-label={`Call Saggi Law Firm at ${CONTACT.phone}`}
       >
         <PhoneIcon />
-        Call · Free Consultation
+        Call Now
+        <span aria-hidden className="hidden font-normal opacity-90 sm:inline">·</span>
+        <span aria-hidden className="hidden font-normal opacity-90 sm:inline">{CONTACT.phone}</span>
       </a>
       <a
         href={CONTACT.whatsappHref}
@@ -1074,13 +1209,14 @@ function ActionsRow({
         rel="noopener noreferrer"
         className={
           variant === "hero" || variant === "dark"
-            ? "inline-flex items-center justify-center gap-2.5 border-2 border-white/55 bg-transparent px-6 py-[15px] font-sans text-[13.5px] font-bold uppercase tracking-[0.09em] text-white no-underline transition-colors duration-200 hover:border-white hover:bg-white hover:text-[#0d1b2a]"
-            : "inline-flex items-center justify-center gap-2.5 border-2 border-[#0d1b2a] bg-transparent px-6 py-[15px] font-sans text-[13.5px] font-bold uppercase tracking-[0.09em] text-[#0d1b2a] no-underline transition-colors duration-200 hover:bg-[#0d1b2a] hover:text-white"
+            ? "inline-flex items-center justify-center gap-2.5 border-2 border-white/55 bg-transparent px-6 py-[15px] font-sans text-[14px] font-bold uppercase tracking-[0.09em] text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-[#0d1b2a]"
+            : "inline-flex items-center justify-center gap-2.5 border-2 border-[#0d1b2a] bg-transparent px-6 py-[15px] font-sans text-[14px] font-bold uppercase tracking-[0.09em] text-[#0d1b2a] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0d1b2a] hover:text-white"
         }
         style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+        aria-label="Message us on WhatsApp"
       >
         <WhatsAppIcon />
-        WhatsApp Us
+        WhatsApp Now
       </a>
     </div>
   );
