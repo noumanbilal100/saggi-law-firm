@@ -43,7 +43,16 @@ function avatarColor(name: string): string {
     all pause the timer. */
 const AUTOPLAY_INTERVAL = 5500;
 
-export function ReviewsSlider({ reviews }: { reviews: ManualReview[] }) {
+export function ReviewsSlider({
+  reviews,
+  googleUrl,
+}: {
+  reviews: ManualReview[];
+  /** Where each card links to. Google doesn't expose stable per-review
+      deep links, so every card opens the same GBP reviews page — the
+      reader lands one scroll away from the review they clicked. */
+  googleUrl: string;
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
@@ -200,7 +209,11 @@ export function ReviewsSlider({ reviews }: { reviews: ManualReview[] }) {
         className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-6 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-rust/40 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-warm"
       >
         {reviews.map((review, i) => (
-          <ReviewCard key={`${review.author_name}-${i}`} review={review} />
+          <ReviewCard
+            key={`${review.author_name}-${i}`}
+            review={review}
+            googleUrl={googleUrl}
+          />
         ))}
       </div>
 
@@ -228,14 +241,28 @@ export function ReviewsSlider({ reviews }: { reviews: ManualReview[] }) {
 
 /* ---------------------------- card ---------------------------- */
 
-function ReviewCard({ review }: { review: ManualReview }) {
+function ReviewCard({
+  review,
+  googleUrl,
+}: {
+  review: ManualReview;
+  googleUrl: string;
+}) {
   const initial = (review.author_name.trim().charAt(0) || "?").toUpperCase();
   const bg = avatarColor(review.author_name);
 
+  /* Whole card is a link — Google doesn't expose a per-review URL,
+     so every card opens the GBP reviews page. `group` lets nested
+     bits (footer hint, border) react to hover / focus without extra
+     JS state. */
   return (
-    <article
+    <a
+      href={googleUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Read this review from ${review.author_name} on Google (opens in a new tab)`}
       data-review-card
-      className="flex w-[calc(100vw-3.5rem)] max-w-[380px] shrink-0 snap-start flex-col gap-4 rounded-[14px] border border-rule bg-paper p-6 shadow-brand-sm transition-shadow duration-300 hover:shadow-brand sm:w-[380px] md:w-[400px]"
+      className="group flex w-[calc(100vw-3.5rem)] max-w-[380px] shrink-0 snap-start flex-col gap-4 rounded-[14px] border border-rule bg-paper p-6 no-underline shadow-brand-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-rust/40 hover:shadow-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-warm sm:w-[380px] md:w-[400px]"
     >
       <header className="flex items-start gap-3">
         <span
@@ -265,7 +292,15 @@ function ReviewCard({ review }: { review: ManualReview }) {
       <blockquote className="whitespace-pre-line text-[0.94rem] leading-[1.65] text-ink">
         {review.text}
       </blockquote>
-    </article>
+
+      {/* Hover hint — kept subtle (mt-auto pins it to card bottom).
+          Only visible on hover / focus so at rest the card reads
+          like a plain testimonial card, not a busy link. */}
+      <span className="mt-auto inline-flex items-center gap-1.5 pt-1 text-[0.78rem] font-semibold text-rust opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
+        Read on Google
+        <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+      </span>
+    </a>
   );
 }
 

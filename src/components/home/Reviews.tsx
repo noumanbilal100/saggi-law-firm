@@ -34,7 +34,7 @@ export async function Reviews() {
             total={manualReviewsSummary.total}
             googleUrl={googleUrl}
           />
-          <ReviewsSlider reviews={[...manualReviews]} />
+          <ReviewsSlider reviews={[...manualReviews]} googleUrl={googleUrl} />
           <div className="text-center">
             <a
               href={googleUrl}
