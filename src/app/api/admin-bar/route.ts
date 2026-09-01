@@ -109,7 +109,28 @@ async function resolveEditInfo(path: string): Promise<EditInfo> {
     };
   }
 
-  /* Home page — no single collection doc; link to admin dashboard. */
+  /* /locations — location index page. */
+  if (segments[0] === "locations" && segments.length === 1) {
+    return {
+      editUrl: "/admin/collections/locations",
+      label: "locations",
+      createUrl: "/admin/collections/locations/create",
+      createLabel: "New location",
+    };
+  }
+
+  /* /case-studies — case-results index page. */
+  if (segments[0] === "case-studies" && segments.length === 1) {
+    return {
+      editUrl: "/admin/collections/case-results",
+      label: "case studies",
+      createUrl: "/admin/collections/case-results/create",
+      createLabel: "New case study",
+    };
+  }
+
+  /* Home page — no single collection doc; link to the navigation
+     global so the client can edit header/footer branding from the bar. */
   if (segments.length === 0) {
     return {
       editUrl: "/admin/globals/navigation",
