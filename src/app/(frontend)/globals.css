@@ -77,12 +77,39 @@
 }
 @keyframes map-pulse {
   0% {
-    opacity: 0.5;
+    opacity: 0.7;
     transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(4);
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(4);
+    transform: translate(-50%, -50%) scale(5);
+  }
+}
+@keyframes map-pulse-lg {
+  0% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    opacity: 0.1;
+    transform: translate(-50%, -50%) scale(5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(6);
+  }
+}
+@keyframes map-pin-bounce {
+  0%,
+  100% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.08);
   }
 }
 @keyframes shimmer {

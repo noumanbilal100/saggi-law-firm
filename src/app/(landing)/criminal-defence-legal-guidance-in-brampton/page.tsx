@@ -989,11 +989,23 @@ function OfficeLocation() {
           <div className="absolute left-[5%] right-[5%] top-[42%] h-[3px] -rotate-2 bg-[#d6b872]/25" />
           <div className="absolute bottom-[8%] left-[48%] top-[8%] w-[3px] bg-[#d6b872]/25" />
           <div className="absolute left-[10%] right-[30%] top-[68%] h-[2px] rotate-[15deg] bg-[#d6b872]/20" />
-          {/* Pin pulse ring */}
+          {/* Pin pulse — two staggered rings + a subtle bounce on the
+              pin itself so the animation reads well on mobile too. */}
           <div
             aria-hidden
-            className="absolute left-1/2 top-[42%] h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b08d3f] opacity-0"
-            style={{ animation: "map-pulse 2.4s ease-out infinite" }}
+            className="absolute left-1/2 top-[42%] h-[34px] w-[34px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b08d3f] opacity-0"
+            style={{
+              animation: "map-pulse 2.4s ease-out infinite",
+              willChange: "transform, opacity",
+            }}
+          />
+          <div
+            aria-hidden
+            className="absolute left-1/2 top-[42%] h-[34px] w-[34px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b08d3f] opacity-0"
+            style={{
+              animation: "map-pulse-lg 2.4s ease-out infinite 1.2s",
+              willChange: "transform, opacity",
+            }}
           />
           {/* Pin */}
           <div className="absolute left-1/2 top-[42%] z-[2] -translate-x-1/2 -translate-y-full">
@@ -1001,7 +1013,9 @@ function OfficeLocation() {
               className="grid h-11 w-11 place-items-center rounded-[50%_50%_50%_0] bg-[#b08d3f] shadow-[0_8px_20px_rgba(176,141,63,0.55)]"
               style={{
                 transform: "rotate(-45deg)",
-                animation: "map-drop 700ms cubic-bezier(0.2,0.7,0.2,1)",
+                animation:
+                  "map-drop 700ms cubic-bezier(0.2,0.7,0.2,1), map-pin-bounce 2.4s ease-in-out 1s infinite",
+                willChange: "transform",
               }}
             >
               <span

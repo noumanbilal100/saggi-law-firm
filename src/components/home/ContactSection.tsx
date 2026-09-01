@@ -109,16 +109,22 @@ export function ContactSection() {
             <div className="absolute bottom-[8%] left-[48%] top-[8%] w-[3px] bg-ink/[0.08]" />
             <div className="absolute left-[10%] right-[30%] top-[68%] h-[2px] rotate-[15deg] bg-ink/[0.08]" />
 
-            {/* Pin pulse */}
+            {/* Pin pulse — two rings staggered so a fresh wave keeps
+                emanating even mid-viewport on mobile scroll; will-change
+                keeps iOS Safari's compositor happy. */}
             <div
               aria-hidden
-              className="absolute left-1/2 top-[42%] h-[30px] w-[30px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-maple opacity-0 animate-[map-pulse_2.4s_ease-out_infinite]"
+              className="absolute left-1/2 top-[42%] h-[34px] w-[34px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-maple opacity-0 [animation:map-pulse_2.4s_ease-out_infinite] [will-change:transform,opacity]"
+            />
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-[42%] h-[34px] w-[34px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-maple opacity-0 [animation:map-pulse-lg_2.4s_ease-out_infinite_1.2s] [will-change:transform,opacity]"
             />
             {/* Pin */}
             <div className="absolute left-1/2 top-[42%] z-[2] -translate-x-1/2 -translate-y-full">
               <div
-                className="grid h-11 w-11 place-items-center rounded-[50%_50%_50%_0] bg-maple shadow-[0_8px_16px_rgba(216,6,33,0.4)] animate-[map-drop_700ms_cubic-bezier(0.2,0.7,0.2,1)]"
-                style={{ transform: "rotate(-45deg)" }}
+                className="grid h-11 w-11 place-items-center rounded-[50%_50%_50%_0] bg-maple shadow-[0_8px_16px_rgba(216,6,33,0.4)] [animation:map-drop_700ms_cubic-bezier(0.2,0.7,0.2,1),map-pin-bounce_2.4s_ease-in-out_1s_infinite]"
+                style={{ transform: "rotate(-45deg)", willChange: "transform" }}
               >
                 <span className="text-[1.15rem] leading-none text-white" style={{ transform: "rotate(45deg)" }}>
                   🍁
