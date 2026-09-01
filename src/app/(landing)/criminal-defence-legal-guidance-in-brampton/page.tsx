@@ -22,8 +22,58 @@ const CONTACT = {
   whatsappHref: "https://wa.me/14376056573",
   email: "Aman.usman.legal@gmail.com",
   emailHref: "mailto:Aman.usman.legal@gmail.com",
-  location: "Brampton, Ontario · Serving the Greater Toronto Area",
+  addressLine1: "2250 Bovaird Dr E, Unit 401",
+  addressLine2: "Brampton, ON L6R 0W3",
+  city: "Brampton, Ontario",
+  region: "Serving the Greater Toronto Area",
+  hours: "Available 24/7 — including weekends and holidays",
+  mapsQuery: "2250+Bovaird+Dr+E+Unit+401+Brampton+ON+L6R+0W3",
+  mapsHref:
+    "https://www.google.com/maps/search/?api=1&query=2250+Bovaird+Dr+E+Unit+401+Brampton+ON+L6R+0W3",
 } as const;
+
+/** Two hand-picked Google reviews used for the on-page social proof.
+    Kept short so the visual weight stays on the CTAs above and below. */
+const REVIEWS = [
+  {
+    author: "Kiran Dhaliwal",
+    credentials: "Local Guide · Google Review",
+    text:
+      "TRUST HIM BLINDLY, HE WILL NOT LET YOU DOWN. I am extremely grateful to Mr. Saggi for handling my case with outstanding professionalism and dedication.",
+  },
+  {
+    author: "LAKHVEER SINGH",
+    credentials: "Verified Google Review",
+    text:
+      "Mr. Saggi is a very good lawyer. He listens politely and is available all the time. He helped me get assault-with-weapon charges dropped. The best lawyer in Ontario.",
+  },
+] as const;
+
+/** Landing-specific FAQs — power the accordion at the bottom of the
+    page AND the FAQPage JSON-LD so Google can surface answers directly
+    in the search results the ad targets. */
+const FAQS = [
+  {
+    q: "How quickly can I speak to a criminal defence lawyer?",
+    a: "You can reach a criminal defence lawyer directly, 24 hours a day, seven days a week. Call the number on this page or send a WhatsApp message and someone from the firm will respond as soon as possible — often within minutes.",
+  },
+  {
+    q: "Is the first consultation really free?",
+    a: "Yes. The initial consultation is free and confidential. Its purpose is to understand your situation, review the allegations at a high level, explain the legal process, and outline the options that may be available in your case.",
+  },
+  {
+    q: "What areas do you serve?",
+    a: "The firm is headquartered in Brampton and represents clients throughout the Greater Toronto Area, including Toronto, Mississauga, Vaughan, Etobicoke, Scarborough, and courthouses across Peel and the surrounding GTA.",
+  },
+  {
+    q: "What if I was arrested outside of business hours?",
+    a: "Criminal matters don't wait for business hours. The firm's direct line is monitored 24/7 so you can speak with counsel about a bail hearing, police questioning, or an urgent charge as soon as it happens.",
+  },
+  {
+    q: "What information should I have ready when I call?",
+    a: "If it is safe to do so, have any charge documents, a copy of the release conditions, and the next court date in front of you. It also helps to have a short summary of what happened and any names of officers involved. If you don't have any of this yet, call anyway — we'll work through it together.",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title:
@@ -48,6 +98,19 @@ const legalServiceJsonLd = {
   name: "Saggi Law Firm — Criminal Defence Legal Guidance in Brampton",
   telephone: CONTACT.phoneHref.replace("tel:", ""),
   email: CONTACT.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: CONTACT.addressLine1,
+    addressLocality: "Brampton",
+    addressRegion: "ON",
+    postalCode: "L6R 0W3",
+    addressCountry: "CA",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "93",
+  },
   areaServed: [
     "Brampton",
     "Toronto",
@@ -57,6 +120,19 @@ const legalServiceJsonLd = {
     "Canada",
   ],
   serviceType: "Criminal defence law",
+};
+
+/** FAQPage schema — lets Google surface these Q&A pairs directly in
+    the search result the ad targets, which lifts the ad's quality
+    score and cuts the click cost for the same position. */
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 /* ------------------------------ page ---------------------------------- */
@@ -70,18 +146,25 @@ export default function LandingPage() {
           __html: JSON.stringify(legalServiceJsonLd),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
       {/* Georgia serif overrides the site's Fraunces/Manrope; the WP
           page relied on classic serif type and that reading rhythm is
-          part of what the client approved. */}
+          part of what the client approved. Bottom padding leaves room
+          for the sticky mobile CTA. */}
       <div
-        className="text-[17px] leading-[1.75] text-[#3d4a57]"
+        className="pb-[76px] text-[17px] leading-[1.75] text-[#3d4a57] sm:pb-0"
         style={{
           fontFamily: 'Georgia, "Times New Roman", serif',
         }}
       >
+        <TrustBar />
         <Hero />
         <ContactStrip />
+        <Testimonials />
         <LegalConcern />
         <ChargedWithOffence />
         <PracticeAreas />
@@ -90,10 +173,13 @@ export default function LandingPage() {
         <Jurisdiction />
         <WhyChooseFirm />
         <UnderstandingProcess />
+        <OfficeLocation />
+        <Faq />
         <SpeakWithCounsel />
         <GetStarted />
         <FooterBar />
       </div>
+      <StickyMobileCta />
     </>
   );
 }
@@ -106,6 +192,13 @@ function Hero() {
       <div className="grid items-stretch md:grid-cols-[55%_45%]">
         <div className="px-6 py-14 md:py-20 lg:py-24">
           <div className="ml-auto max-w-[600px] md:pl-6">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#b08d3f]/40 bg-[#b08d3f]/15 px-3 py-1.5 font-sans text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872]" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+              <span aria-hidden className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#d6b872]/60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#d6b872]" />
+              </span>
+              Available 24/7 · Free Consultation
+            </div>
             <Eyebrow light>Saggi Law Firm — Criminal Defence</Eyebrow>
             <h1 className="mt-4 font-serif text-[clamp(30px,4.2vw,50px)] font-bold leading-[1.1] tracking-[-0.01em] text-white">
               Protect Your Future: Speak With a Criminal Defence Lawyer in
@@ -658,6 +751,235 @@ function GetStarted() {
         <ActionsRow />
       </div>
     </SoftSection>
+  );
+}
+
+/* ------------------------- Google Ads adds ---------------------------- */
+
+function TrustBar() {
+  const items = [
+    { k: "5.0", v: "★★★★★ Google rated" },
+    { k: "93+", v: "Client reviews" },
+    { k: "14+", v: "Years defending in Ontario" },
+    { k: "24/7", v: "Direct-line availability" },
+  ];
+  return (
+    <div className="border-b border-white/10 bg-[#0a1520] text-[#d6b872]">
+      <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 py-2.5 text-center font-sans text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+        {items.map((it, i) => (
+          <span key={it.k} className="inline-flex items-center gap-2">
+            <span className="text-white">{it.k}</span>
+            <span className="text-[#d6b872]/80">{it.v}</span>
+            {i < items.length - 1 && (
+              <span aria-hidden className="ml-6 hidden text-white/25 sm:inline">·</span>
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Testimonials() {
+  return (
+    <BasicSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>Client Reviews</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          What clients say about working with the firm.
+        </h2>
+        <GoldRule />
+        <p className="mt-6">
+          Google-verified reviews from clients whose criminal matters
+          the firm has handled. See the full 93+ reviews on the Google
+          Business Profile.
+        </p>
+      </div>
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        {REVIEWS.map((r) => (
+          <blockquote
+            key={r.author}
+            className="border border-[#e2e6ea] border-l-[3px] border-l-[#b08d3f] bg-white p-7"
+          >
+            <div className="mb-3 flex items-center gap-2 text-[16px] tracking-[0.1em] text-[#b08d3f]">
+              {"★★★★★".split("").map((s, i) => (
+                <span key={i} aria-hidden>
+                  {s}
+                </span>
+              ))}
+            </div>
+            <p className="font-serif text-[17px] italic leading-[1.6] text-[#1c2733]">
+              &ldquo;{r.text}&rdquo;
+            </p>
+            <footer className="mt-4 border-t border-[#e2e6ea] pt-3 text-[13px]">
+              <span className="block font-semibold text-[#0d1b2a]">
+                {r.author}
+              </span>
+              <span
+                className="mt-0.5 block font-sans text-[11.5px] uppercase tracking-[0.14em] text-[#b08d3f]"
+                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+              >
+                {r.credentials}
+              </span>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </BasicSection>
+  );
+}
+
+function OfficeLocation() {
+  return (
+    <SoftSection>
+      <div className="grid items-stretch gap-10 md:grid-cols-[1fr_1.2fr] md:gap-14">
+        <div>
+          <Eyebrow>Visit the Office</Eyebrow>
+          <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+            Located in Brampton, serving the GTA.
+          </h2>
+          <GoldRule />
+          <dl className="mt-8 grid gap-6">
+            <div>
+              <dt
+                className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#b08d3f]"
+                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+              >
+                Address
+              </dt>
+              <dd className="mt-2 font-serif text-[17px] leading-[1.55] text-[#0d1b2a]">
+                {CONTACT.addressLine1}
+                <br />
+                {CONTACT.addressLine2}
+              </dd>
+            </div>
+            <div>
+              <dt
+                className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#b08d3f]"
+                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+              >
+                Hours
+              </dt>
+              <dd className="mt-2 text-[15.5px] leading-[1.55]">
+                {CONTACT.hours}
+              </dd>
+            </div>
+            <div>
+              <dt
+                className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#b08d3f]"
+                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+              >
+                Direct line
+              </dt>
+              <dd className="mt-2">
+                <a
+                  href={CONTACT.phoneHref}
+                  className="font-serif text-[24px] text-[#0d1b2a] no-underline hover:text-[#b08d3f]"
+                >
+                  {CONTACT.phone}
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <ActionsRow />
+          <a
+            href={CONTACT.mapsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 text-[14px] font-semibold text-[#b08d3f] hover:text-[#8f7130]"
+          >
+            <PinIcon />
+            Get directions on Google Maps →
+          </a>
+        </div>
+        <div className="relative min-h-[380px] overflow-hidden border border-[#e2e6ea] bg-[#0d1b2a] md:min-h-[500px] md:shadow-[18px_18px_0_rgba(176,141,63,0.18)]">
+          <iframe
+            title="Saggi Law Firm office location on Google Maps"
+            src={`https://maps.google.com/maps?q=${CONTACT.mapsQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+            className="absolute inset-0 h-full w-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </div>
+    </SoftSection>
+  );
+}
+
+function Faq() {
+  return (
+    <BasicSection>
+      <div className="max-w-[820px]">
+        <Eyebrow>Frequently Asked</Eyebrow>
+        <h2 className="mt-3 font-serif text-[clamp(25px,3vw,36px)] font-bold leading-[1.15] tracking-[-0.01em] text-[#0d1b2a]">
+          Answers before you call.
+        </h2>
+        <GoldRule />
+        <div className="mt-8 divide-y divide-[#e2e6ea] border-t border-[#e2e6ea]">
+          {FAQS.map((f) => (
+            <details
+              key={f.q}
+              className="group border-b border-[#e2e6ea] py-5"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-[18px] font-bold text-[#0d1b2a] transition-colors group-open:text-[#b08d3f] [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <span
+                  aria-hidden
+                  className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-full border border-[#b08d3f] text-[16px] font-normal text-[#b08d3f] transition-transform group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-[16px] leading-[1.7]">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </BasicSection>
+  );
+}
+
+function StickyMobileCta() {
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 flex border-t border-[#b08d3f]/40 bg-[#0d1b2a] shadow-[0_-8px_24px_rgba(0,0,0,0.35)] sm:hidden">
+      <a
+        href={CONTACT.phoneHref}
+        className="flex flex-1 items-center justify-center gap-2 border-r border-white/10 bg-[#b08d3f] py-4 font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-white no-underline transition-colors hover:bg-[#8f7130]"
+        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+      >
+        <PhoneIcon />
+        Call Now
+      </a>
+      <a
+        href={CONTACT.whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex flex-1 items-center justify-center gap-2 bg-[#25D366] py-4 font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-white no-underline transition-colors hover:bg-[#1fb655]"
+        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+      >
+        <WhatsAppIcon />
+        WhatsApp
+      </a>
+    </div>
+  );
+}
+
+function PinIcon() {
+  return (
+    <svg
+      aria-hidden
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
   );
 }
 
