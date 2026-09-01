@@ -23,8 +23,8 @@ export function MeetTheLawyer() {
   return (
     <section id="lawyer" className="bg-cream-warm py-24 md:py-[96px]">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-        <div className="grid gap-10 md:gap-16 md:grid-cols-[1fr_1.3fr] md:items-start">
-          <div className="reveal relative aspect-[4/5] overflow-hidden rounded-[18px] border border-rule bg-gradient-to-br from-ink to-[#14112B] shadow-brand-lg">
+        <div className="grid gap-10 md:gap-16 md:grid-cols-[1fr_1.3fr] md:items-center">
+          <div className="reveal relative aspect-[4/5] overflow-hidden rounded-[18px] border border-rule bg-gradient-to-br from-ink to-ink-soft shadow-brand-lg">
             <div
               aria-hidden
               className="absolute inset-0 z-[1]"
