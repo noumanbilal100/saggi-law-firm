@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 import remarkGfm from "remark-gfm";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { serviceMdxComponents } from "@/components/service/mdx-components";
+import { jsxConverters } from "@/components/service/lexical-converters";
 import { loadAllBlogPosts, loadBlogPost, listBlogSlugs } from "@/lib/blog";
 import { siteConfig } from "@/lib/siteConfig";
 import { services as allServices } from "@/lib/services";
@@ -144,11 +146,18 @@ export default async function BlogPostPage(
       <section className="py-8 md:py-12">
         <div className="mx-auto max-w-[820px] px-4 sm:px-6">
           <article className="prose-styled">
-            <MDXRemote
-              source={post.body}
-              components={serviceMdxComponents}
-              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-            />
+            {post.lexicalBody ? (
+              <RichText
+                data={post.lexicalBody as never}
+                converters={jsxConverters}
+              />
+            ) : (
+              <MDXRemote
+                source={post.body}
+                components={serviceMdxComponents}
+                options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              />
+            )}
           </article>
         </div>
       </section>
