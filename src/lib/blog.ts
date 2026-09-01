@@ -76,14 +76,14 @@ async function readPayloadPosts(): Promise<BlogPost[]> {
   try {
     const payload = await getPayloadInstance();
     const result = await payload.find({
-      collection: "blog_posts",
+      collection: "blog-posts",
       where: { _status: { equals: "published" } },
       limit: 500,
       depth: 1,
     });
     return result.docs
       .map((doc): BlogPost | null => {
-        const d = doc as Record<string, unknown>;
+        const d = doc as unknown as Record<string, unknown>;
         const slug = d.slug ? String(d.slug) : null;
         if (!slug) return null;
 
