@@ -19,15 +19,18 @@ import { getCaseResultsForService } from "@/lib/case-results";
 /* ────────── 1. Meet the lawyer — humanising interstitial ───────────── */
 
 export function InlineMeetLawyer() {
-  const { name, title, photoSrc, photoAlt } = siteConfig.lawyer;
+  const { name, title, photoSrc, headshotSrc, photoAlt } = siteConfig.lawyer;
+  /* Prefer the tight headshot for this small circular slot — a full
+     portrait ends up cropping off the face in a 120px circle. */
+  const avatarSrc = headshotSrc ?? photoSrc;
 
   return (
     <aside className="not-prose my-14 overflow-hidden rounded-[14px] border border-rule bg-cream-warm shadow-brand-sm">
       <div className="grid gap-6 p-6 sm:grid-cols-[120px_1fr] sm:items-center sm:gap-8 sm:p-8">
         <div className="relative mx-auto h-[120px] w-[120px] overflow-hidden rounded-full border-2 border-gold shadow-brand-sm sm:mx-0">
-          {photoSrc ? (
+          {avatarSrc ? (
             <Image
-              src={photoSrc}
+              src={avatarSrc}
               alt={photoAlt}
               fill
               className="object-cover"

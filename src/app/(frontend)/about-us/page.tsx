@@ -88,9 +88,9 @@ export default function AboutPage() {
                 className="absolute inset-0 z-[1]"
                 style={{ background: "radial-gradient(circle at 30% 30%, rgba(211,181,116,0.15), transparent 60%)" }}
               />
-              {l.photoSrc ? (
+              {(l.aboutPhotoSrc ?? l.photoSrc) ? (
                 <Image
-                  src={l.photoSrc}
+                  src={(l.aboutPhotoSrc ?? l.photoSrc) as string}
                   alt={l.photoAlt}
                   fill
                   className="object-cover object-top"

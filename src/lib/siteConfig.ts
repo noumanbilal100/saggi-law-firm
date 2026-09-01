@@ -27,7 +27,14 @@ export type LawyerInfo = {
   name: string | null;
   title: string | null;
   role: string;
+  /** Primary portrait — used on the home MeetTheLawyer section. */
   photoSrc: string | null;
+  /** Alternative shot used on the /about-us page hero. Falls back
+      to `photoSrc` if not provided. */
+  aboutPhotoSrc: string | null;
+  /** Tight head crop used in the small circular avatar on service
+      page interstitials. Falls back to `photoSrc` if not provided. */
+  headshotSrc: string | null;
   photoAlt: string;
   profileUrl: string;
   bio: string | null;
@@ -84,6 +91,8 @@ export const siteConfig = {
     title: "Barrister & Solicitor",
     role: "Criminal Defence Lawyer",
     photoSrc: "/lawyer.jpg",
+    aboutPhotoSrc: "/lawyer-about.jpg",
+    headshotSrc: "/lawyer-headshot.jpg",
     photoAlt: "Mandeep Saggi, Criminal Defence Lawyer — Brampton",
     profileUrl: "/about-us",
     bio: "Since 2009, Mandeep Saggi has built a reputation as a criminal defence lawyer in Brampton who vigorously fights for his clients' rights.",
