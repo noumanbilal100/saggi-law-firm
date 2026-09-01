@@ -68,7 +68,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "Charter defence",
     jurisdiction: "Brampton Courthouse",
     year: "Ongoing",
-    services: ["criminal-law-impairedover-80-dui"],
+    services: ["impairedover-80-dui"],
     sample: false,
     detail: {
       summary:
@@ -107,7 +107,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "Peace bond track",
     jurisdiction: "Peel Region",
     year: "Ongoing",
-    services: ["criminal-law-assault", "criminal-law-domestic-assault"],
+    services: ["assault", "domestic-assault"],
     sample: false,
     detail: {
       summary:
@@ -185,7 +185,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "Trial defence",
     jurisdiction: "Ontario Court of Justice",
     year: "Ongoing",
-    services: ["criminal-law-impairedover-80-dui"],
+    services: ["impairedover-80-dui"],
     sample: false,
     detail: {
       summary:
@@ -224,7 +224,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "Reduction focus",
     jurisdiction: "Brampton",
     year: "Ongoing",
-    services: ["criminal-law-firearms-weapons"],
+    services: ["firearms-weapons"],
     sample: false,
     detail: {
       summary:
@@ -263,7 +263,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "Charge analysis",
     jurisdiction: "Peel Region",
     year: "Ongoing",
-    services: ["criminal-law-assault", "criminal-law-domestic-assault"],
+    services: ["assault", "domestic-assault"],
     sample: false,
     detail: {
       summary:
@@ -302,7 +302,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "Diversion focus",
     jurisdiction: "Ontario Court of Justice",
     year: "Ongoing",
-    services: ["criminal-law-white-collar"],
+    services: ["white-collar"],
     sample: false,
     detail: {
       summary:
@@ -380,7 +380,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "Care & control",
     jurisdiction: "Peel Region",
     year: "Ongoing",
-    services: ["criminal-law-impairedover-80-dui"],
+    services: ["impairedover-80-dui"],
     sample: false,
     detail: {
       summary:
@@ -419,7 +419,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "First-offence path",
     jurisdiction: "Brampton Courthouse",
     year: "Ongoing",
-    services: ["criminal-law-impairedover-80-dui"],
+    services: ["impairedover-80-dui"],
     sample: false,
     detail: {
       summary:
@@ -458,7 +458,7 @@ export const caseResults: CaseResult[] = [
     outcomeLabel: "Evidence review",
     jurisdiction: "Superior Court",
     year: "Ongoing",
-    services: ["criminal-law-impairedover-80-dui"],
+    services: ["impairedover-80-dui"],
     sample: false,
     detail: {
       summary:

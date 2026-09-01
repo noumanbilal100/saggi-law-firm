@@ -157,7 +157,7 @@ export default async function CaseStudyPage(
                 {relatedServices.map((s, i) => (
                   <span key={s.slug}>
                     <Link
-                      href={`/services/${s.slug}`}
+                      href={`/${s.slug}`}
                       className="text-rust hover:underline"
                     >
                       {s.title}
@@ -287,7 +287,7 @@ export default async function CaseStudyPage(
                     {relatedServices.map((s) => (
                       <li key={s.slug}>
                         <Link
-                          href={`/services/${s.slug}`}
+                          href={`/${s.slug}`}
                           className="group flex items-center justify-between gap-2 rounded-[8px] px-3 py-2 text-[0.9rem] font-medium text-ink transition-colors hover:bg-cream-warm/60 hover:text-rust"
                         >
                           <span>{s.title}</span>

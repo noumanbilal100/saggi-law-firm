@@ -190,7 +190,7 @@ export default async function LocationPage(
             {services.slice(0, 12).map((s) => (
               <Link
                 key={s.slug}
-                href={`/services/${s.slug}`}
+                href={`/${s.slug}`}
                 className="group flex items-center gap-3 rounded-[10px] border border-rule bg-paper p-4 transition-all hover:-translate-y-px hover:border-rust hover:shadow-brand-sm"
               >
                 <span className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-md bg-rust/[0.08] font-display text-[0.9rem] font-semibold text-rust">

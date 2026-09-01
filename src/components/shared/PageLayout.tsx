@@ -565,7 +565,7 @@ export async function PageLayout({
             {relatedServices.map((s) => (
               <Link
                 key={s.slug}
-                href={`/services/${s.slug}`}
+                href={`/${s.slug}`}
                 className="group flex h-full flex-col gap-3 rounded-[10px] border border-rule bg-paper p-6 transition-all hover:-translate-y-1 hover:border-rust hover:shadow-brand-sm"
               >
                 <div className="grid h-10 w-10 place-items-center rounded-lg bg-rust/[0.08] font-display text-[1.05rem] font-semibold leading-none text-rust">

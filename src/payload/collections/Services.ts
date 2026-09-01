@@ -11,10 +11,10 @@ export const Services: CollectionConfig = {
     useAsTitle: "title",
     defaultColumns: ["title", "slug", "category", "order", "publishedAt"],
     description:
-      "Criminal defence practice areas. Each entry becomes a page at /services/<slug>. Reorder by dragging or by editing the Order field.",
+      "Criminal defence practice areas. Each entry becomes a page at /<slug> (root-level, matching the old WordPress URLs). Reorder by dragging or by editing the Order field.",
     livePreview: {
       url: ({ data }) =>
-        `${process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:3000"}/services/${
+        `${process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:3000"}/${
           (data?.slug as string | undefined) ?? ""
         }`,
     },

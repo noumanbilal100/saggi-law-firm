@@ -261,7 +261,7 @@ export default function AboutPage() {
             {services.map((s) => (
               <Link
                 key={s.slug}
-                href={`/services/${s.slug}`}
+                href={`/${s.slug}`}
                 className="inline-flex items-center gap-2 rounded-full border border-rule bg-paper px-4 py-2 text-[0.9rem] font-medium text-ink transition-all hover:border-rust hover:bg-rust hover:text-white"
               >
                 {s.title}

@@ -5,12 +5,12 @@ import { siteConfig } from "@/lib/siteConfig";
 import { getBranding } from "@/lib/branding";
 
 const practiceLinks = [
-  { href: "/services/criminal-lawyer", label: "Criminal Lawyer" },
-  { href: "/services/criminal-law-impairedover-80-dui", label: "Impaired Driving & DUI" },
-  { href: "/services/criminal-law-assault", label: "Assault" },
-  { href: "/services/criminal-law-domestic-assault", label: "Domestic Assault" },
-  { href: "/services/criminal-law-firearms-weapons", label: "Firearms & Weapons" },
-  { href: "/services/criminal-law-white-collar", label: "White Collar Crime" },
+  { href: "/criminal-lawyer", label: "Criminal Lawyer" },
+  { href: "/impairedover-80-dui", label: "Impaired Driving & DUI" },
+  { href: "/assault", label: "Assault" },
+  { href: "/domestic-assault", label: "Domestic Assault" },
+  { href: "/firearms-weapons", label: "Firearms & Weapons" },
+  { href: "/white-collar", label: "White Collar Crime" },
   { href: "/services", label: "All practice areas" },
 ];
 const firmLinks = [

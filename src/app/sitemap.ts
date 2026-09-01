@@ -47,7 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   /* Static services (services.ts) — always available even without DB. */
   const staticServices: MetadataRoute.Sitemap = services.map((s) => ({
-    url: `${base}/services/${s.slug}`,
+    url: `${base}/${s.slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.8,
@@ -121,7 +121,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     payloadEntries = [
       ...payloadServices.docs.map((d: any) => ({
-        url: `${base}/services/${d.slug}`,
+        url: `${base}/${d.slug}`,
         lastModified: lastMod(d),
         changeFrequency: "monthly" as const,
         priority: 0.85,

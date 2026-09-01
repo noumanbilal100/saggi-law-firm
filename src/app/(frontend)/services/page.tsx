@@ -67,7 +67,7 @@ export default function ServicesPage() {
             {services.map((s) => (
               <Link
                 key={s.slug}
-                href={`/services/${s.slug}`}
+                href={`/${s.slug}`}
                 className="group relative flex flex-col gap-3 rounded-[10px] border border-rule bg-paper p-7 text-ink no-underline transition-all duration-300 hover:-translate-y-1 hover:border-rust hover:shadow-brand"
               >
                 <div className="flex items-start gap-3.5">

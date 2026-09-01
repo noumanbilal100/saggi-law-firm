@@ -46,7 +46,7 @@ export const services: Service[] = [
       "Facing a criminal charge can affect your freedom, reputation, employment, and future. Saggi Law Firm provides focused criminal defence and legal representation for people facing charges across the Greater Toronto Area.",
   },
   {
-    slug: "criminal-law-impairedover-80-dui",
+    slug: "impairedover-80-dui",
     icon: "D",
     title: "Impaired Driving & DUI",
     order: 1,
@@ -55,7 +55,7 @@ export const services: Service[] = [
       "Impaired driving, Over 80, and refusal allegations can carry driving prohibitions, a criminal record, and insurance consequences. A defence lawyer can review the roadside stop, investigation, testing, and evidence disclosure.",
   },
   {
-    slug: "criminal-law-assault",
+    slug: "assault",
     icon: "A",
     title: "Assault",
     order: 2,
@@ -64,7 +64,7 @@ export const services: Service[] = [
       "Assault allegations can arise from many circumstances — bar disputes, workplace incidents, altercations between acquaintances. Saggi Law Firm defends simple assault, assault causing bodily harm, and aggravated assault charges across Ontario.",
   },
   {
-    slug: "criminal-law-domestic-assault",
+    slug: "domestic-assault",
     icon: "H",
     title: "Domestic Assault",
     order: 3,
@@ -73,7 +73,7 @@ export const services: Service[] = [
       "Domestic assault cases involve unique considerations because of the relationship between the parties and the release conditions imposed after arrest. Saggi Law Firm represents individuals facing domestic assault, uttering threats, and related charges.",
   },
   {
-    slug: "criminal-law-criminal-harassment",
+    slug: "criminal-harassment",
     icon: "N",
     title: "Criminal Harassment",
     order: 4,
@@ -82,7 +82,7 @@ export const services: Service[] = [
       "Criminal harassment allegations can involve repeated communication, following, watching, or threatening conduct alleged to cause a person to reasonably fear for their safety. Careful review of the evidence and context is essential.",
   },
   {
-    slug: "criminal-law-firearms-weapons",
+    slug: "firearms-weapons",
     icon: "F",
     title: "Firearms & Weapons",
     order: 5,
@@ -91,7 +91,7 @@ export const services: Service[] = [
       "Firearms and weapons allegations can involve possession, use, storage, transportation, or prohibited weapon offences. Saggi Law Firm assists individuals facing firearms and weapons-related criminal charges.",
   },
   {
-    slug: "criminal-law-white-collar",
+    slug: "white-collar",
     icon: "W",
     title: "White Collar Crime",
     order: 6,
@@ -100,7 +100,7 @@ export const services: Service[] = [
       "Fraud, embezzlement, breach of trust, money laundering, tax evasion, insider trading, and other white-collar allegations put your career, finances, and reputation at risk — and often involve substantial documentation and complex evidence.",
   },
   {
-    slug: "criminal-law-proceeds-of-crime",
+    slug: "proceeds-of-crime",
     icon: "P",
     title: "Proceeds of Crime",
     order: 7,
@@ -109,7 +109,7 @@ export const services: Service[] = [
       "Proceeds of crime allegations can accompany drug, fraud, or organized crime charges and can lead to asset restraint or forfeiture. Saggi Law Firm provides defence representation for individuals facing proceeds-of-crime allegations.",
   },
   {
-    slug: "criminal-law-theft",
+    slug: "theft",
     icon: "T",
     title: "Theft",
     order: 8,
@@ -118,7 +118,7 @@ export const services: Service[] = [
       "From alleged shoplifting to theft over $5,000, theft charges range from summary matters to serious indictable offences with a lasting criminal record. Saggi Law Firm defends theft, possession of stolen property, and related charges.",
   },
   {
-    slug: "criminal-law-robbery",
+    slug: "robbery",
     icon: "R",
     title: "Robbery",
     order: 9,
@@ -127,7 +127,7 @@ export const services: Service[] = [
       "Robbery is a serious indictable offence carrying significant sentencing exposure — especially where a weapon is alleged. The specific facts, evidence, and identification issues can all shape the defence.",
   },
   {
-    slug: "criminal-law-breaking-and-entering",
+    slug: "breaking-and-entering",
     icon: "B",
     title: "Breaking & Entering",
     order: 10,
@@ -136,7 +136,7 @@ export const services: Service[] = [
       "Break-and-enter allegations can involve residential or commercial premises and carry the risk of imprisonment and a permanent criminal record. Saggi Law Firm defends individuals facing break-and-enter and related property charges.",
   },
   {
-    slug: "criminal-law-mischief",
+    slug: "mischief",
     icon: "M",
     title: "Mischief",
     order: 11,
@@ -145,7 +145,7 @@ export const services: Service[] = [
       "Mischief charges relate to alleged damage, interference with property, or interference with the lawful use of property. Depending on value and circumstances, mischief can proceed summarily or by indictment.",
   },
   {
-    slug: "criminal-law-luring",
+    slug: "luring",
     icon: "L",
     title: "Luring",
     order: 12,
@@ -154,7 +154,7 @@ export const services: Service[] = [
       "Luring allegations — including internet or child luring — carry serious consequences and mandatory minimums, and require careful, focused defence representation.",
   },
   {
-    slug: "criminal-law-soliciting",
+    slug: "soliciting",
     icon: "S",
     title: "Soliciting",
     order: 13,
@@ -189,7 +189,7 @@ export type AdditionalService = {
 
 export const additionalServices: AdditionalService[] = [
   {
-    slug: "other-services-attestation",
+    slug: "attestation",
     icon: "§",
     title: "Attestation Services",
     lead: true,
@@ -197,21 +197,21 @@ export const additionalServices: AdditionalService[] = [
       "Preparing Canadian documents for use outside Canada — attestations, authentications, and guidance through the process for individuals and businesses.",
   },
   {
-    slug: "other-services-affidavits",
+    slug: "affidavits",
     icon: "S",
     title: "Affidavits & Statutory Declarations",
     summary:
       "Preparing, reviewing, and commissioning affidavits and statutory declarations for court, insurance, immigration, and other formal proceedings.",
   },
   {
-    slug: "other-services-on-site-commissioner-of-oaths",
+    slug: "on-site-commissioner-of-oaths",
     icon: "C",
     title: "Commissioner of Oaths",
     summary:
       "On-site commissioning services for documents that must be sworn, affirmed, or formally witnessed — available at our Brampton office.",
   },
   {
-    slug: "other-services-sponsorship-letters",
+    slug: "sponsorship-letters",
     icon: "L",
     title: "Sponsorship Letters",
     summary:

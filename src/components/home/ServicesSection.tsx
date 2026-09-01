@@ -22,7 +22,7 @@ export function ServicesSection() {
           {services.map((s, i) => (
             <Link
               key={s.slug}
-              href={`/services/${s.slug}`}
+              href={`/${s.slug}`}
               className={`reveal group relative flex flex-col gap-3 rounded-[10px] border border-rule bg-paper p-7 text-ink no-underline transition-all duration-300 hover:-translate-y-1 hover:border-rust hover:shadow-brand ${
                 i % 2 === 1 ? "d1" : ""
               }`}
