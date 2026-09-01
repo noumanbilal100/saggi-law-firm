@@ -41,14 +41,14 @@ export async function Nav() {
               priority
               className="h-10 w-auto sm:h-11 md:h-12"
             />
-            <span className="hidden items-center gap-1.5 font-body text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-rust md:inline-flex">
+            <span className="hidden items-center gap-1.5 font-body text-[0.76rem] font-semibold uppercase tracking-[0.18em] text-rust md:inline-flex">
               <span className="text-maple leading-none">🍁</span>
               Criminal Defence · Greater Toronto Area
             </span>
           </Link>
 
           {/* Desktop links (lg+) — ink text on cream, rust underline on hover */}
-          <div className="hidden items-center gap-7 text-[0.92rem] font-medium text-ink lg:flex">
+          <div className="hidden items-center gap-7 text-[1rem] font-medium text-ink lg:flex">
             {links.map((l) => (
               <Link
                 key={l.href}
@@ -64,7 +64,7 @@ export async function Nav() {
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
               href={bookingUrl ?? "/contact-us"}
-              className="btn-shimmer hidden items-center gap-2 rounded-md bg-rust px-4 py-2.5 text-[0.9rem] font-bold tracking-[0.02em] text-white shadow-[0_4px_12px_rgba(173,82,7,0.35)] transition-all duration-150 hover:-translate-y-px hover:bg-rust-hover hover:shadow-[0_6px_18px_rgba(173,82,7,0.45)] sm:inline-flex sm:px-5 sm:py-3 sm:text-[0.92rem]"
+              className="btn-shimmer hidden items-center gap-2 rounded-md bg-rust px-4 py-2.5 text-[0.98rem] font-bold tracking-[0.02em] text-white shadow-[0_4px_12px_rgba(173,82,7,0.35)] transition-all duration-150 hover:-translate-y-px hover:bg-rust-hover hover:shadow-[0_6px_18px_rgba(173,82,7,0.45)] sm:inline-flex sm:px-5 sm:py-3 sm:text-[1rem]"
             >
               <span>Consultation</span>
               <span aria-hidden>→</span>

@@ -52,7 +52,7 @@ export default function ContactPage() {
 
             <dl className="mt-8 grid gap-6">
               <div>
-                <dt className="font-body text-[0.72rem] font-bold uppercase tracking-[0.14em] text-gold">
+                <dt className="font-body text-[0.8rem] font-bold uppercase tracking-[0.14em] text-gold">
                   Address
                 </dt>
                 <dd className="mt-2 whitespace-pre-line font-body text-[1rem] leading-[1.55] text-cream">
@@ -65,7 +65,7 @@ export default function ContactPage() {
               </div>
               {hours && (
                 <div>
-                  <dt className="font-body text-[0.72rem] font-bold uppercase tracking-[0.14em] text-gold">
+                  <dt className="font-body text-[0.8rem] font-bold uppercase tracking-[0.14em] text-gold">
                     Hours
                   </dt>
                   <dd className="mt-2 font-body text-[1rem] leading-[1.55] text-cream">
@@ -81,7 +81,7 @@ export default function ContactPage() {
                   href={mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-cream/25 bg-transparent px-5 py-3 font-body text-[0.92rem] font-bold text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
+                  className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-cream/25 bg-transparent px-5 py-3 font-body text-[1rem] font-bold text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
                   aria-label={`Open ${fullAddress} in Google Maps`}
                 >
                   <span aria-hidden>📍</span>

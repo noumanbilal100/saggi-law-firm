@@ -276,14 +276,14 @@ function ReviewCard({
           <div className="truncate font-body text-[1.02rem] font-bold text-ink">
             {review.author_name}
           </div>
-          <div className="truncate text-[0.78rem] text-muted">
+          <div className="truncate text-[0.85rem] text-muted">
             {review.credentials}
           </div>
         </div>
         <GoogleG />
       </header>
 
-      <div className="flex items-center gap-2 text-[0.88rem] text-muted">
+      <div className="flex items-center gap-2 text-[0.95rem] text-muted">
         <StarRow rating={review.rating} />
         <span aria-hidden>·</span>
         <span>{review.relative_time_description}</span>
@@ -296,7 +296,7 @@ function ReviewCard({
       {/* Hover hint — kept subtle (mt-auto pins it to card bottom).
           Only visible on hover / focus so at rest the card reads
           like a plain testimonial card, not a busy link. */}
-      <span className="mt-auto inline-flex items-center gap-1.5 pt-1 text-[0.78rem] font-semibold text-rust opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
+      <span className="mt-auto inline-flex items-center gap-1.5 pt-1 text-[0.85rem] font-semibold text-rust opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">
         Read on Google
         <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
       </span>

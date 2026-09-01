@@ -41,7 +41,7 @@ export function ServicesSection() {
               <p className="text-[1rem] leading-[1.6] text-muted">{s.summary}</p>
             </Link>
           ))}
-          <div className="reveal col-span-full rounded-[10px] border border-dashed border-rule bg-cream-warm px-7 py-6 text-[0.95rem] leading-[1.65] text-muted">
+          <div className="reveal col-span-full rounded-[10px] border border-dashed border-rule bg-cream-warm px-7 py-6 text-[1.02rem] leading-[1.65] text-muted">
             <strong className="mb-1.5 block font-display text-[1.05rem] font-medium text-ink">
               {otherServicesNote.title}
             </strong>

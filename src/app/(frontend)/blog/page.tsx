@@ -41,7 +41,7 @@ export default async function BlogIndexPage() {
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted"
+            className="mb-6 flex items-center gap-2 text-[0.98rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">Home</Link>
@@ -76,7 +76,7 @@ export default async function BlogIndexPage() {
                     href={`/blog/${post.frontmatter.slug}`}
                     className="group flex h-full flex-col gap-3 rounded-[10px] border border-rule bg-paper p-7 transition-all hover:-translate-y-1 hover:border-rust hover:shadow-brand-sm"
                   >
-                    <div className="flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.12em]">
+                    <div className="flex items-center gap-2 text-[0.8rem] font-bold uppercase tracking-[0.12em]">
                       <span className="text-rust">{post.frontmatter.category}</span>
                       {post.frontmatter.sample && (
                         <span className="rounded bg-maple/10 px-1.5 py-0.5 font-mono text-[0.65rem] text-maple">
@@ -87,10 +87,10 @@ export default async function BlogIndexPage() {
                     <h2 className="font-display text-[1.25rem] font-medium leading-[1.3]">
                       {post.frontmatter.title}
                     </h2>
-                    <p className="line-clamp-3 text-[0.95rem] leading-[1.6] text-muted">
+                    <p className="line-clamp-3 text-[1.02rem] leading-[1.6] text-muted">
                       {post.frontmatter.excerpt}
                     </p>
-                    <div className="mt-auto flex items-center gap-2 pt-3 text-[0.78rem] text-muted">
+                    <div className="mt-auto flex items-center gap-2 pt-3 text-[0.85rem] text-muted">
                       <time dateTime={post.frontmatter.date}>
                         {date.toLocaleDateString("en-CA", {
                           year: "numeric",
@@ -105,7 +105,7 @@ export default async function BlogIndexPage() {
                         </>
                       )}
                     </div>
-                    <span className="inline-flex items-center gap-1 text-[0.9rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
+                    <span className="inline-flex items-center gap-1 text-[0.98rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
                       Read the article →
                     </span>
                   </Link>

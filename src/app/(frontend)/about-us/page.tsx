@@ -75,7 +75,7 @@ export default function AboutPage() {
           style={{ background: "radial-gradient(circle, rgba(211,181,116,0.15), transparent 70%)" }}
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
-          <nav className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted" aria-label="Breadcrumb">
+          <nav className="mb-6 flex items-center gap-2 text-[0.98rem] text-muted" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-rust">Home</Link>
             <span aria-hidden className="opacity-50">›</span>
             <span>About the Lawyer</span>
@@ -108,12 +108,12 @@ export default function AboutPage() {
                 </div>
               )}
               {(l.name || l.title) && l.photoSrc && (
-                <div className="absolute bottom-5 left-5 z-[3] rounded-lg border-l-[3px] border-gold bg-ink/75 px-3.5 py-2.5 font-body text-[0.88rem] text-cream backdrop-blur-md">
+                <div className="absolute bottom-5 left-5 z-[3] rounded-lg border-l-[3px] border-gold bg-ink/75 px-3.5 py-2.5 font-body text-[0.95rem] text-cream backdrop-blur-md">
                   <strong className="block font-display text-[1.1rem] font-medium text-cream">
                     {l.name}
                   </strong>
                   {l.title && (
-                    <span className="text-[0.7rem] uppercase tracking-[0.12em] text-gold/85">
+                    <span className="text-[0.78rem] uppercase tracking-[0.12em] text-gold/85">
                       {l.title}
                     </span>
                   )}
@@ -126,7 +126,7 @@ export default function AboutPage() {
               <h1 className="mt-4 font-display text-[clamp(2.2rem,4.5vw,3.5rem)] font-medium leading-[1.05] tracking-[-0.03em]">
                 {l.name ?? <Placeholder>[Insert Lawyer Name]</Placeholder>}
               </h1>
-              <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-[0.95rem] text-muted">
+              <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-[1.02rem] text-muted">
                 {l.title && (
                   <span className="font-semibold uppercase tracking-[0.12em]">{l.title}</span>
                 )}
@@ -157,7 +157,7 @@ export default function AboutPage() {
                   href={phoneHref ?? "tel:"}
                   className="inline-flex min-w-[210px] flex-col items-start rounded-md bg-rust px-5 py-3 text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
                 >
-                  <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+                  <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                     Direct line
                   </span>
                   <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -168,7 +168,7 @@ export default function AboutPage() {
                   href="/booking"
                   className="inline-flex min-w-[210px] flex-col items-start rounded-md border-[1.5px] border-rule bg-transparent px-5 py-3 text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
                 >
-                  <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
+                  <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-muted">
                     Book online
                   </span>
                   <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -195,7 +195,7 @@ export default function AboutPage() {
               ))}
             </div>
             {l.award && (
-              <div className="mt-8 inline-flex items-start gap-3 rounded-lg border border-gold-soft bg-gold/10 px-5 py-4 text-[0.95rem] text-ink">
+              <div className="mt-8 inline-flex items-start gap-3 rounded-lg border border-gold-soft bg-gold/10 px-5 py-4 text-[1.02rem] text-ink">
                 <span aria-hidden className="mt-0.5 text-[1.2rem] leading-none text-rust">★</span>
                 <span className="leading-[1.55]">{l.award}</span>
               </div>
@@ -222,10 +222,10 @@ export default function AboutPage() {
                 >
                   <span aria-hidden className="mt-0.5 font-display text-[1.5rem] leading-none text-rust">§</span>
                   <div>
-                    <h4 className="mb-1 font-body text-[0.95rem] font-bold text-ink">
+                    <h4 className="mb-1 font-body text-[1.02rem] font-bold text-ink">
                       {c.title}
                     </h4>
-                    <p className="text-[0.95rem] leading-[1.5] text-muted">{c.detail}</p>
+                    <p className="text-[1.02rem] leading-[1.5] text-muted">{c.detail}</p>
                   </div>
                 </div>
               ))}
@@ -233,8 +233,8 @@ export default function AboutPage() {
                 <div className="flex items-start gap-4 rounded-[10px] border border-rule border-l-[3px] border-l-rust bg-paper p-6">
                   <span aria-hidden className="mt-0.5 font-display text-[1.5rem] leading-none text-rust">§</span>
                   <div>
-                    <h4 className="mb-1 font-body text-[0.95rem] font-bold text-ink">Languages</h4>
-                    <p className="text-[0.95rem] leading-[1.5] text-muted">
+                    <h4 className="mb-1 font-body text-[1.02rem] font-bold text-ink">Languages</h4>
+                    <p className="text-[1.02rem] leading-[1.5] text-muted">
                       {l.languages.join(", ")}
                     </p>
                   </div>
@@ -262,7 +262,7 @@ export default function AboutPage() {
               <Link
                 key={s.slug}
                 href={`/${s.slug}`}
-                className="inline-flex items-center gap-2 rounded-full border border-rule bg-paper px-4 py-2 text-[0.95rem] font-medium text-ink transition-all hover:border-rust hover:bg-rust hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-rule bg-paper px-4 py-2 text-[1.02rem] font-medium text-ink transition-all hover:border-rust hover:bg-rust hover:text-white"
               >
                 {s.title}
               </Link>
@@ -285,18 +285,18 @@ export default function AboutPage() {
               <Link
                 key={loc.slug}
                 href={`/location/${loc.slug}`}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-[0.92rem] transition-all ${
+                className={`inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-[1rem] transition-all ${
                   loc.slug === "brampton"
                     ? "border-rust bg-rust text-white font-semibold"
                     : "border-rule bg-paper text-ink hover:border-rust hover:text-rust"
                 }`}
               >
-                <span className="text-[0.9rem] text-maple">🍁</span>
+                <span className="text-[0.98rem] text-maple">🍁</span>
                 {loc.name}
               </Link>
             ))}
           </div>
-          <p className="mt-6 text-[0.95rem] leading-[1.65] text-muted">
+          <p className="mt-6 text-[1.02rem] leading-[1.65] text-muted">
             <Link href="/location" className="text-rust underline underline-offset-2 hover:text-rust-hover">
               See the full list of communities served →
             </Link>
@@ -322,7 +322,7 @@ export default function AboutPage() {
                 href={phoneHref}
                 className="inline-flex min-w-[220px] flex-col items-start rounded-md bg-rust px-6 py-3.5 text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
               >
-                <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+                <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                   Direct line
                 </span>
                 <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -334,7 +334,7 @@ export default function AboutPage() {
               href="/booking"
               className="inline-flex min-w-[220px] flex-col items-start rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                 Book online
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -343,7 +343,7 @@ export default function AboutPage() {
             </Link>
           </div>
           {email && (
-            <p className="mt-6 text-[0.95rem] text-cream/60">
+            <p className="mt-6 text-[1.02rem] text-cream/60">
               Or email{" "}
               <a href={`mailto:${email}`} className="text-gold underline underline-offset-2">
                 {email}

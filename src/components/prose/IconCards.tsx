@@ -26,7 +26,7 @@ export function IconCard({
       <h4 className="mb-2 font-display text-[1.1rem] font-medium leading-tight text-ink">
         {title}
       </h4>
-      <div className="text-[0.92rem] leading-[1.6] text-muted">{children}</div>
+      <div className="text-[1rem] leading-[1.6] text-muted">{children}</div>
     </div>
   );
 }

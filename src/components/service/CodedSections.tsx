@@ -162,7 +162,7 @@ function BandEyebrow({
         {icon}
       </span>
       <span
-        className={`font-body text-[0.72rem] font-bold uppercase tracking-[0.22em] ${
+        className={`font-body text-[0.8rem] font-bold uppercase tracking-[0.22em] ${
           onDark ? "text-gold" : "text-rust"
         }`}
       >

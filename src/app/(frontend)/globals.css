@@ -126,10 +126,10 @@
     background: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-body);
-    /* 17px on desktop, gently smaller on <=768 for balance — matches
-       the range premium law-firm sites (Osler, Torys, Faskens) sit at
-       and is comfortably above the WCAG comfortable-read floor. */
-    font-size: 17px;
+    /* 18px on desktop, half-step up on wide monitors — comfortably
+       in the modern premium-brand band (Apple, Osler, Faskens all
+       land here) and above the WCAG comfortable-read floor. */
+    font-size: 18px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -137,7 +137,7 @@
   }
   @media (min-width: 1200px) {
     body {
-      font-size: 17.5px;
+      font-size: 18.5px;
     }
   }
 
@@ -179,15 +179,15 @@
   }
 
   /* Mobile keeps a solid readable body — smaller than desktop but
-     never below 16px, which is Nielsen Norman's comfortable-read
-     floor and the point below which iOS auto-zooms form fields. */
+     never below 17px, comfortably above iOS auto-zoom on inputs
+     and Nielsen Norman's comfortable-read floor. */
   body {
-    font-size: 16.5px;
+    font-size: 17px;
     line-height: 1.65;
   }
 
   .prose-brand {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 1.7;
   }
 
@@ -474,11 +474,10 @@ summary:focus-visible {
    defaults. */
 .prose-brand {
   font-family: var(--font-body);
-  /* Larger body copy than the base — long-read articles want the
-     Nielsen Norman comfortable-reading size (18px+) with generous
-     line-height. Bumps blog posts, service pages, and CMS pages
-     together via a single token. */
-  font-size: 1.125rem;
+  /* Larger body copy than the base — long-read articles want 20px+
+     with generous line-height. Bumps blog posts, service pages, and
+     CMS pages together via a single token. */
+  font-size: 1.2rem;
   line-height: 1.75;
   color: var(--color-ink);
 }
@@ -493,7 +492,7 @@ summary:focus-visible {
 /* Headings — H2 gets a top rule + gold section-mark; H3 gets a rust stub. */
 .prose-brand h1:not(:where(.not-prose, .not-prose *)) {
   font-family: var(--font-display);
-  font-size: clamp(2.15rem, 4.4vw, 3rem);
+  font-size: clamp(2.3rem, 4.7vw, 3.25rem);
   font-weight: 500;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -503,7 +502,7 @@ summary:focus-visible {
 }
 .prose-brand h2:not(:where(.not-prose, .not-prose *)) {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.2vw, 2.35rem);
+  font-size: clamp(2rem, 3.4vw, 2.55rem);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -528,7 +527,7 @@ summary:focus-visible {
 }
 .prose-brand h3:not(:where(.not-prose, .not-prose *)) {
   font-family: var(--font-display);
-  font-size: 1.55rem;
+  font-size: 1.7rem;
   font-weight: 500;
   line-height: 1.25;
   color: var(--color-ink);
@@ -549,7 +548,7 @@ summary:focus-visible {
 }
 .prose-brand h4:not(:where(.not-prose, .not-prose *)) {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--color-ink);
   margin: 2rem 0 0.5rem;

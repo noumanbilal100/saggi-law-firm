@@ -18,7 +18,7 @@ export function ServiceAreasSection() {
 
         <div className="mb-12 grid gap-6 md:grid-cols-2">
           <div className="reveal rounded-[10px] border border-gold/20 bg-white/[0.03] p-7">
-            <h4 className="mb-5 font-body text-[0.72rem] font-bold uppercase tracking-[0.14em] text-gold">
+            <h4 className="mb-5 font-body text-[0.8rem] font-bold uppercase tracking-[0.14em] text-gold">
               Main service areas
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -32,7 +32,7 @@ export function ServiceAreasSection() {
                       : "border-gold/20 bg-white/[0.05] text-cream hover:border-gold hover:bg-gold hover:text-ink"
                   }`}
                 >
-                  <span className="text-[0.88rem] text-maple">🍁</span>
+                  <span className="text-[0.95rem] text-maple">🍁</span>
                   {l.name}
                 </Link>
               ))}
@@ -40,7 +40,7 @@ export function ServiceAreasSection() {
           </div>
 
           <div className="reveal d1 rounded-[10px] border border-gold/20 bg-white/[0.03] p-7">
-            <h4 className="mb-5 font-body text-[0.72rem] font-bold uppercase tracking-[0.14em] text-gold">
+            <h4 className="mb-5 font-body text-[0.8rem] font-bold uppercase tracking-[0.14em] text-gold">
               Also serving
             </h4>
             <div className="flex flex-wrap gap-2">

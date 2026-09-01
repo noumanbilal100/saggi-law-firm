@@ -90,7 +90,7 @@ export function MobileMenu({
           }`}
         >
           <div className="flex items-center justify-between border-b border-rule px-5 py-4">
-            <span className="font-body text-[0.72rem] font-bold uppercase tracking-[0.14em] text-rust">
+            <span className="font-body text-[0.8rem] font-bold uppercase tracking-[0.14em] text-rust">
               Menu
             </span>
             <button
@@ -143,7 +143,7 @@ export function MobileMenu({
                 className="flex items-center justify-between rounded-md bg-ink px-4 py-3 text-cream transition-all hover:bg-ink-soft"
               >
                 <span className="flex flex-col items-start leading-none">
-                  <span className="text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-gold">
+                  <span className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-gold">
                     Call now · 24/7
                   </span>
                   <span className="mt-1 font-display text-[1.05rem] font-medium">

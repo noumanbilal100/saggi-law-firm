@@ -35,7 +35,7 @@ export default function BookingPage() {
           style={{ background: "radial-gradient(circle, rgba(173,82,7,0.08), transparent 70%)" }}
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
-          <nav className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted" aria-label="Breadcrumb">
+          <nav className="mb-6 flex items-center gap-2 text-[0.98rem] text-muted" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-rust">Home</Link>
             <span aria-hidden className="opacity-50">›</span>
             <span>Book a Consultation</span>
@@ -65,21 +65,21 @@ export default function BookingPage() {
                 <h3 className="mt-3 font-display text-[1.4rem] font-medium text-cream">
                   Speak with {siteConfig.lawyer.name ?? "a lawyer"} directly.
                 </h3>
-                <p className="mt-2.5 text-[0.95rem] leading-[1.65] text-cream/70">
+                <p className="mt-2.5 text-[1.02rem] leading-[1.65] text-cream/70">
                   For urgent matters, call the office directly. Confidential from the first word.
                 </p>
                 {phone && phoneHref && (
                   <a
                     href={phoneHref}
-                    className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-rust px-5 py-3.5 font-body text-[0.95rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
+                    className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-rust px-5 py-3.5 font-body text-[1.02rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
                   >
                     ✆ Call {phone}
                   </a>
                 )}
-                <div className="mt-7 space-y-4 text-[0.95rem] leading-[1.6] text-cream/75">
+                <div className="mt-7 space-y-4 text-[1.02rem] leading-[1.6] text-cream/75">
                   {email && (
                     <div>
-                      <span className="mb-1 block text-[0.7rem] font-bold uppercase tracking-[0.14em] text-gold">Email</span>
+                      <span className="mb-1 block text-[0.78rem] font-bold uppercase tracking-[0.14em] text-gold">Email</span>
                       <a href={`mailto:${email}`} className="font-display text-[1.05rem] text-cream hover:text-gold">
                         {email}
                       </a>
@@ -87,11 +87,11 @@ export default function BookingPage() {
                   )}
                   {address.street && address.postal && (
                     <div>
-                      <span className="mb-1 block text-[0.7rem] font-bold uppercase tracking-[0.14em] text-gold">Office</span>
+                      <span className="mb-1 block text-[0.78rem] font-bold uppercase tracking-[0.14em] text-gold">Office</span>
                       <span className="font-display text-[1.05rem] text-cream">
                         {address.street}
                       </span>
-                      <span className="mt-1 block text-[0.9rem] text-cream/60">
+                      <span className="mt-1 block text-[0.98rem] text-cream/60">
                         {address.city}, {address.province === "Ontario" ? "ON" : address.province} {address.postal}
                       </span>
                     </div>
@@ -99,8 +99,8 @@ export default function BookingPage() {
                 </div>
               </div>
 
-              <div className="mt-8 rounded-lg border border-gold-soft bg-gold/10 px-5 py-4 text-[0.92rem] leading-[1.6] text-ink">
-                <strong className="mb-1 block font-display text-[0.95rem] font-medium">Solicitor–client privilege</strong>
+              <div className="mt-8 rounded-lg border border-gold-soft bg-gold/10 px-5 py-4 text-[1rem] leading-[1.6] text-ink">
+                <strong className="mb-1 block font-display text-[1.02rem] font-medium">Solicitor–client privilege</strong>
                 Anything you share with us — through this form, by phone, or by email — is confidential from the first contact.
               </div>
             </aside>

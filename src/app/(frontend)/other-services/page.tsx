@@ -55,7 +55,7 @@ export default function OtherServicesPage() {
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-6 flex items-center gap-2 text-[0.9rem] text-muted"
+            className="mb-6 flex items-center gap-2 text-[0.98rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">
@@ -93,7 +93,7 @@ export default function OtherServicesPage() {
                 What we handle
               </h2>
             </div>
-            <span className="font-body text-[0.72rem] font-bold uppercase tracking-[0.14em] text-muted">
+            <span className="font-body text-[0.8rem] font-bold uppercase tracking-[0.14em] text-muted">
               {additionalServices.length} services
             </span>
           </div>
@@ -123,7 +123,7 @@ export default function OtherServicesPage() {
                   {s.summary}
                 </p>
                 {s.lead && (
-                  <span className="mt-2 inline-flex w-fit rounded-full border border-rust bg-rust/[0.08] px-2.5 py-1 font-body text-[0.66rem] font-bold uppercase tracking-[0.08em] text-rust">
+                  <span className="mt-2 inline-flex w-fit rounded-full border border-rust bg-rust/[0.08] px-2.5 py-1 font-body text-[0.74rem] font-bold uppercase tracking-[0.08em] text-rust">
                     Lead service
                   </span>
                 )}
@@ -148,14 +148,14 @@ export default function OtherServicesPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href={phoneHref ?? "tel:"}
-              className="inline-flex items-center gap-2 rounded-md bg-rust px-6 py-3.5 font-body text-[0.95rem] font-bold text-white shadow-[0_4px_14px_rgba(184,83,32,0.32)] transition-all hover:-translate-y-px hover:bg-rust-hover"
+              className="inline-flex items-center gap-2 rounded-md bg-rust px-6 py-3.5 font-body text-[1.02rem] font-bold text-white shadow-[0_4px_14px_rgba(184,83,32,0.32)] transition-all hover:-translate-y-px hover:bg-rust-hover"
             >
               <span aria-hidden>✆</span>
               {phone ?? "Call the firm"}
             </a>
             <Link
               href="/contact-us"
-              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-cream/25 bg-transparent px-6 py-3.5 font-body text-[0.95rem] font-bold text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
+              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-cream/25 bg-transparent px-6 py-3.5 font-body text-[1.02rem] font-bold text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
             >
               Contact page →
             </Link>

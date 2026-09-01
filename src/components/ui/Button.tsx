@@ -8,7 +8,7 @@ const base =
   "inline-flex items-center justify-center gap-2.5 rounded-md font-body font-bold tracking-[0.01em] border-0 cursor-pointer transition-all duration-150 ease-[cubic-bezier(0.2,0.7,0.2,1)]";
 
 const sizes: Record<Size, string> = {
-  md: "px-6 py-[15px] text-[0.95rem]",
+  md: "px-6 py-[15px] text-[1.02rem]",
   lg: "px-8 py-[18px] text-base",
 };
 

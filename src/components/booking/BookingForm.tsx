@@ -11,10 +11,10 @@ type Status =
   | { kind: "error"; message: string };
 
 const inputBase =
-  "w-full rounded-md border border-rule bg-cream px-3.5 py-3 font-body text-[0.95rem] text-ink transition-colors focus:border-rust focus:bg-paper focus:outline focus:outline-2 focus:outline-rust";
+  "w-full rounded-md border border-rule bg-cream px-3.5 py-3 font-body text-[1.02rem] text-ink transition-colors focus:border-rust focus:bg-paper focus:outline focus:outline-2 focus:outline-rust";
 const labelBase =
-  "mb-1.5 block font-body text-[0.72rem] font-bold uppercase tracking-[0.06em] text-muted";
-const errorText = "mt-1 text-[0.85rem] font-medium text-maple";
+  "mb-1.5 block font-body text-[0.8rem] font-bold uppercase tracking-[0.06em] text-muted";
+const errorText = "mt-1 text-[0.92rem] font-medium text-maple";
 
 export function BookingForm({
   defaultMatter,
@@ -119,7 +119,7 @@ export function BookingForm({
         <button
           type="button"
           onClick={() => setStatus({ kind: "idle" })}
-          className="mt-6 inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-transparent px-5 py-2.5 text-[0.95rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
+          className="mt-6 inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-transparent px-5 py-2.5 text-[1.02rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
         >
           Send another request
         </button>
@@ -191,7 +191,7 @@ export function BookingForm({
       <button
         type="submit"
         disabled={status.kind === "sending"}
-        className="btn-shimmer mt-2 inline-flex items-center justify-center gap-2.5 rounded-md bg-rust px-8 py-4 font-body text-[0.95rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover hover:shadow-[0_8px_22px_rgba(173,82,7,0.35)] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:transform-none"
+        className="btn-shimmer mt-2 inline-flex items-center justify-center gap-2.5 rounded-md bg-rust px-8 py-4 font-body text-[1.02rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover hover:shadow-[0_8px_22px_rgba(173,82,7,0.35)] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:transform-none"
       >
         {status.kind === "sending" ? (
           <>
@@ -216,12 +216,12 @@ export function BookingForm({
       </button>
 
       {status.kind === "error" && (
-        <p role="alert" className="rounded-md border border-maple/40 bg-maple/[0.06] px-4 py-3 text-[0.95rem] text-maple">
+        <p role="alert" className="rounded-md border border-maple/40 bg-maple/[0.06] px-4 py-3 text-[1.02rem] text-maple">
           {status.message}
         </p>
       )}
 
-      <p className="mt-1 text-[0.78rem] leading-[1.55] text-muted">
+      <p className="mt-1 text-[0.85rem] leading-[1.55] text-muted">
         Your message is protected by solicitor–client privilege from the first contact. By submitting, you agree to be contacted at the phone or email you provide.
       </p>
     </form>

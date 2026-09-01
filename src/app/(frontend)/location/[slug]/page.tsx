@@ -94,7 +94,7 @@ export default async function LocationPage(
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-8 flex flex-wrap items-center gap-2 text-[0.9rem] text-muted"
+            className="mb-8 flex flex-wrap items-center gap-2 text-[0.98rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">Home</Link>
@@ -121,7 +121,7 @@ export default async function LocationPage(
               href={phoneHref ?? "tel:"}
               className="inline-flex min-w-[210px] flex-col items-start rounded-md bg-rust px-5 py-3 text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                 Call from {loc.name}
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -132,7 +132,7 @@ export default async function LocationPage(
               href={bookingUrl ?? "/contact-us"}
               className="inline-flex min-w-[210px] flex-col items-start rounded-md border-[1.5px] border-rule bg-transparent px-5 py-3 text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-muted">
                 Consultation
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -193,7 +193,7 @@ export default async function LocationPage(
                 href={`/${s.slug}`}
                 className="group flex items-center gap-3 rounded-[10px] border border-rule bg-paper p-4 transition-all hover:-translate-y-px hover:border-rust hover:shadow-brand-sm"
               >
-                <span className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-md bg-rust/[0.08] font-display text-[0.95rem] font-semibold text-rust">
+                <span className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-md bg-rust/[0.08] font-display text-[1.02rem] font-semibold text-rust">
                   {s.icon}
                 </span>
                 <span className="font-display text-[1.02rem] font-medium leading-[1.25]">
@@ -236,7 +236,7 @@ export default async function LocationPage(
               href={phoneHref ?? "tel:"}
               className="inline-flex min-w-[220px] flex-col items-start rounded-md bg-rust px-6 py-3.5 text-white transition-all hover:-translate-y-px hover:bg-rust-hover"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                 Direct line
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -247,7 +247,7 @@ export default async function LocationPage(
               href={bookingUrl ?? "/contact-us"}
               className="inline-flex min-w-[220px] flex-col items-start rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                 Book online
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">

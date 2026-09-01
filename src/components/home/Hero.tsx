@@ -20,8 +20,8 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-[1240px] gap-10 px-4 sm:px-6 md:grid-cols-[1.35fr_1fr] md:items-center md:gap-16">
         <div>
-          <div className="reveal in mb-6 inline-flex items-center gap-2.5 rounded-full border border-rule bg-paper py-1.5 pl-1.5 pr-3.5 text-[0.78rem] font-semibold shadow-brand-sm">
-            <span className="rounded-full bg-ink px-2.5 py-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-gold">
+          <div className="reveal in mb-6 inline-flex items-center gap-2.5 rounded-full border border-rule bg-paper py-1.5 pl-1.5 pr-3.5 text-[0.85rem] font-semibold shadow-brand-sm">
+            <span className="rounded-full bg-ink px-2.5 py-1 text-[0.76rem] font-bold uppercase tracking-[0.12em] text-gold">
               GTA
             </span>
             <span>Criminal defence across the Greater Toronto Area</span>
@@ -46,7 +46,7 @@ export function Hero() {
               href={phoneHref ?? "tel:"}
               className="btn-shimmer inline-flex min-w-[210px] flex-col items-start rounded-md bg-rust px-5 py-3 text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                 Call or WhatsApp
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -57,7 +57,7 @@ export function Hero() {
               href={bookingUrl ?? "/contact-us"}
               className="inline-flex min-w-[210px] flex-col items-start rounded-md border-[1.5px] border-rule bg-transparent px-5 py-3 text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-muted">
                 Consultation
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -66,7 +66,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="reveal in d4 mt-7 inline-flex items-center gap-2 rounded-full border border-maple-soft bg-maple/[0.06] px-3 py-1.5 text-[0.75rem] font-semibold">
+          <div className="reveal in d4 mt-7 inline-flex items-center gap-2 rounded-full border border-maple-soft bg-maple/[0.06] px-3 py-1.5 text-[0.82rem] font-semibold">
             <span className="text-maple">🍁</span> Greater Toronto Area · Ontario
             <span className="mx-1 inline-block h-px w-3 bg-maple/40" />
             Practising since 2013
@@ -82,14 +82,14 @@ export function Hero() {
           <h3 className="mb-2 font-display text-[1.3rem] font-medium">
             Serving the Greater Toronto Area
           </h3>
-          <p className="mb-6 text-[0.95rem] text-muted">
+          <p className="mb-6 text-[1.02rem] text-muted">
             Saggi Law Firm appears daily across GTA courthouses and represents clients in the following communities.
           </p>
           <ul className="flex flex-wrap gap-2">
             {mainLocations.map((loc) => (
               <li
                 key={loc.slug}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-[0.9rem] font-medium ${
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-[0.98rem] font-medium ${
                   loc.slug === "brampton"
                     ? "border-rust bg-rust/[0.08] font-bold text-rust"
                     : "border-rule bg-cream text-ink"
@@ -100,7 +100,7 @@ export function Hero() {
               </li>
             ))}
           </ul>
-          <div className="mt-6 border-t border-rule pt-6 text-[0.9rem] leading-[1.6] text-muted">
+          <div className="mt-6 border-t border-rule pt-6 text-[0.98rem] leading-[1.6] text-muted">
             … as well as communities throughout the surrounding GTA and Ontario.{" "}
             <a href="/location" className="font-semibold text-rust underline underline-offset-2">
               See full list →

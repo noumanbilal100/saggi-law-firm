@@ -40,7 +40,7 @@ export async function Reviews() {
               href={googleUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[0.92rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
+              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[1rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
             >
               <GoogleG /> Read all reviews on Google →
             </a>
@@ -58,7 +58,7 @@ export async function Reviews() {
           className="reveal d2 [&_iframe]:w-full [&>*]:mx-auto"
         />
         {reviewsUrl && (
-          <div className="mt-6 text-center text-[0.95rem] text-muted">
+          <div className="mt-6 text-center text-[1.02rem] text-muted">
             <a
               href={reviewsUrl}
               target="_blank"
@@ -94,7 +94,7 @@ export async function Reviews() {
               href={reviewsUrl ?? data.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[0.92rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
+              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[1rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
             >
               Read all Google reviews →
             </a>
@@ -110,7 +110,7 @@ export async function Reviews() {
       <ReviewsSection>
         <div className="reveal d2 grid gap-6 md:grid-cols-[1.2fr_1fr]">
           <div className="rounded-[18px] border border-ink bg-ink p-8 text-cream md:p-10">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/10 px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-gold">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/10 px-3 py-1 text-[0.8rem] font-bold uppercase tracking-[0.12em] text-gold">
               <GoogleG /> Google Business Profile
             </div>
             <h3 className="mt-5 font-display text-[clamp(1.5rem,2.4vw,2rem)] font-medium leading-[1.15] text-cream">
@@ -124,7 +124,7 @@ export async function Reviews() {
                 href={reviewsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md bg-rust px-6 py-3.5 font-body text-[0.95rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
+                className="inline-flex items-center gap-2 rounded-md bg-rust px-6 py-3.5 font-body text-[1.02rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
               >
                 <GoogleG /> See our reviews on Google →
               </a>
@@ -133,7 +133,7 @@ export async function Reviews() {
                   href={knowledgePanelUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 font-body text-[0.95rem] font-bold text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
+                  className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 font-body text-[1.02rem] font-bold text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
                 >
                   Open on Google Search →
                 </a>
@@ -148,7 +148,7 @@ export async function Reviews() {
             <h4 className="mt-3 font-display text-[1.15rem] font-medium text-ink">
               Native cards render here once the API key is set.
             </h4>
-            <p className="mt-3 text-[0.95rem] leading-[1.6] text-muted">
+            <p className="mt-3 text-[1.02rem] leading-[1.6] text-muted">
               Place ID is wired. Add <code className="rounded bg-cream-warm px-1.5 py-0.5 font-mono text-[0.85em] text-rust">GOOGLE_PLACES_API_KEY</code> in <code className="rounded bg-cream-warm px-1.5 py-0.5 font-mono text-[0.85em] text-rust">.env.local</code> (dev) or Vercel Environment Variables (prod), then rebuild. Reviews will refresh every 24 hours.
             </p>
           </div>
@@ -166,7 +166,7 @@ export async function Reviews() {
         <h3 className="mt-3 font-display text-[1.35rem] font-medium text-ink">
           Real Google reviews load here.
         </h3>
-        <p className="mx-auto mt-3 max-w-[60ch] text-[0.95rem] leading-[1.65] text-muted">
+        <p className="mx-auto mt-3 max-w-[60ch] text-[1.02rem] leading-[1.65] text-muted">
           This section will display genuine reviews from the Saggi Law Firm Google Business Profile — only authentic, verifiable client reviews.
         </p>
       </div>
@@ -232,7 +232,7 @@ function ManualReviewsSummary({
               </span>
             ))}
           </span>
-          <div className="mt-1 text-[0.9rem] text-muted">
+          <div className="mt-1 text-[0.98rem] text-muted">
             Based on {total.toLocaleString("en-CA")} Google review
             {total === 1 ? "" : "s"}
           </div>
@@ -242,7 +242,7 @@ function ManualReviewsSummary({
         href={googleUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3.5 py-2 font-body text-[0.88rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
+        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3.5 py-2 font-body text-[0.95rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
       >
         <GoogleG /> View on Google
       </a>
@@ -267,7 +267,7 @@ function ReviewsSummary({
         </div>
         <div>
           <StarRow rating={average} size="lg" />
-          <div className="mt-1 text-[0.9rem] text-muted">
+          <div className="mt-1 text-[0.98rem] text-muted">
             {total.toLocaleString("en-CA")} Google review{total === 1 ? "" : "s"}
           </div>
         </div>
@@ -276,7 +276,7 @@ function ReviewsSummary({
         href={googleUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3 py-2 font-body text-[0.88rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
+        className="ml-auto inline-flex items-center gap-2 rounded-md border border-rule bg-cream px-3 py-2 font-body text-[0.95rem] font-semibold text-muted transition-colors hover:border-rust hover:text-rust"
       >
         <GoogleG /> View on Google
       </a>
@@ -302,10 +302,10 @@ function ReviewCard({ review }: { review: GoogleReview }) {
           {initial}
         </span>
         <span className="min-w-0">
-          <span className="block truncate font-body text-[0.92rem] font-bold text-ink">
+          <span className="block truncate font-body text-[1rem] font-bold text-ink">
             {review.author_name}
           </span>
-          <span className="block text-[0.78rem] text-muted">
+          <span className="block text-[0.85rem] text-muted">
             {review.relative_time_description}
           </span>
         </span>
@@ -316,7 +316,7 @@ function ReviewCard({ review }: { review: GoogleReview }) {
 
 function StarRow({ rating, size = "md" }: { rating: number; size?: "md" | "lg" }) {
   const rounded = Math.round(Math.max(0, Math.min(5, rating)));
-  const cls = size === "lg" ? "text-[1.05rem]" : "text-[0.95rem]";
+  const cls = size === "lg" ? "text-[1.05rem]" : "text-[1.02rem]";
   return (
     <span
       role="img"
@@ -352,7 +352,7 @@ function GoogleG() {
 
 function GoogleAttribution() {
   return (
-    <p className="text-center text-[0.78rem] text-muted">
+    <p className="text-center text-[0.85rem] text-muted">
       Reviews sourced directly from Google Business Profile via the Places API — refreshes every 24 hours.
     </p>
   );

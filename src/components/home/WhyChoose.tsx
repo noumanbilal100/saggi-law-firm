@@ -53,7 +53,7 @@ export function WhyChoose() {
                 {it.icon}
               </div>
               <h3 className="mb-3 font-display text-[1.25rem] font-medium">{it.title}</h3>
-              <p className="text-[0.95rem] leading-[1.65] text-muted">{it.body}</p>
+              <p className="text-[1.02rem] leading-[1.65] text-muted">{it.body}</p>
             </div>
           ))}
         </div>

@@ -28,7 +28,7 @@ export default function CaseStudiesIndex() {
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-8 flex flex-wrap items-center gap-2 text-[0.9rem] text-muted"
+            className="mb-8 flex flex-wrap items-center gap-2 text-[0.98rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">
@@ -58,12 +58,12 @@ export default function CaseStudiesIndex() {
       <section className="border-t border-rule bg-cream-warm/30 py-14 md:py-16">
         <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
           <div className="mb-8 flex items-baseline justify-between">
-            <span className="font-body text-[0.68rem] font-bold uppercase tracking-[0.14em] text-muted">
+            <span className="font-body text-[0.76rem] font-bold uppercase tracking-[0.14em] text-muted">
               {caseResults.length} case studies
             </span>
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 font-body text-[0.9rem] font-semibold text-rust transition-transform hover:translate-x-1"
+              className="inline-flex items-center gap-1.5 font-body text-[0.98rem] font-semibold text-rust transition-transform hover:translate-x-1"
             >
               All practice areas <span aria-hidden>→</span>
             </Link>
@@ -77,10 +77,10 @@ export default function CaseStudiesIndex() {
                 className="group flex h-full flex-col gap-3 rounded-[12px] border border-rule bg-paper p-6 transition-all hover:-translate-y-1 hover:border-rust hover:shadow-brand-sm"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <span className="font-body text-[0.68rem] font-bold uppercase tracking-[0.12em] text-muted">
+                  <span className="font-body text-[0.76rem] font-bold uppercase tracking-[0.12em] text-muted">
                     {r.charge}
                   </span>
-                  <span className="inline-flex flex-shrink-0 items-center rounded-full border border-rust bg-rust/[0.08] px-2 py-0.5 font-body text-[0.62rem] font-bold uppercase tracking-[0.08em] text-rust">
+                  <span className="inline-flex flex-shrink-0 items-center rounded-full border border-rust bg-rust/[0.08] px-2 py-0.5 font-body text-[0.72rem] font-bold uppercase tracking-[0.08em] text-rust">
                     {r.outcomeLabel}
                   </span>
                 </div>
@@ -88,12 +88,12 @@ export default function CaseStudiesIndex() {
                   {r.detail.summary}
                 </h2>
                 {r.jurisdiction && (
-                  <span className="text-[0.75rem] text-muted">
+                  <span className="text-[0.82rem] text-muted">
                     {r.jurisdiction}
                     {r.year && ` · ${r.year}`}
                   </span>
                 )}
-                <span className="mt-auto inline-flex items-center gap-1 pt-2 text-[0.88rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
+                <span className="mt-auto inline-flex items-center gap-1 pt-2 text-[0.95rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
                   Read case study →
                 </span>
               </Link>
@@ -125,14 +125,14 @@ export default function CaseStudiesIndex() {
             {phone && (
               <a
                 href={phoneHref ?? "tel:"}
-                className="inline-flex items-center gap-2 rounded-md bg-rust px-6 py-3.5 font-body text-[0.95rem] font-bold text-white transition-all hover:-translate-y-px hover:bg-rust-hover"
+                className="inline-flex items-center gap-2 rounded-md bg-rust px-6 py-3.5 font-body text-[1.02rem] font-bold text-white transition-all hover:-translate-y-px hover:bg-rust-hover"
               >
                 Call or WhatsApp {phone}
               </a>
             )}
             <Link
               href="/booking"
-              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 font-body text-[0.95rem] font-bold text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
+              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 font-body text-[1.02rem] font-bold text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
             >
               Book online →
             </Link>

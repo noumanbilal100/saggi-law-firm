@@ -48,10 +48,10 @@ export function KeyPoint({
   return (
     <div className="key-point flex flex-col gap-2">
       <div className="kp-num font-display text-[1.6rem] font-normal leading-none tracking-[-0.02em] text-gold" />
-      <h4 className="font-body text-[0.95rem] font-bold text-cream">
+      <h4 className="font-body text-[1.02rem] font-bold text-cream">
         {title}
       </h4>
-      <div className="text-[0.95rem] leading-[1.6] text-cream/70">{children}</div>
+      <div className="text-[1.02rem] leading-[1.6] text-cream/70">{children}</div>
     </div>
   );
 }

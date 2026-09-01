@@ -93,7 +93,7 @@ export default async function BlogPostPage(
         />
         <div className="relative mx-auto max-w-[820px] px-4 sm:px-6">
           <nav
-            className="mb-6 flex flex-wrap items-center gap-2 text-[0.9rem] text-muted"
+            className="mb-6 flex flex-wrap items-center gap-2 text-[0.98rem] text-muted"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-rust">Home</Link>
@@ -103,10 +103,10 @@ export default async function BlogPostPage(
             <span className="truncate">{post.frontmatter.title}</span>
           </nav>
 
-          <div className="mb-6 flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.12em]">
+          <div className="mb-6 flex items-center gap-2 text-[0.8rem] font-bold uppercase tracking-[0.12em]">
             <span className="text-rust">{post.frontmatter.category}</span>
             {post.frontmatter.sample && (
-              <span className="rounded bg-maple/10 px-1.5 py-0.5 font-mono text-[0.7rem] text-maple">
+              <span className="rounded bg-maple/10 px-1.5 py-0.5 font-mono text-[0.78rem] text-maple">
                 sample
               </span>
             )}
@@ -120,7 +120,7 @@ export default async function BlogPostPage(
             {post.frontmatter.excerpt}
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-rule pt-6 text-[0.9rem] text-muted">
+          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-rule pt-6 text-[0.98rem] text-muted">
             {siteConfig.lawyer.name && (
               <>
                 <span>
@@ -174,7 +174,7 @@ export default async function BlogPostPage(
                 <Link
                   key={s.slug}
                   href={`/${s.slug}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-rule bg-paper px-4 py-2 text-[0.95rem] font-medium text-ink transition-all hover:border-rust hover:bg-rust hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-rule bg-paper px-4 py-2 text-[1.02rem] font-medium text-ink transition-all hover:border-rust hover:bg-rust hover:text-white"
                 >
                   {s.title}
                 </Link>
@@ -193,7 +193,7 @@ export default async function BlogPostPage(
               </h2>
               <Link
                 href="/blog"
-                className="text-[0.95rem] font-semibold text-rust hover:text-rust-hover"
+                className="text-[1.02rem] font-semibold text-rust hover:text-rust-hover"
               >
                 All articles →
               </Link>
@@ -207,16 +207,16 @@ export default async function BlogPostPage(
                     href={`/blog/${post.frontmatter.slug}`}
                     className="group flex h-full flex-col gap-3 rounded-[10px] border border-rule bg-paper p-6 transition-all hover:-translate-y-1 hover:border-rust hover:shadow-brand-sm"
                   >
-                    <span className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-rust">
+                    <span className="text-[0.8rem] font-bold uppercase tracking-[0.12em] text-rust">
                       {post.frontmatter.category}
                     </span>
                     <h3 className="font-display text-[1.1rem] font-medium leading-[1.3]">
                       {post.frontmatter.title}
                     </h3>
-                    <p className="line-clamp-2 text-[0.95rem] leading-[1.55] text-muted">
+                    <p className="line-clamp-2 text-[1.02rem] leading-[1.55] text-muted">
                       {post.frontmatter.excerpt}
                     </p>
-                    <div className="mt-auto text-[0.75rem] text-muted">
+                    <div className="mt-auto text-[0.82rem] text-muted">
                       <time dateTime={post.frontmatter.date}>
                         {d.toLocaleDateString("en-CA", {
                           year: "numeric",

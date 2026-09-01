@@ -29,14 +29,14 @@ export function ProseCta({
       />
       <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div className="max-w-[36ch]">
-          <div className="mb-2 inline-flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-gold">
+          <div className="mb-2 inline-flex items-center gap-2 text-[0.76rem] font-bold uppercase tracking-[0.14em] text-gold">
             <span className="inline-block h-px w-6 bg-gold" />
             Free consultation
           </div>
           <h3 className="font-display text-[clamp(1.3rem,2.4vw,1.75rem)] font-medium leading-[1.2] text-cream">
             {title}
           </h3>
-          <p className="mt-2 text-[0.92rem] leading-[1.55] text-cream/70">
+          <p className="mt-2 text-[1rem] leading-[1.55] text-cream/70">
             {subtitle}
           </p>
         </div>

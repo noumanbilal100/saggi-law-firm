@@ -36,10 +36,10 @@ export function PlaceholderBlock({
 }) {
   return (
     <div className="block rounded-lg border border-dashed border-maple bg-maple/[0.04] px-6 py-5 text-muted">
-      <span className="mb-2 inline-block text-[0.7rem] font-bold uppercase tracking-[0.14em] text-maple">
+      <span className="mb-2 inline-block text-[0.78rem] font-bold uppercase tracking-[0.14em] text-maple">
         {tag}
       </span>
-      <div className="text-[0.95rem] leading-relaxed">{children}</div>
+      <div className="text-[1.02rem] leading-relaxed">{children}</div>
     </div>
   );
 }

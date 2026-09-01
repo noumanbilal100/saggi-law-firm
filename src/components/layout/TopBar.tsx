@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/siteConfig";
 export function TopBar() {
   const { phone, phoneHref } = siteConfig.contact;
   return (
-    <div className="bg-ink text-cream text-[0.9rem] border-b border-gold/15">
+    <div className="bg-ink text-cream text-[0.98rem] border-b border-gold/15">
       <div className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-4 px-6 py-2.5">
         <span className="inline-flex items-center gap-2 font-semibold text-gold">
           <span
@@ -18,7 +18,7 @@ export function TopBar() {
           Speak with a criminal defence lawyer early.
         </span>
 
-        <span className="hidden items-center gap-1.5 text-[0.78rem] text-cream/70 sm:inline-flex">
+        <span className="hidden items-center gap-1.5 text-[0.85rem] text-cream/70 sm:inline-flex">
           <span className="text-maple leading-none">🍁</span>
           Proudly serving the Greater Toronto Area
         </span>

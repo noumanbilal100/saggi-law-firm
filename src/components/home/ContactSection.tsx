@@ -21,14 +21,14 @@ export function ContactSection() {
 
             <dl className="mt-9 divide-y divide-rule border-y border-rule">
               <div className="grid grid-cols-[90px_1fr] items-baseline gap-5 py-5">
-                <dt className="font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
+                <dt className="font-body text-[0.78rem] font-bold uppercase tracking-[0.14em] text-rust">
                   Office
                 </dt>
                 <dd className="font-display text-[1.15rem] font-medium leading-[1.4] text-ink">
                   {address.street && address.postal ? (
                     <>
                       {address.street}
-                      <span className="mt-1 block font-body text-[0.9rem] font-normal text-muted">
+                      <span className="mt-1 block font-body text-[0.98rem] font-normal text-muted">
                         {address.city}, {address.province === "Ontario" ? "ON" : address.province} {address.postal}
                       </span>
                     </>
@@ -38,7 +38,7 @@ export function ContactSection() {
                 </dd>
               </div>
               <div className="grid grid-cols-[90px_1fr] items-baseline gap-5 py-5">
-                <dt className="font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
+                <dt className="font-body text-[0.78rem] font-bold uppercase tracking-[0.14em] text-rust">
                   Phone
                 </dt>
                 <dd className="font-display text-[1.15rem] font-medium leading-[1.4] text-ink">
@@ -52,7 +52,7 @@ export function ContactSection() {
                 </dd>
               </div>
               <div className="grid grid-cols-[90px_1fr] items-baseline gap-5 py-5">
-                <dt className="font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
+                <dt className="font-body text-[0.78rem] font-bold uppercase tracking-[0.14em] text-rust">
                   Email
                 </dt>
                 <dd className="font-display text-[1.15rem] font-medium leading-[1.4] text-ink">
@@ -66,7 +66,7 @@ export function ContactSection() {
                 </dd>
               </div>
               <div className="grid grid-cols-[90px_1fr] items-baseline gap-5 py-5">
-                <dt className="font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
+                <dt className="font-body text-[0.78rem] font-bold uppercase tracking-[0.14em] text-rust">
                   Hours
                 </dt>
                 <dd className="font-display text-[1.15rem] font-medium leading-[1.4] text-ink">
@@ -100,8 +100,8 @@ export function ContactSection() {
               style={{ background: "radial-gradient(circle at 55% 45%, transparent 100px, rgba(251,249,237,0.4) 250px)" }}
             />
 
-            <div className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded-md border border-rule bg-paper px-2.5 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.1em] text-muted">
-              <span className="text-[0.95rem] text-maple">🍁</span> Brampton, ON
+            <div className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded-md border border-rule bg-paper px-2.5 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.1em] text-muted">
+              <span className="text-[1.02rem] text-maple">🍁</span> Brampton, ON
             </div>
 
             {/* Roads */}
@@ -136,7 +136,7 @@ export function ContactSection() {
                   href={mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[0.9rem] text-rust hover:underline"
+                  className="text-[0.98rem] text-rust hover:underline"
                 >
                   Open in Google Maps →
                 </a>

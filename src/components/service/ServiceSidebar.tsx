@@ -38,14 +38,14 @@ export function ServiceSidebar({
             }}
           />
           <div className="relative">
-            <span className="inline-flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.16em] text-gold">
+            <span className="inline-flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-gold">
               <span aria-hidden className="live-dot" />
               Direct line · Available 24/7
             </span>
             <div className="mt-1.5 font-display text-[1.5rem] font-medium leading-none tracking-[-0.02em] text-cream">
               {phone ?? <Placeholder onDark>[Phone]</Placeholder>}
             </div>
-            <div className="mt-0.5 text-[0.72rem] text-cream/60">
+            <div className="mt-0.5 text-[0.8rem] text-cream/60">
               Call or WhatsApp — answered by a lawyer
             </div>
           </div>
@@ -54,7 +54,7 @@ export function ServiceSidebar({
         <div className="grid grid-cols-2 gap-2 bg-ink p-2 pt-0">
           <a
             href={phoneHref ?? "tel:"}
-            className="btn-shimmer btn-pulse-rust group flex items-center justify-center gap-2 rounded-[8px] bg-rust px-3 py-3 text-[0.92rem] font-bold text-white shadow-[0_4px_12px_rgba(173,82,7,0.35)] transition-all hover:-translate-y-px hover:bg-rust-hover hover:shadow-[0_6px_16px_rgba(173,82,7,0.45)]"
+            className="btn-shimmer btn-pulse-rust group flex items-center justify-center gap-2 rounded-[8px] bg-rust px-3 py-3 text-[1rem] font-bold text-white shadow-[0_4px_12px_rgba(173,82,7,0.35)] transition-all hover:-translate-y-px hover:bg-rust-hover hover:shadow-[0_6px_16px_rgba(173,82,7,0.45)]"
           >
             <PhoneGlyph />
             Call
@@ -63,7 +63,7 @@ export function ServiceSidebar({
             href={whatsappHref ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-pulse-whatsapp group flex items-center justify-center gap-2 rounded-[8px] bg-[#25D366] px-3 py-3 text-[0.92rem] font-bold text-white shadow-[0_4px_12px_rgba(37,211,102,0.35)] transition-all hover:-translate-y-px hover:bg-[#1FB855] hover:shadow-[0_6px_16px_rgba(37,211,102,0.45)]"
+            className="btn-pulse-whatsapp group flex items-center justify-center gap-2 rounded-[8px] bg-[#25D366] px-3 py-3 text-[1rem] font-bold text-white shadow-[0_4px_12px_rgba(37,211,102,0.35)] transition-all hover:-translate-y-px hover:bg-[#1FB855] hover:shadow-[0_6px_16px_rgba(37,211,102,0.45)]"
           >
             <WhatsAppGlyph />
             WhatsApp
@@ -77,7 +77,7 @@ export function ServiceSidebar({
         <h3 className="mt-3 font-display text-[1.35rem] font-medium leading-[1.2] text-ink">
           Request a call from a lawyer
         </h3>
-        <p className="mt-2 text-[0.95rem] leading-[1.55] text-muted">
+        <p className="mt-2 text-[1.02rem] leading-[1.55] text-muted">
           Confidential from the first word. Answered by a lawyer, not a call
           centre.
         </p>
@@ -87,7 +87,7 @@ export function ServiceSidebar({
       </div>
 
       {/* Trust bar */}
-      <ul className="flex flex-col gap-3 rounded-[12px] border border-rule bg-cream-warm p-5 text-[0.9rem] leading-[1.5]">
+      <ul className="flex flex-col gap-3 rounded-[12px] border border-rule bg-cream-warm p-5 text-[0.98rem] leading-[1.5]">
         <li className="flex items-start gap-2.5">
           <span
             aria-hidden

@@ -113,7 +113,7 @@ export async function PageLayout({
         />
         <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6">
           <nav
-            className="mb-8 flex flex-wrap items-center gap-2 text-[0.9rem] text-muted"
+            className="mb-8 flex flex-wrap items-center gap-2 text-[0.98rem] text-muted"
             aria-label="Breadcrumb"
           >
             {hero.breadcrumb.map((item, i) => {
@@ -150,7 +150,7 @@ export async function PageLayout({
                   href={phoneHref ?? "tel:"}
                   className="btn-shimmer inline-flex min-w-[210px] flex-col items-start rounded-md bg-rust px-5 py-3 text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
                 >
-                  <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+                  <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                     Call or WhatsApp
                   </span>
                   <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -161,7 +161,7 @@ export async function PageLayout({
                   href={bookingUrl ?? "/contact-us"}
                   className="inline-flex min-w-[210px] flex-col items-start rounded-md border-[1.5px] border-rule bg-transparent px-5 py-3 text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
                 >
-                  <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">
+                  <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] text-muted">
                     Consultation
                   </span>
                   <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -241,7 +241,7 @@ export async function PageLayout({
                       "radial-gradient(ellipse 90% 40% at 50% 0%, rgba(211,181,116,0.14), transparent 60%)",
                   }}
                 />
-                <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-ink/70 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-cream backdrop-blur">
+                <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-ink/70 px-3 py-1 text-[0.76rem] font-bold uppercase tracking-[0.14em] text-cream backdrop-blur">
                   <span className="text-maple">🍁</span> Brampton, ON
                 </span>
               </div>
@@ -330,7 +330,7 @@ export async function PageLayout({
           }}
         />
         <div className="relative mx-auto max-w-[820px] px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center justify-center gap-2.5 rounded-full border border-gold/25 bg-white/[0.03] px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-gold">
+          <div className="inline-flex items-center justify-center gap-2.5 rounded-full border border-gold/25 bg-white/[0.03] px-4 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.14em] text-gold">
             <span
               aria-hidden
               className="inline-block h-1.5 w-1.5 rounded-full bg-maple shadow-[0_0_0_4px_rgba(216,6,33,0.18)]"
@@ -353,7 +353,7 @@ export async function PageLayout({
             >
               <span aria-hidden className="text-lg">✆</span>
               <span className="flex flex-col items-start leading-none">
-                <span className="text-[0.66rem] font-semibold uppercase tracking-[0.14em] opacity-85">
+                <span className="text-[0.74rem] font-semibold uppercase tracking-[0.14em] opacity-85">
                   Call or WhatsApp
                 </span>
                 <span className="mt-1 font-display text-[1.15rem] font-medium">
@@ -366,7 +366,7 @@ export async function PageLayout({
               className="inline-flex min-w-[240px] items-center justify-center gap-3 rounded-md border-[1.5px] border-white/25 bg-white/[0.03] px-6 py-4 text-cream backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-gold hover:bg-white/[0.06] hover:text-gold"
             >
               <span className="flex flex-col items-start leading-none">
-                <span className="text-[0.66rem] font-semibold uppercase tracking-[0.14em] opacity-70">
+                <span className="text-[0.74rem] font-semibold uppercase tracking-[0.14em] opacity-70">
                   Or book online
                 </span>
                 <span className="mt-1 font-display text-[1.1rem] font-medium">
@@ -378,7 +378,7 @@ export async function PageLayout({
           </div>
 
           {email && (
-            <p className="mt-6 text-[0.9rem] text-cream/50">
+            <p className="mt-6 text-[0.98rem] text-cream/50">
               Or email{" "}
               <a
                 href={`mailto:${email}`}
@@ -416,7 +416,7 @@ export async function PageLayout({
             {hasSampleResults && (
               <div
                 role="note"
-                className="mb-6 inline-flex items-start gap-3 rounded border-l-[3px] border-maple bg-maple/[0.05] px-4 py-2.5 text-[0.9rem] text-ink"
+                className="mb-6 inline-flex items-start gap-3 rounded border-l-[3px] border-maple bg-maple/[0.05] px-4 py-2.5 text-[0.98rem] text-ink"
               >
                 <span className="rounded bg-maple px-2 py-0.5 font-mono text-[0.65rem] font-bold uppercase tracking-[0.1em] text-white">
                   Sample
@@ -434,11 +434,11 @@ export async function PageLayout({
                   className="grid items-center gap-6 border-b border-rule py-5 md:grid-cols-[180px_1fr_auto] md:gap-8"
                 >
                   <div className="flex flex-col">
-                    <span className="font-body text-[0.78rem] font-bold uppercase tracking-[0.06em] text-muted">
+                    <span className="font-body text-[0.85rem] font-bold uppercase tracking-[0.06em] text-muted">
                       {r.charge}
                     </span>
                     {(r.jurisdiction || r.year) && (
-                      <span className="mt-1 text-[0.72rem] text-muted/80">
+                      <span className="mt-1 text-[0.8rem] text-muted/80">
                         {r.jurisdiction}
                         {r.jurisdiction && r.year && " · "}
                         {r.year}
@@ -449,7 +449,7 @@ export async function PageLayout({
                     className="font-display text-[1.1rem] font-medium leading-[1.4] text-ink [&>em]:not-italic [&>em]:italic [&>em]:text-rust"
                     dangerouslySetInnerHTML={{ __html: r.outcome }}
                   />
-                  <span className="inline-flex whitespace-nowrap justify-self-start rounded-full border border-rust bg-rust/8 px-3 py-1.5 font-body text-[0.7rem] font-bold uppercase tracking-[0.08em] text-rust md:justify-self-end">
+                  <span className="inline-flex whitespace-nowrap justify-self-start rounded-full border border-rust bg-rust/8 px-3 py-1.5 font-body text-[0.78rem] font-bold uppercase tracking-[0.08em] text-rust md:justify-self-end">
                     {r.outcomeLabel}
                   </span>
                 </div>
@@ -476,7 +476,7 @@ export async function PageLayout({
               className="[&_iframe]:w-full [&>*]:mx-auto"
             />
             {reviewsUrl && (
-              <div className="mt-6 text-center text-[0.95rem] text-muted">
+              <div className="mt-6 text-center text-[1.02rem] text-muted">
                 <a
                   href={reviewsUrl}
                   target="_blank"
@@ -505,7 +505,7 @@ export async function PageLayout({
               >
                 14<sup className="text-[0.5em] font-normal">+</sup>
               </div>
-              <div className="mt-2 text-[0.88rem] font-body leading-[1.4] text-muted">
+              <div className="mt-2 text-[0.95rem] font-body leading-[1.4] text-muted">
                 Years defending<br />criminal charges
               </div>
             </div>
@@ -516,7 +516,7 @@ export async function PageLayout({
               >
                 1,200<sup className="text-[0.5em] font-normal">+</sup>
               </div>
-              <div className="mt-2 text-[0.88rem] font-body leading-[1.4] text-muted">
+              <div className="mt-2 text-[0.95rem] font-body leading-[1.4] text-muted">
                 Cases handled<br />across the GTA
               </div>
             </div>
@@ -524,7 +524,7 @@ export async function PageLayout({
               <div className="font-display text-[clamp(2.2rem,3.6vw,2.8rem)] font-medium leading-none tracking-[-0.03em] text-rust">
                 24/7
               </div>
-              <div className="mt-2 text-[0.88rem] font-body leading-[1.4] text-muted">
+              <div className="mt-2 text-[0.95rem] font-body leading-[1.4] text-muted">
                 Availability day,<br />night &amp; weekends
               </div>
             </div>
@@ -535,7 +535,7 @@ export async function PageLayout({
               >
                 4.9<sup className="text-[0.5em] font-normal">★</sup>
               </div>
-              <div className="mt-2 text-[0.88rem] font-body leading-[1.4] text-muted">
+              <div className="mt-2 text-[0.95rem] font-body leading-[1.4] text-muted">
                 Rating from<br />207+ Google reviews
               </div>
             </div>
@@ -555,7 +555,7 @@ export async function PageLayout({
             </div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[0.95rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
+              className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[1.02rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
             >
               View all services →
             </Link>
@@ -574,7 +574,7 @@ export async function PageLayout({
                 <h3 className="font-display text-[1.05rem] font-medium leading-[1.25]">
                   {s.title}
                 </h3>
-                <span className="mt-auto inline-flex items-center gap-1 pt-2 text-[0.88rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
+                <span className="mt-auto inline-flex items-center gap-1 pt-2 text-[0.95rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
                   Learn more →
                 </span>
               </Link>
@@ -596,7 +596,7 @@ export async function PageLayout({
               </div>
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[0.95rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
+                className="inline-flex items-center gap-2 rounded-md border-[1.5px] border-rule bg-paper px-5 py-3 font-body text-[1.02rem] font-bold text-ink transition-all hover:-translate-y-px hover:border-rust hover:text-rust"
               >
                 All articles →
               </Link>
@@ -611,7 +611,7 @@ export async function PageLayout({
                     href={`/blog/${post.frontmatter.slug}`}
                     className="group flex h-full flex-col gap-3 rounded-[10px] border border-rule bg-paper p-6 transition-all hover:-translate-y-1 hover:border-rust hover:shadow-brand-sm"
                   >
-                    <div className="flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.12em]">
+                    <div className="flex items-center gap-2 text-[0.8rem] font-bold uppercase tracking-[0.12em]">
                       <span className="text-rust">{post.frontmatter.category}</span>
                       {post.frontmatter.sample && (
                         <span className="rounded bg-maple/10 px-1.5 py-0.5 font-mono text-[0.65rem] text-maple">
@@ -622,10 +622,10 @@ export async function PageLayout({
                     <h3 className="font-display text-[1.15rem] font-medium leading-[1.3]">
                       {post.frontmatter.title}
                     </h3>
-                    <p className="line-clamp-3 text-[0.92rem] leading-[1.55] text-muted">
+                    <p className="line-clamp-3 text-[1rem] leading-[1.55] text-muted">
                       {post.frontmatter.excerpt}
                     </p>
-                    <div className="mt-auto flex items-center gap-2 pt-3 text-[0.78rem] text-muted">
+                    <div className="mt-auto flex items-center gap-2 pt-3 text-[0.85rem] text-muted">
                       <time dateTime={post.frontmatter.date}>
                         {date.toLocaleDateString("en-CA", {
                           year: "numeric",
@@ -640,7 +640,7 @@ export async function PageLayout({
                         </>
                       )}
                     </div>
-                    <span className="inline-flex items-center gap-1 text-[0.88rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
+                    <span className="inline-flex items-center gap-1 text-[0.95rem] font-semibold text-rust transition-transform group-hover:translate-x-1">
                       Read →
                     </span>
                   </Link>
@@ -657,13 +657,13 @@ export async function PageLayout({
           <div className="mb-5 flex flex-wrap items-baseline justify-between gap-3">
             <div className="flex items-baseline gap-3">
               <Eyebrow>Where we appear</Eyebrow>
-              <span className="font-body text-[0.9rem] text-muted">
+              <span className="font-body text-[0.98rem] text-muted">
                 Serving Brampton, the GTA &amp; Southern Ontario
               </span>
             </div>
             <Link
               href="/location"
-              className="inline-flex items-center gap-1.5 font-body text-[0.9rem] font-semibold text-rust transition-transform hover:translate-x-1"
+              className="inline-flex items-center gap-1.5 font-body text-[0.98rem] font-semibold text-rust transition-transform hover:translate-x-1"
             >
               All locations <span aria-hidden>→</span>
             </Link>
@@ -674,13 +674,13 @@ export async function PageLayout({
               <Link
                 key={l.slug}
                 href={`/location/${l.slug}`}
-                className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.9rem] transition-all ${
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-[0.98rem] transition-all ${
                   l.slug === "brampton"
                     ? "border-rust bg-rust font-semibold text-white"
                     : "border-rule bg-paper text-ink hover:border-rust hover:text-rust"
                 }`}
               >
-                <span className="text-[0.85rem] text-maple">🍁</span>
+                <span className="text-[0.92rem] text-maple">🍁</span>
                 {l.name}
               </Link>
             ))}
@@ -688,7 +688,7 @@ export async function PageLayout({
               <Link
                 key={l.slug}
                 href={`/location/${l.slug}`}
-                className="inline-flex items-center rounded-full border border-rule bg-paper px-3 py-1.5 text-[0.85rem] text-muted transition-all hover:border-rust hover:text-rust"
+                className="inline-flex items-center rounded-full border border-rule bg-paper px-3 py-1.5 text-[0.92rem] text-muted transition-all hover:border-rust hover:text-rust"
               >
                 {l.name}
               </Link>
@@ -696,7 +696,7 @@ export async function PageLayout({
             {alsoLocations.length > 10 && (
               <Link
                 href="/location"
-                className="inline-flex items-center rounded-full border border-dashed border-rule bg-transparent px-3 py-1.5 text-[0.85rem] font-semibold text-rust hover:bg-rust hover:text-white"
+                className="inline-flex items-center rounded-full border border-dashed border-rule bg-transparent px-3 py-1.5 text-[0.92rem] font-semibold text-rust hover:bg-rust hover:text-white"
               >
                 +{alsoLocations.length - 10} more →
               </Link>
@@ -730,7 +730,7 @@ export async function PageLayout({
               href={phoneHref ?? "tel:"}
               className="btn-shimmer inline-flex min-w-[220px] flex-col items-start rounded-md bg-rust px-6 py-3.5 text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                 Direct line · Call or WhatsApp
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -741,7 +741,7 @@ export async function PageLayout({
               href={bookingUrl ?? "/contact-us"}
               className="inline-flex min-w-[220px] flex-col items-start rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
             >
-              <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+              <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
                 Book online
               </span>
               <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -749,7 +749,7 @@ export async function PageLayout({
               </span>
             </Link>
           </div>
-          <div className="mt-8 text-[0.95rem] text-cream/60">
+          <div className="mt-8 text-[1.02rem] text-cream/60">
             Or browse{" "}
             <Link
               href="/services"
@@ -796,7 +796,7 @@ function TrustBadge({
           </span>
         )}
       </span>
-      <span className="font-body text-[0.68rem] font-semibold uppercase tracking-[0.08em] leading-[1.4] text-muted">
+      <span className="font-body text-[0.76rem] font-semibold uppercase tracking-[0.08em] leading-[1.4] text-muted">
         {label}
       </span>
     </li>
@@ -920,7 +920,7 @@ function HeroVisual({ icon, kicker }: { icon: string; kicker?: string | null }) 
       />
       <div className="absolute left-6 top-6 h-16 w-16 border-l-2 border-t-2 border-gold/40" />
       <div className="absolute bottom-6 right-6 h-16 w-16 border-b-2 border-r-2 border-gold/40" />
-      <span className="absolute right-6 top-6 inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-ink/70 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-gold backdrop-blur">
+      <span className="absolute right-6 top-6 inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-ink/70 px-3 py-1 text-[0.76rem] font-bold uppercase tracking-[0.14em] text-gold backdrop-blur">
         <span className="text-maple">🍁</span> Brampton
       </span>
       <div className="relative flex h-full items-center justify-center">
@@ -932,7 +932,7 @@ function HeroVisual({ icon, kicker }: { icon: string; kicker?: string | null }) 
         </span>
       </div>
       <div className="absolute bottom-0 left-0 right-0 border-t border-gold/15 bg-ink/60 px-6 py-4 backdrop-blur-sm">
-        <div className="font-body text-[0.7rem] font-bold uppercase tracking-[0.18em] text-gold">
+        <div className="font-body text-[0.78rem] font-bold uppercase tracking-[0.18em] text-gold">
           Saggi Law Firm
         </div>
         {kicker && (

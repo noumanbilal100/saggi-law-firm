@@ -72,7 +72,7 @@ export function AtAGlanceStrip({ serviceSlug }: { serviceSlug?: string }) {
             aria-hidden
             className="h-px flex-1 bg-gradient-to-r from-transparent via-rule to-transparent"
           />
-          <span className="font-body text-[0.68rem] font-bold uppercase tracking-[0.18em] text-muted">
+          <span className="font-body text-[0.76rem] font-bold uppercase tracking-[0.18em] text-muted">
             At a Glance
           </span>
           <span
@@ -90,7 +90,7 @@ export function AtAGlanceStrip({ serviceSlug }: { serviceSlug?: string }) {
               <span aria-hidden className="text-rust">
                 {r.icon}
               </span>
-              <span className="font-body text-[0.66rem] font-bold uppercase tracking-[0.12em] leading-[1.3] text-muted">
+              <span className="font-body text-[0.74rem] font-bold uppercase tracking-[0.12em] leading-[1.3] text-muted">
                 {r.label}
               </span>
               <span className="font-display text-[1rem] font-medium leading-[1.35] text-ink sm:text-[1.05rem]">

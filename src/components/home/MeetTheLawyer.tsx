@@ -50,12 +50,12 @@ export function MeetTheLawyer() {
               </div>
             )}
             {(name || title) && photoSrc && (
-              <div className="absolute bottom-5 left-5 z-[3] rounded-lg border-l-[3px] border-gold bg-ink/75 px-3.5 py-2.5 font-body text-[0.88rem] text-cream backdrop-blur-md">
+              <div className="absolute bottom-5 left-5 z-[3] rounded-lg border-l-[3px] border-gold bg-ink/75 px-3.5 py-2.5 font-body text-[0.95rem] text-cream backdrop-blur-md">
                 <strong className="block font-display text-[1.1rem] font-medium text-cream">
                   {name}
                 </strong>
                 {title && (
-                  <span className="text-[0.7rem] uppercase tracking-[0.12em] text-gold/85">
+                  <span className="text-[0.78rem] uppercase tracking-[0.12em] text-gold/85">
                     {title}
                   </span>
                 )}
@@ -76,12 +76,12 @@ export function MeetTheLawyer() {
               <div className="flex flex-wrap items-baseline gap-x-3 font-display text-[1.4rem] font-medium text-ink">
                 {name ?? <Placeholder>[Insert Lawyer Name]</Placeholder>}
                 {title && (
-                  <span className="font-body text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-muted">
+                  <span className="font-body text-[0.85rem] font-semibold uppercase tracking-[0.14em] text-muted">
                     {title}
                   </span>
                 )}
               </div>
-              <span className="mt-1.5 block font-body text-[0.7rem] font-bold uppercase tracking-[0.14em] text-rust">
+              <span className="mt-1.5 block font-body text-[0.78rem] font-bold uppercase tracking-[0.14em] text-rust">
                 {role}
               </span>
               {tagline && (
@@ -113,10 +113,10 @@ export function MeetTheLawyer() {
                   <div key={c.title} className="flex items-start gap-3">
                     <span className="mt-0.5 font-display text-[1.3rem] leading-none text-rust">§</span>
                     <div>
-                      <h4 className="mb-0.5 font-body text-[0.95rem] font-bold text-ink">
+                      <h4 className="mb-0.5 font-body text-[1.02rem] font-bold text-ink">
                         {c.title}
                       </h4>
-                      <p className="text-[0.9rem] leading-[1.5] text-muted">{c.detail}</p>
+                      <p className="text-[0.98rem] leading-[1.5] text-muted">{c.detail}</p>
                     </div>
                   </div>
                 ))}
@@ -124,8 +124,8 @@ export function MeetTheLawyer() {
                   <div className="flex items-start gap-3">
                     <span className="mt-0.5 font-display text-[1.3rem] leading-none text-rust">§</span>
                     <div>
-                      <h4 className="mb-0.5 font-body text-[0.95rem] font-bold text-ink">Languages</h4>
-                      <p className="text-[0.9rem] leading-[1.5] text-muted">{languages.join(", ")}</p>
+                      <h4 className="mb-0.5 font-body text-[1.02rem] font-bold text-ink">Languages</h4>
+                      <p className="text-[0.98rem] leading-[1.5] text-muted">{languages.join(", ")}</p>
                     </div>
                   </div>
                 )}
@@ -133,7 +133,7 @@ export function MeetTheLawyer() {
                   <div className="flex items-start gap-3">
                     <span className="mt-0.5 font-display text-[1.3rem] leading-none text-rust">§</span>
                     <div>
-                      <h4 className="mb-0.5 font-body text-[0.95rem] font-bold text-ink">Languages</h4>
+                      <h4 className="mb-0.5 font-body text-[1.02rem] font-bold text-ink">Languages</h4>
                       <div className="mt-1">
                         <Placeholder>[Insert Languages Spoken]</Placeholder>
                       </div>
@@ -144,7 +144,7 @@ export function MeetTheLawyer() {
             )}
 
             {award && (
-              <div className="mt-6 inline-flex items-start gap-3 rounded-lg border border-gold-soft bg-gold/10 px-4 py-3 text-[0.95rem] text-ink">
+              <div className="mt-6 inline-flex items-start gap-3 rounded-lg border border-gold-soft bg-gold/10 px-4 py-3 text-[1.02rem] text-ink">
                 <span aria-hidden className="mt-0.5 text-[1.1rem] leading-none text-rust">★</span>
                 <span className="leading-[1.55]">{award}</span>
               </div>
@@ -153,12 +153,12 @@ export function MeetTheLawyer() {
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <Link
                 href={profileUrl ?? "/about-us"}
-                className="inline-flex items-center gap-2.5 rounded-md bg-rust px-6 py-[15px] font-body text-[0.95rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
+                className="inline-flex items-center gap-2.5 rounded-md bg-rust px-6 py-[15px] font-body text-[1.02rem] font-bold text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
               >
                 Learn More About the Lawyer →
               </Link>
               {!profileUrl && (
-                <span className="text-[0.9rem] text-muted">
+                <span className="text-[0.98rem] text-muted">
                   <Placeholder>[Insert dedicated profile page URL]</Placeholder>
                 </span>
               )}

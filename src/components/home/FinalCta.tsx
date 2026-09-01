@@ -47,7 +47,7 @@ export function FinalCta() {
             href={phoneHref ?? "tel:"}
             className="btn-shimmer inline-flex min-w-[240px] flex-col items-start rounded-md bg-rust px-6 py-3.5 text-white shadow-[0_4px_14px_rgba(173,82,7,0.28)] transition-all hover:-translate-y-px hover:bg-rust-hover"
           >
-            <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+            <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
               Call Saggi Law Firm
             </span>
             <span className="font-display text-[1.15rem] font-medium leading-tight">
@@ -58,7 +58,7 @@ export function FinalCta() {
             href={bookingUrl ?? "/contact-us"}
             className="inline-flex min-w-[240px] flex-col items-start rounded-md border-[1.5px] border-white/30 bg-transparent px-6 py-3.5 text-cream transition-all hover:-translate-y-px hover:border-gold hover:text-gold"
           >
-            <span className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] opacity-75">
+            <span className="mb-1 text-[0.76rem] font-semibold uppercase tracking-[0.14em] opacity-75">
               Book a Consultation
             </span>
             <span className="font-display text-[1.15rem] font-medium leading-tight">
