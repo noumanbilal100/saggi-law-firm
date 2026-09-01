@@ -38,11 +38,31 @@ function avatarColor(name: string): string {
   return AVATAR_COLORS[code % AVATAR_COLORS.length];
 }
 
+/** Milliseconds between auto-slide advances. Long enough to read a
+    short review at a glance; hover, keyboard focus, and off-screen
+    all pause the timer. */
+const AUTOPLAY_INTERVAL = 5500;
+
 export function ReviewsSlider({ reviews }: { reviews: ManualReview[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  /* Scroll to a specific card by index. `advanceOrLoop` wraps past
+     the end back to the start so the slider never dead-ends. */
+  const scrollToIdx = useCallback((idx: number) => {
+    const track = trackRef.current;
+    const card = track?.querySelectorAll<HTMLElement>("[data-review-card]")[idx];
+    if (!track || !card) return;
+    track.scrollTo({
+      left: card.offsetLeft - track.offsetLeft,
+      behavior: "smooth",
+    });
+  }, []);
 
   /* Scroll by one card width + the gap, in whichever direction. */
   const scrollByOne = useCallback((direction: 1 | -1) => {
@@ -93,18 +113,60 @@ export function ReviewsSlider({ reviews }: { reviews: ManualReview[] }) {
     };
   }, [reviews]);
 
-  const goTo = (i: number) => {
-    const track = trackRef.current;
-    const card = track?.querySelectorAll<HTMLElement>("[data-review-card]")[i];
-    if (!track || !card) return;
-    track.scrollTo({
-      left: card.offsetLeft - track.offsetLeft,
-      behavior: "smooth",
-    });
-  };
+  const goTo = (i: number) => scrollToIdx(i);
+
+  /* Track visibility so autoplay only runs when the section is on
+     screen — a slider ticking off-screen wastes cycles and moves
+     focus/scroll state the reader isn't looking at. */
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.25 },
+    );
+    obs.observe(wrapper);
+    return () => obs.disconnect();
+  }, []);
+
+  /* Autoplay. Advances one card every AUTOPLAY_INTERVAL ms, wraps
+     back to card 0 when we reach the end, and honours reduced-motion,
+     hover / focus pause, and off-screen pause. */
+  useEffect(() => {
+    if (isPaused || !isVisible) return;
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+    const timer = window.setInterval(() => {
+      const track = trackRef.current;
+      if (!track) return;
+      const atEnd =
+        track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      if (atEnd) {
+        track.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        scrollByOne(1);
+      }
+    }, AUTOPLAY_INTERVAL);
+    return () => window.clearInterval(timer);
+  }, [isPaused, isVisible, scrollByOne]);
 
   return (
-    <div className="relative">
+    <div
+      ref={wrapperRef}
+      className="relative"
+      onPointerEnter={() => setIsPaused(true)}
+      onPointerLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          setIsPaused(false);
+        }
+      }}
+    >
       {/* Chevron buttons — hidden on the narrowest phones where the
           finger-swipe on a touch surface is the natural interaction. */}
       <button
