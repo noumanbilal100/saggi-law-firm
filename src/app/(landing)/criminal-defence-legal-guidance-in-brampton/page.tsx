@@ -245,39 +245,100 @@ function Hero() {
           </ul>
         </div>
 
-        {/* Image column — sits BELOW text on mobile, right on desktop */}
-        <div className="relative order-last aspect-[4/5] w-full overflow-hidden rounded-[6px] border border-[#b08d3f]/30 shadow-[0_20px_60px_rgba(0,0,0,0.35)] md:aspect-auto md:min-h-[560px] md:shadow-[-18px_18px_0_rgba(176,141,63,0.18)]">
-          <Image
-            src="/landing-brampton/saggi-hero-criminal-defence-lawyer.jpg"
-            alt="Criminal defence lawyer in a navy suit standing in a Canadian courthouse corridor before a court appearance"
-            fill
-            priority
-            sizes="(max-width: 900px) 100vw, 44vw"
-            className="object-cover object-top"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(13,27,42,0.10) 0%, transparent 40%, rgba(13,27,42,0.35) 100%)",
-            }}
-          />
-          {/* Small caption card, bottom-left */}
-          <div className="absolute bottom-4 left-4 max-w-[calc(100%-2rem)] rounded border-l-[3px] border-[#b08d3f] bg-[#0d1b2a]/85 px-3.5 py-2.5 backdrop-blur">
-            <strong className="block font-serif text-[15px] font-bold text-white">
-              Saggi Law Firm
-            </strong>
-            <span
-              className="mt-0.5 block font-sans text-[10.5px] font-semibold uppercase tracking-[0.12em] text-[#d6b872]"
-             
-            >
-              Criminal Defence · Brampton & GTA
-            </span>
-          </div>
-        </div>
+        <HeroContactCard />
       </div>
     </section>
+  );
+}
+
+/* Right-column widget on the hero — replaces the stock lawyer photo
+   (client said the previous image read as AI-generated) with a
+   custom composition that carries more information density AND more
+   personality than a stock shot: a live direct-line card, a 2×2 stat
+   pill grid, and a short verified testimonial. Each block owns its
+   own micro-conversion so the whole column earns its space rather
+   than just filling it. */
+function HeroContactCard() {
+  return (
+    <div className="relative order-last flex w-full flex-col gap-4 md:min-h-[560px]">
+      {/* Live direct-line card */}
+      <a
+        href={CONTACT.phoneHref}
+        className="group relative overflow-hidden rounded-[10px] border border-[#b08d3f]/40 bg-[#0d1b2a] p-5 shadow-[0_18px_44px_rgba(0,0,0,0.35)] transition-all hover:-translate-y-0.5 hover:border-[#b08d3f]/70 sm:p-6"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 90% at 100% 0%, rgba(176,141,63,0.25), transparent 60%)",
+          }}
+        />
+        <div className="relative flex items-center gap-3">
+          <span aria-hidden className="relative flex h-3 w-3">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#4ade80]" />
+            <span className="relative inline-flex h-3 w-3 rounded-full bg-[#22c55e]" />
+          </span>
+          <span className="text-[11.5px] font-bold uppercase tracking-[0.16em] text-[#d6b872]">
+            Live · Direct to a lawyer · 24/7
+          </span>
+        </div>
+        <div className="relative mt-3 flex items-baseline gap-3">
+          <span aria-hidden className="text-[1.4rem] text-[#d6b872]">
+            ✆
+          </span>
+          <span className="font-sans text-[clamp(28px,3.4vw,38px)] font-bold leading-none tracking-[-0.01em] text-white">
+            {CONTACT.phone}
+          </span>
+        </div>
+        <span className="relative mt-3 block text-[13px] text-white/70">
+          No gatekeepers · No answering service · No obligation
+        </span>
+      </a>
+
+      {/* Stat pills — 2×2 grid */}
+      <div className="grid grid-cols-2 gap-3">
+        {[
+          { n: "10+", l: "Years defending" },
+          { n: "500+", l: "Cases handled" },
+          { n: "5.0★", l: "Google rating" },
+          { n: "24/7", l: "Direct-line" },
+        ].map((s) => (
+          <div
+            key={s.l}
+            className="rounded-[8px] border border-white/12 bg-white/[0.03] px-4 py-3.5"
+          >
+            <div className="font-sans text-[1.75rem] font-bold leading-none tracking-[-0.01em] text-white">
+              {s.n}
+            </div>
+            <div className="mt-1.5 text-[11.5px] font-semibold uppercase tracking-[0.12em] text-[#d6b872]">
+              {s.l}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Short verified testimonial — social proof */}
+      <blockquote className="relative flex-1 rounded-[10px] border border-[#b08d3f]/25 bg-white/[0.03] p-5 sm:p-6">
+        <div className="flex items-center gap-1 tracking-[0.08em] text-[#d6b872]">
+          {"★★★★★".split("").map((s, i) => (
+            <span key={i} aria-hidden>
+              {s}
+            </span>
+          ))}
+        </div>
+        <p className="mt-2.5 text-[15.5px] italic leading-[1.55] text-white/85">
+          &ldquo;Trust him blindly, he will not let you down. Extremely
+          grateful to Mr. Saggi for the professionalism and dedication.&rdquo;
+        </p>
+        <footer className="mt-3 flex items-center justify-between text-[12px]">
+          <span className="font-semibold text-white">Kiran Dhaliwal</span>
+          <span className="uppercase tracking-[0.12em] text-[#d6b872]">
+            Verified Google Review
+          </span>
+        </footer>
+      </blockquote>
+    </div>
   );
 }
 
@@ -441,24 +502,25 @@ function ChargedWithOffence() {
   );
 }
 
+/* Full practice-area grid — mirrors the home page's ServicesSection
+   card layout for scan-density, but rendered as inert <article>
+   cards on this landing (no outbound links, per client). Twelve cards
+   in a 2-up (tablet) / 3-up (desktop) grid so a visitor sees the
+   firm's full defence surface at a glance without having to leave. */
 function PracticeAreas() {
   const areas = [
-    {
-      title: "Impaired Driving",
-      body: "Impaired driving charges can create serious legal and personal consequences. A criminal lawyer can review the circumstances of the stop, investigation, testing procedures, evidence, and allegations before advising you on your options.",
-    },
-    {
-      title: "Drug Offences",
-      body: "Drug-related allegations can involve significant penalties depending on the circumstances and the substances involved. Cases involving drug offences may require careful consideration of the Controlled Drugs and Substances Act, search procedures, possession allegations, and the evidence relied upon by prosecutors.",
-    },
-    {
-      title: "Sexual Assault",
-      body: "A sexual assault allegation is extremely serious and can have substantial consequences even before a case reaches trial. Experienced defence counsel can review the allegations and evidence, explain the legal process, and develop an appropriate strategy to achieve the best possible outcome.",
-    },
-    {
-      title: "Other Criminal Offences",
-      body: "We also assist with a variety of other criminal offences, including matters that may involve indictable offences, assault allegations, property offences, probation issues, and other charges under the Criminal Code of Canada.",
-    },
+    { icon: "C", title: "Criminal Lawyer", body: "Full-service criminal defence representation across the Greater Toronto Area — from a first court appearance to trial." },
+    { icon: "D", title: "Impaired Driving & DUI", body: "Impaired, Over 80, refusal, and dangerous-driving matters. Roadside investigations, breath samples, and Charter arguments reviewed in detail." },
+    { icon: "A", title: "Assault", body: "Common assault, aggravated assault, assault with a weapon, and assault causing bodily harm — private, domestic, and public contexts." },
+    { icon: "D", title: "Domestic Assault", body: "Partner and family-related allegations, including release conditions, no-contact orders, and peace bond negotiations." },
+    { icon: "S", title: "Sexual Offences", body: "Sexual assault, sexual interference, and related Criminal Code allegations — handled with discretion, disclosure review, and defence strategy." },
+    { icon: "D", title: "Drug Offences", body: "Possession, trafficking, production, and importing charges under the Controlled Drugs and Substances Act. Search-and-seizure Charter analysis." },
+    { icon: "F", title: "Firearms & Weapons", body: "Unauthorized possession, storage, prohibited-weapon, and firearm-related allegations across GTA courthouses." },
+    { icon: "W", title: "White-Collar Crime", body: "Fraud, breach of trust, forgery, and financial-crime allegations — thorough review of disclosure, complainant statements, and Crown theory." },
+    { icon: "T", title: "Theft & Robbery", body: "Theft under, theft over, robbery, break-and-enter, and possession of stolen property — from summary to indictable proceedings." },
+    { icon: "B", title: "Bail Hearings", body: "Show-cause hearings, bail reviews, bail variations, and surety guidance across Peel, Toronto, and surrounding courts." },
+    { icon: "H", title: "Criminal Harassment", body: "Harassment, threatening, and stalking allegations. Communication history, alleged fear, and mens rea assessed against Charter protections." },
+    { icon: "Y", title: "Youth Offences", body: "Youth Criminal Justice Act matters. Publication protection, extrajudicial sanctions, and defence strategy tailored to a young client's future." },
   ];
   return (
     <SoftSection>
@@ -469,23 +531,30 @@ function PracticeAreas() {
         </h2>
         <GoldRule />
         <p className="mt-6">
-          Our team of criminal defence lawyers assists clients with a
-          broad range of criminal matters. Every offence requires an
-          individual assessment because the appropriate strategy depends
-          on the allegations, evidence, previous history, and
-          circumstances surrounding the case.
+          Every offence carries its own procedure, evidence rules, and
+          possible outcomes. Below is a snapshot of the areas Saggi Law
+          Firm defends most often — every matter is assessed on its own
+          facts.
         </p>
       </div>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {areas.map((a) => (
           <article
             key={a.title}
-            className="group border border-[#e2e6ea] border-t-[3px] border-t-[#b08d3f] bg-white p-7 transition-all duration-200 hover:-translate-y-1 hover:border-[#0d1b2a] hover:border-t-[#b08d3f] hover:shadow-[0_18px_40px_-28px_rgba(13,27,42,0.55)]"
+            className="group flex flex-col gap-3 border border-[#e2e6ea] border-t-[3px] border-t-[#b08d3f] bg-white p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[#0d1b2a] hover:border-t-[#b08d3f] hover:shadow-[0_18px_40px_-28px_rgba(13,27,42,0.55)]"
           >
-            <h3 className="font-serif text-[19px] font-bold leading-[1.3] text-[#0d1b2a]">
-              {a.title}
-            </h3>
-            <p className="mt-3 text-[16px]">{a.body}</p>
+            <div className="flex items-start gap-3">
+              <span
+                aria-hidden
+                className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-[6px] bg-[#b08d3f]/12 font-serif text-[1.05rem] font-bold text-[#b08d3f]"
+              >
+                {a.icon}
+              </span>
+              <h3 className="mt-1 flex-1 font-serif text-[1.15rem] font-bold leading-[1.3] text-[#0d1b2a]">
+                {a.title}
+              </h3>
+            </div>
+            <p className="text-[15px] leading-[1.6] text-[#3d4a57]">{a.body}</p>
           </article>
         ))}
       </div>
@@ -943,103 +1012,21 @@ function OfficeLocation() {
             Get directions on Google Maps →
           </a>
         </div>
-        {/* Illustrated map in the landing's navy/gold palette — same
-            aesthetic as the home page's contact map (grid overlay,
-            radial fade, dropped pin with pulse, address card at
-            bottom), recoloured so it lives inside this landing's ink
-            ground instead of the site's cream one. */}
+        {/* Real Google Maps embed — simple iframe, no illustration.
+            The URL-based embed doesn't need an API key; the map still
+            offers zoom, drag, and a "View larger map" link out. */}
         <div
-          className="relative min-h-[380px] overflow-hidden border border-[#b08d3f]/25 md:min-h-[500px] md:shadow-[18px_18px_0_rgba(176,141,63,0.18)]"
-          style={{
-            background:
-              "linear-gradient(180deg, #0d1b2a 0%, #132a41 60%, #0d1b2a 100%)",
-          }}
+          className="relative min-h-[380px] overflow-hidden border border-[#e2e6ea] bg-white md:min-h-[500px] md:shadow-[18px_18px_0_rgba(176,141,63,0.18)]"
           aria-label="Saggi Law Firm office location"
         >
-          {/* Grid overlay */}
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(214,184,114,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(214,184,114,0.10) 1px, transparent 1px)",
-              backgroundSize: "48px 48px",
-            }}
+          <iframe
+            title="Saggi Law Firm office — Google Maps"
+            src={`https://maps.google.com/maps?q=${CONTACT.mapsQuery}&z=16&ie=UTF8&iwloc=&output=embed`}
+            className="absolute inset-0 h-full w-full border-0"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
           />
-          {/* Radial spotlight where the pin sits */}
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(circle at 55% 45%, rgba(176,141,63,0.18) 0px, transparent 250px)",
-            }}
-          />
-          {/* Corner label */}
-          <div className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded border border-[#b08d3f]/40 bg-[#0d1b2a]/70 px-2.5 py-1.5 font-sans text-[10.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872] backdrop-blur">
-            <span aria-hidden className="text-[1.02rem]">🍁</span> Brampton, ON
-          </div>
-          {/* Stylised roads */}
-          <div className="absolute left-[5%] right-[5%] top-[42%] h-[3px] -rotate-2 bg-[#d6b872]/25" />
-          <div className="absolute bottom-[8%] left-[48%] top-[8%] w-[3px] bg-[#d6b872]/25" />
-          <div className="absolute left-[10%] right-[30%] top-[68%] h-[2px] rotate-[15deg] bg-[#d6b872]/20" />
-          {/* Pin pulse — two staggered rings + a subtle bounce on the
-              pin itself so the animation reads well on mobile too. */}
-          <div
-            aria-hidden
-            className="absolute left-1/2 top-[42%] h-[34px] w-[34px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b08d3f] opacity-0"
-            style={{
-              animation: "map-pulse 2.4s ease-out infinite",
-              willChange: "transform, opacity",
-            }}
-          />
-          <div
-            aria-hidden
-            className="absolute left-1/2 top-[42%] h-[34px] w-[34px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b08d3f] opacity-0"
-            style={{
-              animation: "map-pulse-lg 2.4s ease-out infinite 1.2s",
-              willChange: "transform, opacity",
-            }}
-          />
-          {/* Pin */}
-          <div className="absolute left-1/2 top-[42%] z-[2] -translate-x-1/2 -translate-y-full">
-            <div
-              className="grid h-11 w-11 place-items-center rounded-[50%_50%_50%_0] bg-[#b08d3f] shadow-[0_8px_20px_rgba(176,141,63,0.55)]"
-              style={{
-                transform: "rotate(-45deg)",
-                animation:
-                  "map-drop 700ms cubic-bezier(0.2,0.7,0.2,1), map-pin-bounce 2.4s ease-in-out 1s infinite",
-                willChange: "transform",
-              }}
-            >
-              <span
-                className="text-[1.15rem] leading-none text-white"
-                style={{ transform: "rotate(45deg)" }}
-              >
-                🍁
-              </span>
-            </div>
-          </div>
-          {/* Address card at bottom */}
-          <div className="absolute inset-x-6 bottom-6 z-[3] rounded border-l-[3px] border-[#b08d3f] bg-white p-5 shadow-[0_12px_28px_rgba(0,0,0,0.35)]">
-            <strong className="block font-serif text-[17px] font-bold text-[#0d1b2a]">
-              Saggi Law Firm
-            </strong>
-            <span className="mt-1 block font-serif text-[14.5px] leading-[1.5] text-[#3d4a57]">
-              {CONTACT.addressLine1}
-              <br />
-              {CONTACT.addressLine2}
-            </span>
-            <a
-              href={CONTACT.mapsHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-1.5 font-sans text-[12px] font-bold uppercase tracking-[0.12em] text-[#b08d3f] no-underline hover:text-[#8f7130]"
-             
-            >
-              Open in Google Maps →
-            </a>
-          </div>
         </div>
       </div>
     </SoftSection>
