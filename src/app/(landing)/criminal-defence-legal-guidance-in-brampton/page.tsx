@@ -151,16 +151,10 @@ export default function LandingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      {/* Georgia serif overrides the site's Fraunces/Manrope; the WP
-          page relied on classic serif type and that reading rhythm is
-          part of what the client approved. Bottom padding leaves room
-          for the sticky mobile CTA. */}
-      <div
-        className="pb-[76px] text-[17px] leading-[1.75] text-[#3d4a57] sm:pb-0"
-        style={{
-          fontFamily: 'Georgia, "Times New Roman", serif',
-        }}
-      >
+      {/* Site-wide Poppins now drives typography — landing shell
+          inherits it via the (landing) layout. Bottom padding leaves
+          room for the sticky mobile CTA. */}
+      <div className="pb-[76px] text-[17px] leading-[1.75] text-[#3d4a57] sm:pb-0">
         <TrustBar />
         <Hero />
         <ContactStrip />
@@ -203,7 +197,7 @@ function Hero() {
         <div className="max-w-[640px]">
           <div
             className="inline-flex items-center gap-2 rounded-full border border-[#b08d3f]/45 bg-[#b08d3f]/15 px-3 py-1.5 font-sans text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872]"
-            style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+           
           >
             <span aria-hidden className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#d6b872]/60" />
@@ -276,7 +270,7 @@ function Hero() {
             </strong>
             <span
               className="mt-0.5 block font-sans text-[10.5px] font-semibold uppercase tracking-[0.12em] text-[#d6b872]"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+             
             >
               Criminal Defence · Brampton & GTA
             </span>
@@ -349,7 +343,7 @@ function ContactStrip() {
               <span className="min-w-0">
                 <span
                   className="block truncate font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#d6b872]"
-                  style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+                 
                 >
                   {k}
                 </span>
@@ -822,7 +816,7 @@ function TrustBar() {
   ];
   return (
     <div className="border-b border-white/10 bg-[#0a1520] text-[#d6b872]">
-      <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 py-2.5 text-center font-sans text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+      <div className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 py-2.5 text-center font-sans text-[12px] font-semibold uppercase tracking-[0.14em]">
         {items.map((it, i) => (
           <span key={it.k} className="inline-flex items-center gap-2">
             <span className="text-white">{it.k}</span>
@@ -874,7 +868,7 @@ function Testimonials() {
               </span>
               <span
                 className="mt-0.5 block font-sans text-[11.5px] uppercase tracking-[0.14em] text-[#b08d3f]"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+               
               >
                 {r.credentials}
               </span>
@@ -900,7 +894,7 @@ function OfficeLocation() {
             <div>
               <dt
                 className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#b08d3f]"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+               
               >
                 Address
               </dt>
@@ -913,7 +907,7 @@ function OfficeLocation() {
             <div>
               <dt
                 className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#b08d3f]"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+               
               >
                 Hours
               </dt>
@@ -924,7 +918,7 @@ function OfficeLocation() {
             <div>
               <dt
                 className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#b08d3f]"
-                style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+               
               >
                 Direct line
               </dt>
@@ -982,7 +976,7 @@ function OfficeLocation() {
             }}
           />
           {/* Corner label */}
-          <div className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded border border-[#b08d3f]/40 bg-[#0d1b2a]/70 px-2.5 py-1.5 font-sans text-[10.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872] backdrop-blur" style={{ fontFamily: "Arial, Helvetica, sans-serif" }}>
+          <div className="absolute right-5 top-5 z-10 inline-flex items-center gap-1.5 rounded border border-[#b08d3f]/40 bg-[#0d1b2a]/70 px-2.5 py-1.5 font-sans text-[10.5px] font-bold uppercase tracking-[0.14em] text-[#d6b872] backdrop-blur">
             <span aria-hidden className="text-[1.02rem]">🍁</span> Brampton, ON
           </div>
           {/* Stylised roads */}
@@ -1041,7 +1035,7 @@ function OfficeLocation() {
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-flex items-center gap-1.5 font-sans text-[12px] font-bold uppercase tracking-[0.12em] text-[#b08d3f] no-underline hover:text-[#8f7130]"
-              style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+             
             >
               Open in Google Maps →
             </a>
@@ -1091,7 +1085,7 @@ function StickyMobileCta() {
       <a
         href={CONTACT.phoneHref}
         className="flex flex-1 items-center justify-center gap-2 border-r border-white/10 bg-[#b08d3f] py-4 font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-white no-underline transition-colors hover:bg-[#8f7130]"
-        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+       
       >
         <PhoneIcon />
         Call Now
@@ -1101,7 +1095,7 @@ function StickyMobileCta() {
         target="_blank"
         rel="noopener noreferrer"
         className="flex flex-1 items-center justify-center gap-2 bg-[#25D366] py-4 font-sans text-[13px] font-bold uppercase tracking-[0.1em] text-white no-underline transition-colors hover:bg-[#1fb655]"
-        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+       
       >
         <WhatsAppIcon />
         WhatsApp
@@ -1188,7 +1182,7 @@ function Eyebrow({
       className={`font-sans text-[12px] font-bold uppercase tracking-[0.22em] ${
         light ? "text-[#d6b872]" : "text-[#b08d3f]"
       }`}
-      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+     
     >
       {children}
     </p>
@@ -1209,7 +1203,7 @@ function ActionsRow({
       <a
         href={CONTACT.phoneHref}
         className="group inline-flex items-center justify-center gap-2.5 border-2 border-[#b08d3f] bg-[#b08d3f] px-7 py-[15px] font-sans text-[14px] font-bold uppercase tracking-[0.09em] text-white no-underline shadow-[0_6px_20px_rgba(176,141,63,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#8f7130] hover:bg-[#8f7130]"
-        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+       
         aria-label={`Call Saggi Law Firm at ${CONTACT.phone}`}
       >
         <PhoneIcon />
@@ -1226,7 +1220,7 @@ function ActionsRow({
             ? "inline-flex items-center justify-center gap-2.5 border-2 border-white/55 bg-transparent px-6 py-[15px] font-sans text-[14px] font-bold uppercase tracking-[0.09em] text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-[#0d1b2a]"
             : "inline-flex items-center justify-center gap-2.5 border-2 border-[#0d1b2a] bg-transparent px-6 py-[15px] font-sans text-[14px] font-bold uppercase tracking-[0.09em] text-[#0d1b2a] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0d1b2a] hover:text-white"
         }
-        style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
+       
         aria-label="Message us on WhatsApp"
       >
         <WhatsAppIcon />

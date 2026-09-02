@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "../(frontend)/globals.css";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { siteConfig } from "@/lib/siteConfig";
@@ -11,17 +11,11 @@ import { siteConfig } from "@/lib/siteConfig";
  * call the tracked landing-page phone number.
  */
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -47,7 +41,7 @@ export default function LandingLayout({
   return (
     <html
       lang="en-CA"
-      className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}
+      className={`${poppins.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body

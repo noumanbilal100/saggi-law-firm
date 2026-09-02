@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "@/components/layout/TopBar";
 import { Nav } from "@/components/layout/Nav";
@@ -10,17 +10,14 @@ import { RevealBoot } from "@/components/ui/Reveal";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import { siteConfig } from "@/lib/siteConfig";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+/* Site-wide font — Poppins drives both display and body. Load the
+   weights actually used across headings, buttons, and body copy so
+   next/font can subset the woff2 tightly. */
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -88,7 +85,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-CA"
-      className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}
+      className={`${poppins.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       {/* `suppressHydrationWarning` on <body> silences the harmless React
