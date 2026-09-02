@@ -120,7 +120,15 @@ export const siteConfig = {
     ],
     award:
       "Rated in the top 3 by Three Best Rated® — Best Criminal Defence Lawyers in Brampton.",
-    languages: ["English", "French"],
+    languages: [
+      "English",
+      "French",
+      "Portuguese",
+      "Spanish",
+      "Punjabi",
+      "Hindi",
+      "Urdu",
+    ],
     tagline: "Strategy. Advocacy. Experience.",
   } satisfies LawyerInfo,
 
