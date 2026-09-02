@@ -1,28 +1,23 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
 import type { Metadata } from "next";
 
 /**
  * WordPress preview — renders the original page-5845 body from the
- * retired WP `wpq5_posts` table verbatim, wrapped in the Elementor
- * scoped `.saggi-service-page` container the WP theme wired to it.
- * Lives under the (landing) layout so nothing on the site chrome
- * pushes the CSS around; the whole point is to see the WP output
- * as-was for side-by-side comparison against the Next port.
+ * retired WP `wpq5_posts` table inside an <iframe> pointed at a
+ * standalone static HTML doc under /wp-preview/…html.
+ *
+ * Loading the WP HTML directly into a React tree caused the site's
+ * global CSS (Tailwind preflight, body/heading resets, Poppins font
+ * cascade) to bleed into the Elementor-scoped .saggi-service-page
+ * styles and break the design. An iframe is a clean isolation
+ * boundary: the static HTML doc owns its own <head>, its own body,
+ * and none of the site chrome can leak in.
  */
-
-const HTML_PATH = path.join(
-  process.cwd(),
-  "content",
-  "wp-preview",
-  "criminal-defence-legal-guidance-in-brampton.html",
-);
 
 export const metadata: Metadata = {
   title:
     "WP Preview — Criminal Defence Legal Guidance in Brampton",
   description:
-    "As-was preview of the original WordPress page rendered from the retired wpq5_posts row, for design comparison only.",
+    "As-was preview of the original WordPress page for design comparison only.",
   robots: {
     index: false,
     follow: false,
@@ -32,27 +27,37 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function WpPreviewPage() {
-  const html = await fs.readFile(HTML_PATH, "utf8");
+const PREVIEW_SRC = "/wp-preview/criminal-defence-legal-guidance-in-brampton.html";
 
+export default function WpPreviewPage() {
   return (
-    <>
-      {/* Small marker so it's obvious this is a preview snapshot,
-          not the live production landing. Positioned above the WP
-          content so it doesn't affect the WP layout. */}
-      <div className="border-b border-[#e2e6ea] bg-[#fff8ea] px-6 py-2.5 text-center text-[13px] text-[#3d4a57]">
+    <div className="flex min-h-screen flex-col">
+      {/* Snapshot marker so the URL never gets confused with the
+          live production landing. */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e6ea] bg-[#fff8ea] px-6 py-3 text-[13px] text-[#3d4a57]">
         <strong className="font-semibold text-[#0d1b2a]">
-          WordPress preview
-        </strong>{" "}
-        — as-was snapshot of the original page for design comparison.
+          WordPress preview · as-was snapshot
+        </strong>
+        <a
+          href={PREVIEW_SRC}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#b08d3f] underline decoration-1 underline-offset-2 hover:text-[#8f7130]"
+        >
+          Open the raw HTML in a new tab →
+        </a>
       </div>
 
-      {/* Elementor-scoped class the WP CSS keys off. Content includes
-          its own <style> block so no additional CSS import is needed. */}
-      <div
-        className="saggi-service-page"
-        dangerouslySetInnerHTML={{ __html: html }}
+      {/* Isolated iframe — the WP HTML gets its own document so the
+          Elementor CSS renders without the site's Tailwind + globals
+          interfering. `flex-1` lets it stretch to fill remaining
+          viewport height under the marker strip. */}
+      <iframe
+        src={PREVIEW_SRC}
+        title="Criminal Defence Legal Guidance in Brampton — WordPress preview"
+        className="flex-1 w-full border-0"
+        style={{ minHeight: "calc(100vh - 48px)" }}
       />
-    </>
+    </div>
   );
 }
