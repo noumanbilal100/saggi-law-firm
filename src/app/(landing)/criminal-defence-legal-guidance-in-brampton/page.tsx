@@ -516,7 +516,7 @@ function PracticeAreas() {
     { icon: "S", title: "Sexual Offences", body: "Sexual assault, sexual interference, and related Criminal Code allegations — handled with discretion, disclosure review, and defence strategy." },
     { icon: "D", title: "Drug Offences", body: "Possession, trafficking, production, and importing charges under the Controlled Drugs and Substances Act. Search-and-seizure Charter analysis." },
     { icon: "F", title: "Firearms & Weapons", body: "Unauthorized possession, storage, prohibited-weapon, and firearm-related allegations across GTA courthouses." },
-    { icon: "W", title: "White-Collar Crime", body: "Fraud, breach of trust, forgery, and financial-crime allegations — thorough review of disclosure, complainant statements, and Crown theory." },
+    { icon: "C", title: "Corporate Charges", body: "Fraud, breach of trust, forgery, and financial-crime allegations arising in a corporate or commercial context — thorough review of disclosure, complainant statements, and Crown theory." },
     { icon: "T", title: "Theft & Robbery", body: "Theft under, theft over, robbery, break-and-enter, and possession of stolen property — from summary to indictable proceedings." },
     { icon: "B", title: "Bail Hearings", body: "Show-cause hearings, bail reviews, bail variations, and surety guidance across Peel, Toronto, and surrounding courts." },
     { icon: "H", title: "Criminal Harassment", body: "Harassment, threatening, and stalking allegations. Communication history, alleged fear, and mens rea assessed against Charter protections." },
