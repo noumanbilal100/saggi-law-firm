@@ -15,7 +15,7 @@ export function TopBar() {
             aria-hidden
             className="inline-block h-2 w-2 rounded-full bg-maple animate-[pulse-dot_2s_ease-in-out_infinite] shadow-[0_0_0_4px_rgba(216,6,33,0.22)]"
           />
-          Speak with a criminal defence lawyer early.
+          Speak with a criminal lawyer now.
         </span>
 
         <span className="hidden items-center gap-1.5 text-[0.85rem] text-cream/70 sm:inline-flex">
